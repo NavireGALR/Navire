@@ -12,8 +12,12 @@
 
 body
 {
+<<<<<<< HEAD
 	background-image: url("fond.jpg") no-repeat; 
 	margin:0;
+=======
+	background: url("fond.jpg") no-repeat; 
+>>>>>>> f08db48cc82af92fb1c17ef6b5e2732464cb2b55
 }
 
 strong
