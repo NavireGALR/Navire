@@ -1,3 +1,9 @@
+body
+{
+	display: flex;
+	flex-direction: row;
+}
+
 header
 {
 	display: flex;
@@ -6,15 +12,56 @@ header
 
 nav
 {
-	margin: auto;
-	border: 5px solid #7859AB;
-	padding: 2em;
+	border: 2px solid #7859AB;
+	padding: 1em;
+	margin: 1em;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	height: 420px;
 }
 
+a
+{
+	margin: 1em;
+	text-decoration: none;
+	color: #7859AB;
+	text-transform: uppercase;
+	border-bottom: 2px solid #7859AB;
+}
+
+a:hover
+{
+	color: teal;
+}
 
 section
 {
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
+	margin: 1em;
+}
+
+section h1
+{
+	color:#7859AB;
+	text-transform: uppercase;
+	font-weight: bolder;
+}
+
+.nous
+{
+	margin-left: 1em;
+}
+
+aside
+{
+	margin-left: auto;
+	margin-right: auto;
+	border: 2px solid #7859AB;
+	padding: 0.5em;
+	width: 50%;
+	display: flex;
+	justify-content: space-around;
 }
