@@ -36,8 +36,9 @@ em
 
 header
 {
-	margin-left: 1em;
-	margin-top: 1em;
+	background-color: #B2ECD6;
+	margin: 0px;
+	padding: 0px;
 	margin-bottom: 0;
     display: flex;
     justify-content: space-between;
@@ -161,8 +162,10 @@ footer
 .main_wrap
 {
 	margin:0;
-	background-image: url("fond.png");
-	display:flex;
+	padding: 0;
+	background: url(fond.jpg) no-repeat center fixed; 
+  	/*-webkit-background-size: cover; /* pour anciens Chrome et Safari */
+  	background-size: cover; /* version standardisée */
 	flex-direction: column;
 	border-top: 3px solid #6F173E;
 	border-bottom : 3px inset white;
