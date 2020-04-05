@@ -12,11 +12,8 @@
 
 body
 {
-	background-image: url("fond.jpg") no-repeat center center fixed; 
- 	-webkit-background-size: 100% 100%; /* pour anciens Chrome et Safari */
-  	background-size: 100% 100%; /* version standardisée */
+	background-image: url("fond.jpg") no-repeat; 
 	margin:0;
-	padding: 0;
 }
 
 strong
@@ -160,8 +157,8 @@ footer
 
 .main_wrap
 {
-	margin:0;
-	background-image: url("fond.jpg");
+	margin:0;;
+	background-image: url("fond.jpg") no-repeat; 
 	display:flex;
 	flex-direction: column;
 	border-top: 3px solid #6F173E;
