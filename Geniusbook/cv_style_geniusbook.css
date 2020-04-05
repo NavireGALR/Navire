@@ -1,0 +1,20 @@
+header
+{
+	display: flex;
+}
+
+
+nav
+{
+	margin: auto;
+	border: 5px solid #7859AB;
+	padding: 2em;
+}
+
+
+section
+{
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
