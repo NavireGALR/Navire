@@ -1,0 +1,120 @@
+#side_dl
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	width:30%;
+	height: 420px;
+	margin-top: 1.5em;
+	margin-left: 1em;
+	padding-bottom: 1em;
+	border-radius: 15px;
+	position: relative;
+	border : 5px solid #8F5834 ;
+}
+
+#bulle_2
+{
+	position: absolute;
+	top: 15px;
+	left: -15px;
+}
+
+.lien_dl
+{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding : 1em;
+	margin: 1em;
+	border : 3px solid #8F5834 ;
+}
+
+.intro > ul
+{
+	display: flex;
+	flex-direction: row;
+	list-style: none;
+	justify-content: space-around;
+}
+
+#competences > h2
+{
+	text-transform: uppercase;
+	color: #8F5834;
+	font-size: 1.3em;
+	margin-top: 2em;
+}
+
+#competences > h3
+{
+	box-shadow: 0px 5px 10px -3px grey;
+	display: flex;
+	flex-direction: column;
+}
+
+#ecole_pro > h3
+{
+	box-shadow: 0px 5px 10px -3px grey;
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+}
+
+.titre_spoiler
+{
+	padding-top: 10px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 0;
+	text-transform: uppercase;
+	color: #8F5834;
+}
+
+.fleche
+{
+	height: 25px;
+	width: 25px;
+	margin-right: 5px;
+}
+
+
+#tech, #business
+{
+	list-style: none;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+#tech > li, #business > li
+{
+	padding: 0.5em;
+}
+
+#ecole_pro
+{
+	display: flex;
+	flex-direction: row;
+}
+
+#etudes, #pro
+{
+	list-style: georgian;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+#etudes > li, #pro > li
+{
+	text-align: left;
+	font-style: normal;
+	color: teal;
+	padding: 0.5em;
+}
