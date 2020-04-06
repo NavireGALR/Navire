@@ -55,9 +55,10 @@
         margin-bottom: 15px;
     }
 
-    #side_moi, #side_dl
+    aside, #side_moi, #side_dl
     {
-        width: 100%;
+        width: auto;
+        margin: auto;
     }
 
     #bulle

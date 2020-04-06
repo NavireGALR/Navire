@@ -42,7 +42,7 @@ aside
 	border: 3px solid #8F5834;
 	box-shadow: 3px 3px 3px #8F5834;
 	height: 550px;
-	background: url(../images/fond_marron.png);
+	background-image: url(../images/fond_marron.png);
 }
 
 aside h3, aside a
