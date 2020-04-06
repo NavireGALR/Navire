@@ -19,7 +19,7 @@ body
 strong
 {
 	text-transform: uppercase;
-	color: #6F173E;
+	color: #260C1A;
 	font-style: normal;
 	font-size: 1em;
 }
@@ -33,7 +33,7 @@ em
 
 header
 {
-	background-color: #B2ECD6;
+	background-color: #AF8D86;
 	margin: 0px;
 	padding: 0px;
 	margin-bottom: 0;
@@ -128,8 +128,7 @@ footer
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
-	background-image: url("fond_marron.png");
-	position: relative;
+	background-color: #432E36;
 }
 
 .entete
@@ -171,7 +170,7 @@ footer
 .bordure_section
 {
 	background: url(vague_sep.png) repeat-x;
-	background-size: 420px 42px;
+	background-size: 108px 42px;
 	height: 42px;
 	width: 100%;
 }
@@ -252,7 +251,6 @@ footer
 {
 	position: absolute;
     bottom: 0;
-    border-radius: 0px 0px 5px 5px;
     width: 99.5%;
     height: 33px;
     padding-top: 15px;
@@ -268,6 +266,7 @@ footer
 	margin-top: 1.5em;
 	box-shadow: 3px 3px 10px #008080;
 	margin-bottom: 2em;
+	border-radius: 5px;
 }
 
 #paysage
@@ -301,7 +300,7 @@ footer
 	text-decoration: none;
 }
 
-#side_moi
+#side_nous
 {
 	display: flex;
 	flex-direction: column;
@@ -312,13 +311,13 @@ footer
 	margin-top: 1.5em;
 	margin-left: 1em;
 	margin-bottom: 1em;
-	background-color: #6F173E;
+	background-color: #260C1A;
 	border-radius: 15px;
 	position: relative;
 	text-align: justify;
 }
 
-#side_moi > h1
+#side_nous > h1
 {
 	margin-left: auto;
 	margin-right: auto;
