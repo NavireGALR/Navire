@@ -1,0 +1,85 @@
+h3
+{
+	text-transform: uppercase;
+	color: #8F5834;
+	font-size: 1.3em;
+}
+
+fieldset
+{
+	border: 2px solid #8F5834;
+	color : #8F5834;
+	text-transform: uppercase;
+	padding: 1em;
+	display: flex;
+	flex-direction: column;
+}
+
+.form
+{
+	margin: 1em;
+	display: flex;
+	flex-direction: column;
+}
+
+select, input
+{
+	width: 50%;
+}
+
+textarea
+{
+	height: 200px;
+	resize: none;
+}
+
+
+aside
+{
+	margin: auto;
+	padding: 2em;
+	border-radius: 25px;
+	border: 3px solid #8F5834;
+	box-shadow: 3px 3px 3px #8F5834;
+	height: 550px;
+	background: url(../images/fond_marron.png);
+}
+
+aside h3, aside a
+{
+	color: white;
+}
+
+.rs
+{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	color: white;
+	text-transform: white;
+}
+
+#lien_rs 
+{
+	display: flex;
+	flex-direction: column;
+	color: white;
+}
+
+#lien_rs a
+{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+input:required
+{
+	background-color: #FFE1AB;
+}
+
+#envoi
+{
+	margin: auto;
+	width: 25%;
+}

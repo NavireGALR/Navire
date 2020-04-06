@@ -1,0 +1,37 @@
+#logbook, #panam, #asteam
+{
+	margin-bottom: 2em;
+	display: flex;
+	flex-direction: column;
+}
+
+#jdb
+{
+	height: 116px;
+	width: 182px;
+	float: left;
+	border-radius: 5px;
+	box-shadow: 3px 3px 3px #8F5834;
+	margin-right: 1em;
+}
+
+.dl
+{
+	margin: auto;
+	margin-top: 1em;
+}
+
+.dl a
+{
+	border-radius: 15px;
+	border : 2px solid #8F5834 ;
+	padding: 1em;
+	margin: 2em;
+}
+
+#asteam p
+{
+	text-align: center;
+}
+
+
