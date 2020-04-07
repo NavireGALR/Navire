@@ -136,6 +136,7 @@ footer
 	display: flex;
 	flex-direction: column;
 	color: #6F173E;
+	margin: 40px;
 }
 
 .titre_logo
