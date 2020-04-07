@@ -6,8 +6,8 @@
 
     <body>
         <header>
+            <link href="css/voyages_style.css" rel="stylesheet"/>
             <?php include("body_header.php"); ?>
-            <link href="css/index_style.css" rel="stylesheet"/>
         </header>
         
         <section>

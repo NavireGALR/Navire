@@ -6,8 +6,8 @@
 
     <body>
         <header>
-            <?php include("body_header.php"); ?>
             <link href="css/projets_style.css" rel="stylesheet"/>
+            <?php include("body_header.php"); ?>
         </header>
         
         <section>
