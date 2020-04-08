@@ -38,7 +38,7 @@ header
 	padding: 0px;
 	margin-bottom: 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: flex-end;
 }
 
@@ -68,7 +68,6 @@ article h2
 nav
 {
 	display: flex;
-	justify-content: flex-end;
 }
 
 nav a
@@ -137,6 +136,7 @@ footer
 	flex-direction: column;
 	color: #6F173E;
 	margin: 40px;
+	justify-content : flex-start;
 }
 
 .titre_logo
