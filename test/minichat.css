@@ -1,0 +1,21 @@
+
+#minichat
+{
+	display: flex;
+	flex-direction: column-reverse;
+}
+
+#minichat > p:first-child
+{
+	color: teal;
+}
+
+#minichat > p
+{
+	margin:0;
+}
+
+#message
+{
+	width: 420px;
+}
