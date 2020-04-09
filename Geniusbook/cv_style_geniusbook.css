@@ -36,12 +36,12 @@ em
 
 header
 {
-	background-color: #B2ECD6;
+	background-color: #AF8D86;
 	margin: 0px;
 	padding: 0px;
 	margin-bottom: 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: flex-end;
 }
 
@@ -71,7 +71,6 @@ article h2
 nav
 {
 	display: flex;
-	justify-content: flex-end;
 }
 
 nav a
@@ -131,8 +130,7 @@ footer
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
-	background-image: url("fond_marron.png");
-	position: relative;
+	background-color: #432E36;
 }
 
 .entete
@@ -140,6 +138,8 @@ footer
 	display: flex;
 	flex-direction: column;
 	color: #6F173E;
+	margin: 40px;
+	justify-content : flex-start;
 }
 
 .titre_logo
@@ -174,7 +174,7 @@ footer
 .bordure_section
 {
 	background: url(vague_sep.png) repeat-x;
-	background-size: 420px 42px;
+	background-size: 108px 42px;
 	height: 42px;
 	width: 100%;
 }
@@ -251,48 +251,33 @@ footer
 	border : 3px double #008080;
 }
 
-
-a
-{
-	margin: 1em;
-	text-decoration: none;
-	color: #7859AB;
-	text-transform: uppercase;
-	border-bottom: 2px solid #7859AB;
-}
-
-a:hover
-{
-	color: teal;
-}
-
-section
+#side_moi
 {
 	display: flex;
 	flex-direction: column;
-	flex-wrap: wrap;
-	margin: 1em;
-}
-
-section h1
-{
-	color:#7859AB;
-	text-transform: uppercase;
-	font-weight: bolder;
-}
-
-.nous
-{
+	justify-content: flex-start;
+	width:30%;
+	height : 580px;
+	color: white;
+	margin-top: 1.5em;
 	margin-left: 1em;
+	margin-bottom: 1em;
+	background-color: #260C1A;
+	border-radius: 15px;
+	position: relative;
+	text-align: justify;
 }
 
-aside
+#side_moi > h1
 {
 	margin-left: auto;
 	margin-right: auto;
-	border: 2px solid #7859AB;
-	padding: 0.5em;
-	width: 50%;
-	display: flex;
-	justify-content: space-around;
+}
+
+#texte_apropos
+{
+	padding: 1em;
+	text-align: justify;
+	margin-bottom: 0;
+	padding-bottom: 0.1em;
 }
