@@ -1,4 +1,6 @@
 <?php
+
+// SESSION START 
 session_start();
 
 try
@@ -24,103 +26,56 @@ $_SESSION['id_billet'] = $_GET['billet'];
     <head>
         <meta charset="utf-8" />
         <title>Commentaires</title>
-        <link rel="stylesheet" type="text/css" href="blog.css">
     </head>
     <body>
+    	<header>
+            <link href="blog2.css" rel="stylesheet"/>
+        </header>
         <h1>Commentaires du billet</h1>
 
-
-<?php
+    	
+				<?php
 				$req = $bdd->prepare('SELECT * FROM billets WHERE id= :id');
 				$req->execute(array('id'=> $_SESSION['id_billet']));
-                while ($donnees = $req->fetch())
-                { 
-                   ?>
-                    <div id="billet">
+				$donnees = $req->fetch(); 
+
+				if(empty($donnees['id'])) {
+                    echo 'Erreur : Ce billet n\'existe pas ou plus !';
+            	} else {
+            		?>
+            			<div class="billet">
                         <h2><?php echo $donnees['titre'];?>  créé par <?php echo $donnees['auteur'];?>  le <?php echo $donnees['date_billet'];?> </h2>
                         <p> 
                             <?php echo $donnees['contenu'];?>
                         </p>
                         <a href="billets.php"> Retour au billets </a>
-                    </div>
+                        </div>
                     <?php
-                }
-                $req->closeCursor();
 
-?>
+            	    $req->closeCursor();	
+            	}
+					?>
+		
 
-
-<div id="comments">
+		<div id="comments">
             <?php
+        	
+           	include('blog_traitement.php');
 
-            $com_exist = false;
+                $req = $bdd->prepare('SELECT *, DATE_FORMAT(date_commentaire, \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation_fr FROM commentaires WHERE id_billet= :id');
+                $req->execute(array('id' => $_SESSION['id_billet']));
 
-            $req3 = $bdd->query('SELECT * FROM commentaires');
-            while ($donnees = $req3->fetch()) {
-                if(isset($_POST['commentaires']))
-                {
-                    if($donnees['commentaire'] === $_POST['commentaires'])
-                    {
-                        $com_exist = true;
-                    }
-                }
-            }
-            $req3->closeCursor();
-            if(isset($_POST['pseudo']) AND strlen($_POST['pseudo']) >= 1)
-            {
-                $_SESSION['pseudo'] = strip_tags($_POST['pseudo']);
-                $pseudo_ok = true;
-
-            }
-            else
-            {
-                $pseudo_ok = false;
-            }
-
-            if(isset($_POST['commentaires']) AND strlen($_POST['pseudo']) >= 1 AND !$com_exist)
-            {
-                $_SESSION['commentaire'] = strip_tags($_POST['commentaires']);
-                $com_ok = true;
-            }
-            else
-            {
-                $com_ok = false;
-            }
-
-            if($pseudo_ok AND $com_ok)
-            {
-                $insert = $bdd->prepare('INSERT INTO commentaires (pseudo, id_billet, commentaire, date_commentaire) 
-                                VALUES(:pseudo, :id_billet, :commentaire, NOW())');
-                $insert->execute(array(
-                                'id_billet'=> $_SESSION['id_billet'],
-                                'pseudo'=> $_SESSION['pseudo'],
-                                'commentaire'=> $_SESSION['commentaire'],
-                            ));
-
-                $insert->closeCursor();
-            }
-            else
-            {
-                $_SESSION['erreur'] = 'Erreur, vous devez remplir le formulaire ! (ou ce contenu existe déjà)';
-                echo $_SESSION['erreur'];
-            }
-
-           
-
-                $req2 = $bdd->prepare('SELECT * FROM commentaires WHERE id_billet= :id');
-                $req2->execute(array('id' => $_SESSION['id_billet']));
-
-                while ($donnees = $req2->fetch())
+                while ($donnees = $req->fetch())
                 {
                     ?>
-                    <p><strong><?php echo $donnees['pseudo']; ?> le : <?php echo $donnees['date_commentaire']; ?> : </strong><br/><?php echo $donnees['commentaire']; ?></p>
+                    <p><strong><?php echo $donnees['pseudo']; ?></strong> <em>le <?php echo $donnees['date_creation_fr']; ?></em> : <br/><?php echo $donnees['commentaire']; ?></p>
                     <?php
                 }
 
-                $req2->closeCursor();
+                $req->closeCursor();
 
             ?>
-</div>
+		</div>
 
 		<form action="commentaires_billets.php" method="post">
             <p>

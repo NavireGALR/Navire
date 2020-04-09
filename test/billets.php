@@ -1,6 +1,7 @@
 <?php
 
- session_start();
+// SESSION START 
+session_start();
 
 try
 {
@@ -14,100 +15,43 @@ catch (Exception $e)
 }
 
 ?>
-
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8" />
         <title>Derniers articles !</title>
-        <link rel="stylesheet" type="text/css" href="blog.css">
+        
     </head>
     <body>
+        <header>
+            <link href="blog2.css" rel="stylesheet"/>
+        </header>
         <h1>Derniers articles</h1>
 
-          <?php 
-            $contenu_exist = false;
-
-            $req1 = $bdd->query('SELECT * FROM billets');
-            while ($donnees = $req1->fetch()) {
-                if(isset($_POST['contenu']))
-                {
-                    if($donnees['contenu'] === $_POST['contenu'])
-                    {
-                        $contenu_exist = true;
-                    }
-                }
-            }
-            $req1->closeCursor();
-
-            if(isset($_POST['auteur']) AND strlen($_POST['auteur']) >= 1)
-            {
-                $_SESSION['auteur'] = strip_tags($_POST['auteur']);
-                $auteur_ok = true;
-
-            }
-            else
-            {
-                $auteur_ok = false;
-            }
-
-            if(isset($_POST['titre']) AND strlen($_POST['auteur']) >= 1)
-            {
-                $_SESSION['titre'] = strip_tags($_POST['titre']);
-                $titre_ok = true;
-            }
-            else
-            {
-                $titre_ok = false;
-            }
-            if(isset($_POST['contenu']) AND strlen($_POST['contenu']) >= 1 AND $contenu_exist == false)
-            {
-                $_SESSION['contenu'] = strip_tags($_POST['contenu']);
-                $contenu_ok = true;
-            }
-            else
-            {
-                $contenu_ok = false;
-            }
-
-            if($auteur_ok AND $titre_ok AND $contenu_ok)
-            {
-                $insert = $bdd->prepare('INSERT INTO billets (titre, auteur, contenu, date_billet) 
-                                VALUES(:titre, :auteur, :contenu, NOW())');
-                $insert->execute(array(
-                                'titre'=> $_SESSION['titre'],
-                                'auteur'=> $_SESSION['auteur'],
-                                'contenu'=> $_SESSION['contenu'],
-                            ));
-
-                $insert->closeCursor();
-
-            }
-            else
-            {
-                $_SESSION['erreur'] = 'Erreur, vous devez remplir le formulaire ! (ou ce contenu existe déjà)';
-                echo $_SESSION['erreur'];
-            }
+        
+        <?php 
             
+                include("blog_traitement.php");
 
-                $req2 = $bdd->query('SELECT * FROM billets ORDER BY id DESC');
-                while ($donnees = $req2->fetch())
+                $req = $bdd->query('SELECT *, DATE_FORMAT(date_billet, \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation_fr FROM billets ORDER BY id DESC');
+                while ($donnees = $req->fetch())
                 { 
                    ?>
-                    <div id="billet">
-                        <h2><?php echo $donnees['titre'];?>  créé par <?php echo $donnees['auteur'];?>  le <?php echo $donnees['date_billet'];?> </h2>
+                        <div class="billet">
+                        <h2><?php echo $donnees['titre'];?>  créé par <?php echo $donnees['auteur'];?>  le <?php echo $donnees['date_creation_fr'];?> </h2>
                         <p> 
                             <?php echo $donnees['contenu'];?>
                         </p>
                         <a href="commentaires_billets.php?billet=<?php echo $donnees['id']; ?>"> Voir les commentaires </a>
-                    </div>
+                        </div>
                     <?php
                 }
                 
-                $req2->closeCursor();
+                $req->closeCursor();
 
         ?>
         
+
     
         <form action="billets.php" method="post">
             <p>
@@ -120,11 +64,10 @@ catch (Exception $e)
                 <br/>
 
                 <label for="contenu"> Contenu : </label><br/>
-                <textarea name="contenu" id="contenu"></textarea>
+                <textarea name="contenu_billet" id="contenu"></textarea>
                 <br/>
 
-                <input type="submit" name="valider" id="valider" value="valider">
-                <br/>
+                <input type="submit" name="valider" id="valider" value="Envoyer">
             </p>
         </form>
 

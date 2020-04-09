@@ -1,0 +1,80 @@
+.billet
+{
+	margin: 1em;
+	border: 5px solid teal;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 0;
+}
+
+.billet > p
+{
+	margin: 1em;
+}
+
+.billet > a
+{
+	align-self: flex-end;
+	color: red;
+	text-decoration: none;
+	margin: 1em;
+}
+
+.billet > h2
+{
+	background-color: teal;
+	color: white;
+	font-size: 1.2em;
+	padding: 0.5em;
+	margin-top: 0;
+}
+
+textarea
+{
+	resize: none;
+	height: 120px;
+	width: 420px;
+}
+
+body
+{
+	display: flex;
+	flex-direction: column;
+}
+
+h1
+{
+	margin: auto;
+}
+
+form
+{
+	display: flex;
+	flex-direction: column;
+	margin: auto;
+	margin-top: 1em;
+	border: red 5px double;
+	padding: 1em;
+}
+
+form p
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+#valider
+{
+	margin: auto;
+}
+
+#comments
+{
+	margin: 1em;
+	background-color: #D7E8EC;
+	padding: 1em;
+	border: double teal 5px;
+	border-top: none;
+	margin-top: 0;
+}
