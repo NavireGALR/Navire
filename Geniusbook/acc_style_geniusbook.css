@@ -301,7 +301,7 @@ footer
 	text-decoration: none;
 }
 
-#side_nous
+#side_moi
 {
 	display: flex;
 	flex-direction: column;
@@ -318,7 +318,7 @@ footer
 	text-align: justify;
 }
 
-#side_nous > h1
+#side_moi > h1
 {
 	margin-left: auto;
 	margin-right: auto;
@@ -333,7 +333,7 @@ footer
 }
 
 
-#photo_chien
+#photo_nous
 {
 	width : 255px;
 	height: 191px;
