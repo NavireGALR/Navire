@@ -25,7 +25,7 @@ if(isset($_SESSION['password']))
                 A bientôt ! <br/>
                 <a href="login.php"> RETOUR FORMULAIRE </a>
                 <br/>
-                <a href="testfichier.php"> VOIR LES DONNES DU FICHIER</a>
+                <a href="fonctions fichiers/testfichier.php"> VOIR LES DONNES DU FICHIER</a>
             </p>
             <p>
 

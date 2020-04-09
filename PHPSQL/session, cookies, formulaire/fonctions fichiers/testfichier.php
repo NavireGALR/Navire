@@ -13,4 +13,4 @@
 	fclose($fichier_donnees);
 ?>
 
-<a href="login.php"> RETOUR </a>
+<a href="../login.php"> RETOUR </a>
