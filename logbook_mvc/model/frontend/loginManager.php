@@ -32,8 +32,9 @@ class LoginManager extends Manager
     {
         $_SESSION = array();
         session_destroy();
-        setcookie('known', '', time() - 3600);
         unset($_COOKIE['known']);
+        setcookie('known', '', time() - 3600);
+        
     }
 
 
