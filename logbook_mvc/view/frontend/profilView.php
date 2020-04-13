@@ -3,8 +3,11 @@
 <?php ob_start(); ?>
     <h1>Profil de <?= $pseudo ?> </h1>
 
+    <?= $page_admin ?>
+
     <div class="profil">
 
+        <img src="zressources/avatars/<?= $id ?>.jpg" alt="avatar"/><br/>
         Bonjour <?= $pseudo ?> <br/>
         Ton adresse mail enregistré : <?= $mail ?><br/>
         Tu appartiens au groupe : <?= $id_group ?><br/>
@@ -26,7 +29,6 @@
                 <input type="submit" name="pseudo_update" value="Mettre à jour mon pseudo">
             </p>
 
-
             <p class="pass_update">
                 <h3>Mot de passe</h3>
                 <label for="password"> Mot de passe actuel :</label>
@@ -42,11 +44,14 @@
             </p>
         </form>
 
-        <form method="post" action="index.php?action=add">
+        <form method="post" action="index.php?action=add" enctype="multipart/form-data">
 
             <p class="add">
                 <h3>Ajouter des infos !</h3>
 
+                <input type="file" name="avatar" />
+                <input type="submit" name="add_avatar" value="Ajouter cette info !">
+                <br />
                 <label for="city"> Ville :</label>
                 <input type="text" name="city" id="city">
                 <input type="submit" name="add_city" value="Ajouter cette info !">
@@ -64,13 +69,12 @@
 
     </div>  
 
-    <a href="index.php?action=none">Retour à l'acceuil</a>
     <a href="index.php?action=listpost">Retour aux articles</a>
 
     <form method="post" action="index.php?action=out">
         <p>
             <br/>
-            <input type="submit" name="out" value="Déconnexion">
+            <input type="submit" name="out" value="Déconnexion" id="deco">
             <br/>
         </p>
     </form>
@@ -78,4 +82,4 @@
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require('template.php'); ?>
+<?php require('view/template.php'); ?>

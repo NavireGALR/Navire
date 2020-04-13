@@ -2,7 +2,10 @@
 
 session_start();
 
-require_once('controller/membersController.php');
+require_once('controller/frontend/membersController.php');
+require_once('controller/frontend/postController.php');
+require_once('controller/backend/adminController.php');
+
 
 try {
 		if(isset($_GET['action'])) {
@@ -19,7 +22,14 @@ try {
 				updateInfo();
 			}elseif($_GET['action'] == 'profil') {
 				profil();
+			}elseif($_GET['action'] == 'update_group') {
+				updateGroupMember();
+			}elseif($_GET['action'] == 'admin') {
+				adminView();
 			}elseif($_GET['action'] == 'add') {
+				if (isset($_FILES['avatar']) AND $_FILES['avatar']['error'] == 0){
+					avatar();    
+				}
 				addInfo();
 			}elseif($_GET['action'] == 'listpost') {
 				listPost();	
@@ -50,9 +60,7 @@ try {
 
 } catch(Exception $e) {
     echo '<br/>'. $e->getMessage();
-    ?><br/><a href="index.php?action=none">Retour à l'acceuil</a>
-    <br/><a href="index.php?action=listpost"> Retour aux articles </a>
-    <br/><a href="index.php?action=profil"> Retour au Profil </a><?php
+    ?><br/><a href="index.php?action=none">Retour à l'acceuil</a><?php
 
 }
 

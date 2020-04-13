@@ -14,24 +14,25 @@
     </div>
 
 
+    <div class="comment">
+            <?php
+        while($comment = $comments->fetch())
+        {   ?>
 
-        <?php
-    while($comment = $comments->fetch())
-    {   ?>
+            
+                <p>
+                    <strong><?= $comment['pseudo']; ?></strong> 
+                    <em>le <?= $comment['date_comment_fr']; ?></em> : 
+                    <br/><?= $comment['comments']; ?>
+                </p>
+           
+        
+            <?php
+        }
 
-        <div class="comment">
-            <p>
-                <strong><?= $comment['pseudo']; ?></strong> 
-                <em>le <?= $comment['date_comment_fr']; ?></em> : 
-                <br/><?= $comment['comments']; ?>
-            </p>
-        </div>
-    
-        <?php
-    }
-
-    $comments->closeCursor();
-        ?>
+        $comments->closeCursor();
+            ?>
+    </div>
 
     <form action="index.php?idcomment=<?= $post['id']; ?>" method="post">
         <p>
@@ -48,4 +49,4 @@
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require('template.php'); ?>
+<?php require('view/template.php'); ?>

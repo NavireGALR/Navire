@@ -5,6 +5,7 @@ require_once("model/manager.php");
 class LoginManager extends Manager
 {
 
+
     public function checkPassOk($pass, $login)
     {
 
@@ -33,6 +34,19 @@ class LoginManager extends Manager
         session_destroy();
         setcookie('known', '', time() - 3600);
         unset($_COOKIE['known']);
+    }
+
+
+    public function checkAdmin($id_group)
+    {
+        //CHECK IF ID_GROUP USER = admin (captain)
+        if($id_group == 'captain'){
+            $admin = true;
+        } else {
+            $admin = false;
+        }
+
+        return $admin;
     }
 
     public function checkIp()

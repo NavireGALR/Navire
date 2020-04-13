@@ -1,16 +1,25 @@
 <?php
 
 
-require_once('model/loginManager.php');
-require_once('model/membersManager.php');
+require_once('model/frontend/loginManager.php');
+require_once('model/frontend/membersManager.php');
 require_once('model/manager.php');
-require_once('model/postManager.php');
+require_once('model/backend/fileManager.php');
+require_once('model/frontend/postManager.php');
 
 function listPost()
 {
-	$postManager = new PostManager();
-	$posts = $postManager->displayListPost();
-	require('view/frontend/postsView.php');
+
+	if(isset($_SESSION['connected'])){
+			
+		$postManager = new PostManager();
+		$posts = $postManager->displayListPost();
+		require('view/frontend/postsView.php');
+
+	} else {
+		throw new Exception('Vous n\'êtes plus connecté');
+	}
+	
 
 }
 

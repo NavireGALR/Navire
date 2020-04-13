@@ -1,10 +1,18 @@
 <?php
 
 
-require_once('model/loginManager.php');
-require_once('model/membersManager.php');
+require_once('model/frontend/loginManager.php');
+require_once('model/frontend/membersManager.php');
 require_once('model/manager.php');
-require_once('controller/postController.php');
+require_once('model/backend/fileManager.php');
+require_once('controller/frontend/postController.php');
+
+
+function avatar()
+{
+	$fileManager = new FileManager();
+	$fileManager->avatarUpload();
+}
 
 function updateInfo()
 {
@@ -72,12 +80,21 @@ function profil()
 
 		$pseudo = $_SESSION['login'];
 		$memberManager = new MemberManager();
+		$loginManager = new LoginManager();
+		
+		$id = $memberManager->getInfoMembers('id', $pseudo);
 		$mail = $memberManager->getInfoMembers('mail', $pseudo);
 		$id_group = $memberManager->getInfoMembers('id_group', $pseudo);
 		$date_crea = $memberManager->getInfoMembers('date_crea',$pseudo);
 		$city = $memberManager->getInfoMembers('city',$pseudo);
 		$entreprise = $memberManager->getInfoMembers('entreprise',$pseudo);
 		$actual_function = $memberManager->getInfoMembers('actual_function',$pseudo);
+		$admin = $loginManager->checkAdmin($id_group);
+		if($admin){
+			$page_admin = '<a href="index.php?action=admin"> MyAdmin </a>';
+		} else {
+			$page_admin = '';
+		}
 
 	    require('view/frontend/profilView.php');
 	} else {
@@ -112,3 +129,4 @@ function signOut()
 	throw new Exception('Déconnecter');
 
 }
+

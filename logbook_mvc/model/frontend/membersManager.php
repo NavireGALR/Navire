@@ -4,35 +4,60 @@ require_once("model/manager.php");
 
 class MemberManager extends Manager
 {
-	public function getInfoMembers($info, $pseudo)
+
+    public function checkPseudoExistInDb($pseudo)
     {
         $db = $this->dbConnect();
+        $pseudo_exist = false;
 
-        if($info == 'id_group'){
-
-	        $req = $db->prepare('SELECT m.id_group AS id_group, t.team_name AS group_name
-							     FROM members AS m
-								 INNER JOIN team AS t
-								 ON m.id_group = t.id
-								 WHERE m.pseudo= :pseudo
-	        					');
-	        $req->execute(array('pseudo'=>$pseudo));
-	        $result = $req->fetch();
-
-
-	        return $result['group_name'];
-
-        }else{
-
-        	$sqlInfo = 'SELECT '. $info .' FROM members WHERE pseudo="'.$pseudo.'"';
-	        $req = $db->prepare($sqlInfo);
-	        $req->execute();
-	        $result = $req->fetch();
-
-	        return $result[$info];
+        $req = $db->query('SELECT pseudo FROM members');
+        while($result = $req->fetch())
+        {
+            if($pseudo == $result['pseudo']){
+                $pseudo_exist = true;
+            }
         }
         
         $req->closeCursor();
+        return $pseudo_exist;    
+    }
+
+	public function getInfoMembers($info, $pseudo)
+    {
+        $db = $this->dbConnect();
+        $pseudo_exist = $this->checkPseudoExistInDb($pseudo);
+
+        if($pseudo_exist){
+
+            if($info == 'id_group'){
+
+                $req = $db->prepare('SELECT m.id_group AS id_group, t.team_name AS group_name
+                                     FROM members AS m
+                                     INNER JOIN team AS t
+                                     ON m.id_group = t.id
+                                     WHERE m.pseudo= :pseudo
+                                    ');
+                $req->execute(array('pseudo'=>$pseudo));
+                $result = $req->fetch();
+
+                return $result['group_name'];
+
+            }else{
+
+                $sqlInfo = 'SELECT '. $info .' FROM members WHERE pseudo="'.$pseudo.'"';
+                $req = $db->prepare($sqlInfo);
+                $req->execute();
+                $result = $req->fetch();
+
+                return $result[$info];
+            }
+        
+            $req->closeCursor();
+        } else {
+            throw new Exception('Ce pseudo n\'existe pas !');
+        }
+
+        
     //END GETINFOMEMBER 
     }
 
@@ -88,7 +113,8 @@ class MemberManager extends Manager
         $add_ok = false; 
         //$loginManager = new LoginManager();
 
-        if(isset($_POST['add_city']) OR isset($_POST['add_entreprise']) OR isset($_POST['add_function']))
+        if(isset($_POST['add_city']) OR isset($_POST['add_entreprise']) OR isset($_POST['add_function']) 
+           OR isset($_POST['add_avatar']))
         {
             if(isset($_POST['add_city']))
             {
@@ -96,6 +122,7 @@ class MemberManager extends Manager
                 $req = $db->prepare('UPDATE members SET city=:city WHERE id= :id');
                 $req->execute(array('city' => $city, 'id' => $id_member));
                 $add_ok = true; 
+                $req->closeCursor();
 
             } elseif(isset($_POST['add_entreprise']))
             {
@@ -103,6 +130,7 @@ class MemberManager extends Manager
                 $req = $db->prepare('UPDATE members SET entreprise=:entreprise WHERE id= :id');
                 $req->execute(array('entreprise' => $entreprise, 'id' => $id_member));
                 $add_ok = true; 
+                $req->closeCursor();
 
             }elseif(isset($_POST['add_function']))
             {
@@ -110,12 +138,17 @@ class MemberManager extends Manager
                 $req = $db->prepare('UPDATE members SET actual_function= :actual_function WHERE id= :id');
                 $req->execute(array('actual_function' => $function,'id' => $id_member));
                 $add_ok = true; 
+                $req->closeCursor();
 
-            } else{
+            }elseif (isset($_POST['add_avatar'])) 
+            {
+                $add_ok = true; 
+
+            }else{
                 throw new Exception('Vous n\'avez rien ajouter !');
             }
         
-        $req->closeCursor();
+        
         return $add_ok;
 
         }
@@ -140,23 +173,15 @@ class MemberManager extends Manager
                 $date_jour = strftime("%A %d %B %G", strtotime($date));
 
 
-                //STRIP HTML TAGS
+                //CHECK PSEUDO TAKEN
                 $pseudo_signIn = strip_tags($_POST['pseudo']);
-                 
-
-                //CHECK IF PSEUDO TAKEN
-                $pseudo_taken=false;
-                $req = $db->query('SELECT pseudo FROM members');
-                while($result = $req->fetch())
+                $pseudo_taken = $this->checkPseudoExistInDb($pseudo_signIn);
+                if($pseudo_taken)
                 {
-                    if($pseudo_signIn === $result['pseudo']){
-                        $pseudo_taken=true;
-                        echo 'Ce pseudo existe déjà !<br/>';
-                    } 
+                    echo 'Ce pseudo existe déjà !<br/>';
                 }
-                $req->closeCursor();
+                
 
-            
                 //CHECK IF THE FORM IS SWEETLY COMPLETED AND HASH PASSWORD
                 $pass = $_POST['password'];
                 $confirm_pass = $_POST['confirm_password'];
@@ -192,19 +217,19 @@ class MemberManager extends Manager
                 if(!$pseudo_taken AND !$mail_taken AND $mail_ok)
                 {
                     
-                        $insert = $db->prepare('INSERT INTO members (pseudo, pass, mail, date_crea, id_group, ip, city, entreprise, actual_function) 
-                                    VALUES(:pseudo, :pass, :mail, :date_jour, :id_group, :ip, :city, :entreprise, :actual_function)');
-                        $insert->execute(array(
-                            'pseudo'=> $pseudo_signIn,
-                            'pass'=> $pass_hash,
-                            'mail'=> $mail,
-                            'date_jour' => $date_jour,
-                            'id_group' => 2,
-                            'ip' => $_SERVER['REMOTE_ADDR'],
-                            'city' => '',
-                            'entreprise' => '',
-                            'actual_function' => ''
-                        ));
+                    $insert = $db->prepare('INSERT INTO members (pseudo, pass, mail, date_crea, id_group, ip, city, entreprise, actual_function) 
+                                VALUES(:pseudo, :pass, :mail, :date_jour, :id_group, :ip, :city, :entreprise, :actual_function)');
+                    $insert->execute(array(
+                        'pseudo'=> $pseudo_signIn,
+                        'pass'=> $pass_hash,
+                        'mail'=> $mail,
+                        'date_jour' => $date_jour,
+                        'id_group' => 2,
+                        'ip' => $_SERVER['REMOTE_ADDR'],
+                        'city' => '',
+                        'entreprise' => '',
+                        'actual_function' => ''
+                    ));
 
                     echo 'Enregistrement réussi !';
                     $insert->closeCursor();  
