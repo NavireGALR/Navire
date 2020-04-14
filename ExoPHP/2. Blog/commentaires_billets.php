@@ -87,7 +87,7 @@ $_SESSION['id_billet'] = $_GET['billet'];
                 <textarea name="commentaires" id="commentaires"></textarea>
                 <br/>
 
-                <input type="submit" name="valider" id="valider" value="valider">
+                <input type="submit" name="valider" id="valider" value="Envoyer">
                 <br/>
             </p>
         </form>
