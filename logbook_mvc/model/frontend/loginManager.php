@@ -60,28 +60,7 @@ class LoginManager extends Manager
         return $writer;
     }
 
-    public function checkIp()
-    {
-        $db = $this->dbConnect();
-        $ip_visitor = $_SERVER['REMOTE_ADDR'];
-
-        //CHECK IF IP ON DB
-        $req = $db->query('SELECT ip, pseudo FROM members');
-        while($result = $req->fetch()){
-
-            if( $ip_visitor === $result['ip']){
-                $_SESSION['login'] = $result['pseudo'];
-                $user_ok = true;
-            }else{
-                $user_ok = false;
-            }
-        }
-
-        $req->closeCursor();
-        return $user_ok;
-    }
-
-
+    
     public function checkUserOk()
     {
         $db = $this->dbConnect();

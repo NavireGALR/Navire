@@ -27,14 +27,14 @@ body
 
 }
 
-#logo_header 
+#logo_header
 {
 	height: 60px;
 	width: 60px;
 	margin-right: 1em;
 }
 
-#logo_h1
+.icon_tittle
 {
 	height: 42px;
 	width: 42px;
@@ -63,7 +63,7 @@ h1, h2, h3
 	font-size: 2em;
 }
 
-.title_post, h2
+.tittle_post, h2
 {
 	border-bottom: 2px solid #01665e;
 }

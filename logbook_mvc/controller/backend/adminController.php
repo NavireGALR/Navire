@@ -10,6 +10,7 @@ function adminView()
 {
 	$loginManager = new LoginManager();
 	$memberManager = new MemberManager();
+	$manager = new Manager();
 	
 
 	if(isset($_SESSION['connected']))
@@ -17,6 +18,7 @@ function adminView()
 		$pseudo = $_SESSION['login'];
 		$id_group = $memberManager->getInfoMembers("id_group", $pseudo);
 		$admin = $loginManager->checkAdmin($id_group);
+		$nb_view = $manager->countVisit();
 
 		if($admin){
 			require('view/backend/adminView.php');

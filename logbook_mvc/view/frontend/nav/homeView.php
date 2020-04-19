@@ -20,7 +20,7 @@
 
   <div class="row justify-content-between">
     <div class="row mx-1">
-      <img src="zressources/images/ancre.png" alt="ancre" id="logo_h1">
+      <img src="zressources/images/ancre.png" alt="ancre" class="icon_tittle">
       <h1>Derniers articles</h1>
     </div>
       <?php if(strlen($add_post_view) >= 1){?>
@@ -34,7 +34,7 @@
     while($post = $posts->fetch()){
   ?>
         <div class="new_post mx-auto my-5">
-          <div class="title_post row align-items-center justify-content-between">
+          <div class="tittle_post row align-items-center justify-content-between">
               <h3><?= $post['title'] ;?></h3> 
               <small class="text-muted">par <?= $post['author'] ;?>  le <?= $post['date_post_fr'] ;?> </small>
           </div>
@@ -95,9 +95,9 @@
       <h2 class="card-title">Hobbies</h2>
       <p class="card-text">
         <ul>
-          <li>Musique: Guitare et MAO -> <a href="index.php?action=project">La Menuiserie</a></li>
-          <li>Voyages: Parcourir le monde -> <a href="index.php?action=project">Mes voyages</a></li>
-          <li>Littérature: Lire et écrire -> <a href="index.php?action=project">JDR</a></li>
+          <li>Musique: Guitare et MAO -> <a href="index.php?action=project#leNavire">La Menuiserie</a></li>
+          <li>Voyages: Parcourir le monde -> <a href="index.php?action=project#travel">Mes voyages</a></li>
+          <li>Littérature: Lire et écrire -> <a href="index.php?action=project#leNavire">JDR</a></li>
           <li>L'univers des jeux-vidéos -> <a href="index.php?action=project">AsTeam</a></li>
           <li>Natation/Vélo</li>
         </ul></p>
