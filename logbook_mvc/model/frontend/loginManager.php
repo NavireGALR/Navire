@@ -10,6 +10,7 @@ class LoginManager extends Manager
     {
 
             $db = $this->dbConnect();
+            $user_ok = false;
             // CHECK IF PASSWORD AND LOGIN ARE OK
             $req = $db->prepare('SELECT pass FROM members WHERE pseudo= :pseudo');
             $req->execute(array('pseudo'=> $login));
@@ -20,8 +21,7 @@ class LoginManager extends Manager
                     $_SESSION['login'] = $login;
                     $user_ok = true;
                 }else{
-                    echo 'Le login ou le mot de passe ne correspondent pas !';
-                    $user_ok = false;
+                    throw new Exception("Le login ou le mot de passe ne correspondent pas");
                 }
 
             return $user_ok;    
@@ -32,8 +32,6 @@ class LoginManager extends Manager
     {
         $_SESSION = array();
         session_destroy();
-        unset($_COOKIE['known']);
-        setcookie('known', '', time() - 3600);
         
     }
 
@@ -48,6 +46,18 @@ class LoginManager extends Manager
         }
 
         return $admin;
+    }
+
+     public function checkWriter($id_group)
+    {
+        //CHECK IF ID_GROUP USER = admin (captain) or Writer
+        if($id_group == 'captain' OR $id_group == 'writer'){
+            $writer = true;
+        } else {
+            $writer = false;
+        }
+
+        return $writer;
     }
 
     public function checkIp()
@@ -77,8 +87,8 @@ class LoginManager extends Manager
         $db = $this->dbConnect();
         $loginManager = new LoginManager();
 
-        if(isset($_POST['connect'])) 
-        {
+        if(isset($_POST['connect'])) {
+
             $login = strip_tags($_POST['login']);
             $pass= $_POST['password'];
 
@@ -89,16 +99,8 @@ class LoginManager extends Manager
                 $_SESSION['login'] = $login;
                 $_SESSION['connected'] = true;
             }
-           
-            //ADD COOKIES IF "REMEMBER" CHECKED
-            if(isset($_POST['remember']) AND $user_ok){
-
-                setcookie('known', 'known', time() + 365*24*3600, null, null, false, true);
-
-            }
-
-            return $user_ok;
-        }   
+             return $user_ok;
+        }
 
     }
 

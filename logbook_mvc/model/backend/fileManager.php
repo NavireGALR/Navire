@@ -6,12 +6,43 @@ require_once("model/frontend/membersManager.php");
 class FileManager extends MemberManager
 {
 
+	public function imageCreateFromAny($file)
+	{
+	    $type = exif_imagetype($file);
+	    $allowedTypes = array(
+	        1,  // [] gif
+	        2,  // [] jpg
+	        3,  // [] png
+	        6   // [] bmp
+    );
+
+    if (!in_array($type, $allowedTypes)) {
+        return false;
+    }
+
+	    switch ($type) {
+	        case 1 :
+	            $im = imageCreateFromGif($file);
+	        break;
+	        case 2 :
+	            $im = imageCreateFromJpeg($file);
+	        break;
+	        case 3 :
+	            $im = imageCreateFromPng($file);
+	        break;
+	        case 6 :
+	            $im = imageCreateFromBmp($file);
+	        break;
+	    }   
+    return $im;
+
+	}
+
 
     public function miniaturize($file)
-    {
-
-        $source = imagecreatefromjpeg($file); // La photo est la source
-        $miniature = imagecreatetruecolor(100, 100); // On crée la miniature vide
+    {   
+        $source = $this->imageCreateFromAny($file);
+        $miniature = imagecreatetruecolor(69, 69); // On crée la miniature vide
 
         // Les fonctions imagesx et imagesy renvoient la largeur et la hauteur d'une image
         $largeur_source = imagesx($source);
@@ -37,7 +68,7 @@ class FileManager extends MemberManager
 	    $infosfichier = pathinfo($_FILES['avatar']['name']);
 	    $extension_upload = $infosfichier['extension'];
 	    $extensions_ok = array('jpg', 'jpeg', 'gif', 'png');
-	    $avatar_id = 'zressources/avatars/'.$id_member.'.'.$extension_upload;
+	    $avatar_id = 'zressources/avatars/'.$id_member.'.jpg';
 	    if (in_array($extension_upload, $extensions_ok))
 	    {
 	    	move_uploaded_file($_FILES['avatar']['tmp_name'], $avatar_id);
@@ -47,6 +78,19 @@ class FileManager extends MemberManager
 	    }
 
 		$miniature = $this->miniaturize($avatar_id);
+		imagejpeg($miniature, $avatar_id);
+		
+	}
+
+
+	public function addAvatar()
+	{
+		$pseudo = $_SESSION['login'];
+		$memberManager = new MemberManager();
+		$id_member = $memberManager->getInfoMembers('id', $pseudo); 
+	    $avatar_id = 'zressources/avatars/'.$id_member.'.jpg';
+	   
+		$miniature = $this->miniaturize('zressources/avatars/anonymous.jpg');
 		imagejpeg($miniature, $avatar_id);
 	}
 

@@ -14,7 +14,7 @@ try {
 		switch ($_GET['action']) {
 
 
-		    case 'signinpage' :
+		    case 'signinView' :
 		        signInView();
 		        break;
 	        case 'signin':
@@ -29,24 +29,44 @@ try {
 		    case 'out':
 		        signOut();
 		        break;
-		    case 'update':
-		        updateInfo();
-		        break;
 		    case 'update_group':
 		        updateGroupMember();
 		        break; 
 		    case 'admin':
 		        adminView();
 		        break;
-		    case 'add':
-		        if (isset($_FILES['avatar']) AND $_FILES['avatar']['error'] == 0){ avatar();}
-				addInfo();
+	        case 'add_post':
+		        addPostView();
 		        break;
-		    case 'listpost':
-		        listPost();	
+	        case 'add_new_post':
+		        addPost();
+		        break;
+		    case 'update':
+		        if (isset($_FILES['avatar']) AND $_FILES['avatar']['error'] == 0){ avatar();
+		        } else {
+		        	updateInfo();
+		        }
+		        break;
+	        case 'login':
+		        loginView();
+		        break;
+	        case 'alert':
+		        alertView();
+		        break;
+	        case 'contact':
+		        contactView();
+		        break;
+	        case 'resume':
+		        resumeView();;
+		        break;
+	        case 'project':
+		        projectView();;
+		        break;
+	        case 'mailto':
+		        mailToAdmin();
 		        break;
 		    case 'none':
-		        loginView();
+		        homeView();
 		        break;
 		    default:
 		       throw new Exception('Aucune page n\'a pu être chargé');
@@ -70,19 +90,14 @@ try {
 			throw new Exception('Vous n\'avez pas saisi de commentaires !');
 		}
 		
-	}elseif(isset($_COOKIE['known']) AND strlen($_COOKIE['known']) >= 1) {
-			
-		isKnown();
-
 	}else {
-	    loginView();
+	    homeView();
 	}
 
 
 } catch(Exception $e) {
-    echo '<br/>'. $e->getMessage();
-    ?><br/><a href="index.php?action=none">Retour à l'acceuil</a><?php
-
+	$_SESSION['alert'] = $e->getMessage();
+	header('Location: index.php?action=alert');
 }
 
 

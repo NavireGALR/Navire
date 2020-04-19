@@ -68,18 +68,27 @@ class MemberManager extends Manager
         $update_ok = false; 
         $loginManager = new LoginManager();
 
-        if(isset($_POST['pseudo_update']))
+        if(isset($_POST['pseudo_update']) AND strlen($_POST['new_pseudo']) >= 1)
         {
 
-        	$new_pseudo = $_POST['new_pseudo'];
+        	$new_pseudo = strip_tags($_POST['new_pseudo']);
 
-        	$req = $db->prepare('UPDATE members SET pseudo= :newpseudo WHERE id= :id');
-	        $req->execute(array('newpseudo' => $new_pseudo,
-	        					'id'=>$id_member));
-			$_SESSION['login'] = $new_pseudo;
-	        $update_ok = true; 
+            $pseudo_exist = $this->checkPseudoExistInDb($new_pseudo);
+            if($pseudo_exist){
+                throw new Exception("Ce pseudo existe déjà !"); 
+            }else{
 
-        } elseif (isset($_POST['pass_update'])) {
+            	$req = $db->prepare('UPDATE members SET pseudo= :newpseudo WHERE id= :id');
+    	        $req->execute(array('newpseudo' => $new_pseudo,
+    	        					'id'=>$id_member));
+                $req->closeCursor();
+    			$_SESSION['login'] = $new_pseudo;
+    	        $update_ok = true; 
+
+            }
+
+        } 
+        if (isset($_POST['pass_update']) AND strlen($_POST['new_pass1']) >= 1) {
 
         	$actual_pass = $_POST['actual_pass'];
         	$login = $_SESSION['login'];
@@ -93,75 +102,59 @@ class MemberManager extends Manager
             	$req = $db->prepare('UPDATE members SET pass= :newpass WHERE id= :id');
 		        $req->execute(array('newpass' => $new_pass,
 		        					'id'=>$id_member));  
+                $req->closeCursor();
 		        $update_ok = true; 
 
             } else {
             	throw new Exception('Votre mot de passe est incorrect !');
             }
-			
         }
-        
-        $req->closeCursor();
+
+        if(isset($_POST['add_info']))
+        {
+            if(isset($_POST['city']) AND strlen($_POST['city']) >= 1)
+            {
+                $city = strip_tags($_POST['city']);
+                $req = $db->prepare('UPDATE members SET city=:city WHERE id= :id');
+                $req->execute(array('city' => $city, 'id' => $id_member));
+                $update_ok = true;
+                $req->closeCursor();
+
+            } 
+            if(isset($_POST['company']) AND strlen($_POST['company']) >= 1)
+            {
+                $company = strip_tags($_POST['company']);
+                $req = $db->prepare('UPDATE members SET company=:company WHERE id= :id');
+                $req->execute(array('company' => $company, 'id' => $id_member));
+                $update_ok = true;
+                $req->closeCursor();
+
+            }
+            if(isset($_POST['currentPosition']) AND strlen($_POST['currentPosition']) >= 1 )
+            {
+                $currentPosition = strip_tags($_POST['currentPosition']);
+                $req = $db->prepare('UPDATE members SET current_position= :currentPosition WHERE id= :id');
+                $req->execute(array('currentPosition' => $currentPosition,'id' => $id_member));
+                $update_ok = true;
+                $req->closeCursor();
+
+            }
+
+        }
+ 
         return $update_ok;
 
     //END updateMember
     }
 
-    public function addInfo($id_member)
-    {
-        $db = $this->dbConnect();
-        $add_ok = false; 
-        //$loginManager = new LoginManager();
-
-        if(isset($_POST['add_city']) OR isset($_POST['add_entreprise']) OR isset($_POST['add_function']) 
-           OR isset($_POST['add_avatar']))
-        {
-            if(isset($_POST['add_city']))
-            {
-                $city = $_POST['city'];
-                $req = $db->prepare('UPDATE members SET city=:city WHERE id= :id');
-                $req->execute(array('city' => $city, 'id' => $id_member));
-                $add_ok = true; 
-                $req->closeCursor();
-
-            } elseif(isset($_POST['add_entreprise']))
-            {
-                $entreprise = $_POST['entreprise'];
-                $req = $db->prepare('UPDATE members SET entreprise=:entreprise WHERE id= :id');
-                $req->execute(array('entreprise' => $entreprise, 'id' => $id_member));
-                $add_ok = true; 
-                $req->closeCursor();
-
-            }elseif(isset($_POST['add_function']))
-            {
-                $function = $_POST['function'];
-                $req = $db->prepare('UPDATE members SET actual_function= :actual_function WHERE id= :id');
-                $req->execute(array('actual_function' => $function,'id' => $id_member));
-                $add_ok = true; 
-                $req->closeCursor();
-
-            }elseif (isset($_POST['add_avatar'])) 
-            {
-                $add_ok = true; 
-
-            }else{
-                throw new Exception('Vous n\'avez rien ajouter !');
-            }
-        
-        
-        return $add_ok;
-
-        }
-
-    //END addInfo
-    }
-
-
+    
     public function insertMembersDb()
     {
             $db = $this->dbConnect();
             $signin_ok = false; 
             $manager = new Manager();
+            $fileManager = new FileManager();
+            $memberManager = new MemberManager();
 
             // CHECK IF FORM COMPLETED
             if(isset($_POST['signin'])) 
@@ -178,7 +171,7 @@ class MemberManager extends Manager
                 $pseudo_taken = $this->checkPseudoExistInDb($pseudo_signIn);
                 if($pseudo_taken)
                 {
-                    echo 'Ce pseudo existe déjà !<br/>';
+                    $_SESSION['alert'] = "Ce pseudo existe déjà !";
                 }
                 
 
@@ -202,23 +195,41 @@ class MemberManager extends Manager
                         {
                             if($mail === $result['mail']){
                                 $mail_taken=true;
-                                echo 'Ce mail existe déjà !<br/>';
+                                $_SESSION['alert'] = "Ce mail existe déjà !";
                             } 
                         }
                         $req->closeCursor();
 
                 } else {
                     $mail_ok = false;
-                    echo 'L\'adresse ' . $mail . ' n\'est pas valide, recommencez !';
+                    $_SESSION['alert'] = "L'adresse mail n'est pas valide !";
                 }
 
+                //CHECK IF CITY/COMPANY/CURRENTPOSITION EXIST AND STRIP TAGS
+                if(isset($_POST['city'])){
+                    $city=strip_tags($_POST['city']);
+                }else{
+                    $city='N/C';
+                }
+
+                if(isset($_POST['company'])){
+                    $company=strip_tags($_POST['company']);
+                }else{
+                    $company='N/C';
+                }
+
+                if(isset($_POST['currentPosition'])){
+                    $currentPosition=strip_tags($_POST['currentPosition']);
+                }else{
+                    $currentPosition='N/C';
+                }
 
                 //CHECK EVERITHING IS OK BEFORE INSERT TO DB
                 if(!$pseudo_taken AND !$mail_taken AND $mail_ok)
                 {
                     
-                    $insert = $db->prepare('INSERT INTO members (pseudo, pass, mail, date_crea, id_group, ip, city, entreprise, actual_function) 
-                                VALUES(:pseudo, :pass, :mail, :date_jour, :id_group, :ip, :city, :entreprise, :actual_function)');
+                    $insert = $db->prepare('INSERT INTO members (pseudo, pass, mail, date_crea, id_group, ip, city, company, current_position) 
+                                VALUES(:pseudo, :pass, :mail, :date_jour, :id_group, :ip, :city, :company, :current_position)');
                     $insert->execute(array(
                         'pseudo'=> $pseudo_signIn,
                         'pass'=> $pass_hash,
@@ -226,15 +237,16 @@ class MemberManager extends Manager
                         'date_jour' => $date_jour,
                         'id_group' => 2,
                         'ip' => $_SERVER['REMOTE_ADDR'],
-                        'city' => '',
-                        'entreprise' => '',
-                        'actual_function' => ''
+                        'city' => $city,
+                        'company' => $company,
+                        'current_position' => $currentPosition
                     ));
 
-                    echo 'Enregistrement réussi !';
                     $insert->closeCursor();  
                     $_SESSION['connected'] = true;
                     $_SESSION['login'] = $pseudo_signIn;
+                    $_SESSION['id'] = $memberManager->getInfoMembers('id', $_SESSION['login']);
+                    $fileManager->addAvatar();
                     $signin_ok = true;    
                 }
 

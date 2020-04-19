@@ -19,7 +19,6 @@ function adminView()
 		$admin = $loginManager->checkAdmin($id_group);
 
 		if($admin){
-			$msg='';
 			require('view/backend/adminView.php');
 		}else {
 			throw new Exception("Vous ne pouvez pas accéder à cette page !");
@@ -42,8 +41,8 @@ function updateGroupMember()
 
 	$update_group_ok = $adminManager->updateIdGroupMember($id_member, $new_id_group);
 	if($update_group_ok){
-		$msg = 'Changement de groupe effectué !';
-		require('view/frontend/adminView.php');
+		$alert_ok = 'Changement de groupe effectué!';
+		require('view/backend/adminView.php');
 	} else {
 		throw new Exception("Impossible de changer l'utilisateur de groupe");
 	}
