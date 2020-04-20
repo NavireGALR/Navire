@@ -17,5 +17,5 @@ logbook
 -> My professional website, using all my knowledge learned during the lockdown. It may have some security and structure issues but i think 
 it's not far from a professional standard.  I used Bootstrap for the graphic parts.
 
-scritp_utile
+#scritp_utile
 -> Useful script to add later or not ^^
