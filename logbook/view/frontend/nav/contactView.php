@@ -33,6 +33,7 @@
                   <optgroup label="Logbook">
                       <option value="group">Demander à devenir rédacteur ou admin de logbook</option>
                       <option value="discord">Demander le discord du navire</option>
+                      <option value="github">Demander l'accés au dossier 'model' du github </option>
                   </optgroup>
                   <optgroup label="Autre">
                       <option value="amelioration">Proposer une amélioration pour ce site</option>
@@ -52,27 +53,27 @@
   
 </article>
 
-<aside class="col-lg-4 mx-auto order-lg-last order-first">
+<aside class="col-lg-5 mx-auto order-lg-last order-first">
   <div class="card bg-dark border-primary text-white">
     <h3 class="card-header bg-primary">Me suivre sur les réseaux</h3>
     <div class="my-4 row justify-content-around">
-      <div class="col-lg-1 col-3">
+      <div class="col-1">
         <a href="https://www.facebook.com/bastien.ederhy.5" target="_blank">
           <img class="icon" src="zressources/images/facebook.png" alt="fb"/>
         </a>
       </div>
-      <div class="col-lg-1 col-3">
-        <a href="https://twitter.com/BasThaura" target="_blank">
+      <div class="col-1">
+        <a href="https://twitter.com/EderCaptain" target="_blank">
           <img class="icon" src="zressources/images/twitter.png" alt="twitter"/>       
         </a>
       </div>
-      <div class="col-lg-1 col-3">
+      <div class="col-1">
         <a href="https://www.linkedin.com/in/bastien-ederhy/" target="_blank">
           <img class="icon" src="zressources/images/linkedIn.png" alt="linkedin"/>
         </a>
       </div>
-      <div class="col-lg-1 col-3">
-        <a href="mailto:steo.ederhy@gmail.com" target="_blank">
+      <div class="col-2">
+        <a href="mailto:ederhy.bastien@gmail.com" target="_blank">
           <img class="icon" src="zressources/images/mail.png" alt="mail"/>
         </a>
       </div>

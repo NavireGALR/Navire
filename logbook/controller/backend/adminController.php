@@ -5,6 +5,7 @@ require_once('model/frontend/membersManager.php');
 require_once('model/manager.php');
 require_once('model/backend/fileManager.php');
 require_once('model/backend/adminManager.php');
+require_once('model/backend/reCaptcha.php');
 
 function adminView()
 {

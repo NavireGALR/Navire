@@ -1,6 +1,7 @@
 <?php $title = 'S\'enregistrer'; ?>
 
 <?php ob_start(); ?>
+<?php $googlekey = '6Ld_1-sUAAAAAJrKjHeqpqnC9PmVAhOoJ1wsEq51'; ?>
     
 
 <article class="offset-lg-1 col-lg-10">
@@ -11,8 +12,8 @@
     </div>
   <?php }?>
 
-  <div class="row">
-    <img src="zressources/images/ancre.png" alt="ancre" id="logo_h1">
+  <div class="mx-2 row">
+    <img src="zressources/images/ancre.png" alt="ancre" class="icon_tittle">
     <h1> S'enregistrer </h1>
   </div>
 
@@ -26,7 +27,7 @@
    Les champs marqués d'un * sont obligatoires.
   </div>
 
-  <form action="index.php?action=signin" method="post" id="form_signin">
+  <form action="index.php?action=signin" method="post" class="my-5">
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="pseudo">Pseudo* : </label>
@@ -34,7 +35,7 @@
       </div>
       <div class="form-group col-md-6">
         <label for="mail">Email* :</label>
-        <input type="email" class="form-control" name="mail" id="mail" placeholder="Adresse Email" required autofocus>
+        <input type="email" class="form-control" name="mail" id="mail" placeholder="Adresse Email" required>
       </div>
     </div>
     <div class="form-group">
@@ -58,6 +59,9 @@
         <label for="currentPosition">Poste actuel : </label>
         <input type="text" class="form-control" name="currentPosition" id="currentPosition" placeholder="Votre fonction au sein de l'entreprise">
       </div>
+    </div>
+    <div class="form-group col-lg-12">
+      <div class="g-recaptcha" data-sitekey="<?= $googlekey ?>"></div>
     </div>
     <button type="submit" name="signin" id="signin"class="btn btn-primary">S'enregistrer</button>
     <small class="text-muted">Montez à bord du navire !</small>

@@ -5,6 +5,7 @@ require_once('model/frontend/loginManager.php');
 require_once('model/frontend/membersManager.php');
 require_once('model/manager.php');
 require_once('model/backend/fileManager.php');
+require_once('model/backend/reCaptcha.php');
 require_once('model/frontend/postManager.php');
 
 
@@ -14,7 +15,9 @@ function homeView()
 	$postManager = new PostManager();
 	$loginManager = new LoginManager();
 	$memberManager = new MemberManager();
+	$manager = new Manager();
 	$add_post_view = "";
+	$manager->countVisit();
 	$nbPages = $postManager->getNbPages();
 
 

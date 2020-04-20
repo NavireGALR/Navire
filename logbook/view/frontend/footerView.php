@@ -9,8 +9,8 @@
 		<div class="my-3 my-lg-5">
 			<h2>Mes Voyages</h2>
 			<ul class="row justify-content-around">
-				<li><a href="index.php?action=project"> En Turquie </a></li>
-				<li><a href="index.php?action=project"> Au Liban </a></li>
+				<li><a href="index.php?action=project#travel"> En Turquie </a></li>
+				<li><a href="index.php?action=project#travel"> Au Liban </a></li>
 			</ul>
 		</div>
 	</div>
@@ -38,7 +38,7 @@
 	        	</a>
     		</div>
 	        <div class="col-lg-1 col-3">
-	        	<a href="https://twitter.com/BasThaura" target="_blank">
+	        	<a href="https://twitter.com/EderCaptain" target="_blank">
                     <img class="icon" src="zressources/images/twitter.png" alt="twitter"/>        
                 </a>
 	        </div>
@@ -48,7 +48,7 @@
 	        	</a>
     		</div>
     		<div class="col-lg-1 col-3">
-	          	<a href="mailto:steo.ederhy@gmail.com" target="_blank">
+	          	<a href="mailto:ederhy.bastien@gmail.com" target="_blank">
 	        		<img class="icon" src="zressources/images/mail.png" alt="mail"/>
 	        	</a>
     		</div>

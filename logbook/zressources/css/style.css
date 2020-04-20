@@ -101,17 +101,6 @@ footer li
 /* CSS ... */
 
 
-#form_login
-{
-	width: 50%;
-	margin: auto;
-}
-
-#form_sigin
-{
-	padding-bottom: 5em;
-}
-
 .new_post p
 {
 	padding: 2em;

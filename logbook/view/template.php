@@ -3,6 +3,9 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- reCaptcha Google -->
+        <script src="https://www.google.com/recaptcha/api.js?"></script>
+
         <!-- script JS -->
         <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
         <script src="zressources/js/bootstrap.min.js"></script>

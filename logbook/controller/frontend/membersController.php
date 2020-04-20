@@ -5,7 +5,9 @@ require_once('model/frontend/loginManager.php');
 require_once('model/frontend/membersManager.php');
 require_once('model/manager.php');
 require_once('model/backend/fileManager.php');
+require_once('model/backend/reCaptcha.php');
 require_once('controller/frontend/postController.php');
+
 
 
 function loginView()
