@@ -16,6 +16,7 @@ GeniusBook
 logbook
 -> My professional website, using all my knowledge learned during the lockdown. It may have some security and structure issues but i think 
 it's not far from a professional standard.  I used Bootstrap for the graphic parts.
+/!\ WARNING /!\ There is no model repository in this github for obvious security reasons. Pls contact the webmaster @logbook-ederhy.fr/contact.php to access this repository
 
 #scritp_utile
 -> Useful script to add later or not ^^
