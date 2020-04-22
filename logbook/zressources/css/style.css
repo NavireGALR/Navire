@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant:wght@300&display=swap');
 
 
-/* CSS GENERAL */
+/******** CSS GENERAL ********/
 
 body 
 {
@@ -31,7 +31,13 @@ body
 	margin-right: 1em;
 }
 
-.icon_tittle
+#avatar_header
+{
+	height : 42px ;
+	width: 42px;
+}
+
+.icon_title
 {
 	height: 42px;
 	width: 42px;
@@ -54,7 +60,7 @@ h1, h2, h3
 	font-size: 2em;
 }
 
-.tittle_post, h2 { border-bottom: 2px solid #01665e; }
+.title_post, h2 { border-bottom: 2px solid #01665e; }
 
 h4
 {
@@ -85,7 +91,7 @@ footer li { list-style-type: circle; }
 
 
 
-/* CSS PROJECT */
+/******** CSS PROJECT ********/
 
 .i_project
 {
@@ -97,11 +103,18 @@ footer li { list-style-type: circle; }
 
 .text_project { text-align: justify; }
 
+#list_progress li
+{
+	list-style: none;
+	text-transform: uppercase;
+	font-style: 0.9em;
+}
 
 
 
 
-/* CSS RESUME */
+
+/******** CSS RESUME ********/
 
 .resume_text { text-align: justify; }
 
@@ -114,7 +127,7 @@ footer li { list-style-type: circle; }
 
 .table { text-align: center; }
 
-.progress
+.resume_text .progress
 {
 	background-color: #01665e !important;
 	width: 66%;
@@ -122,21 +135,28 @@ footer li { list-style-type: circle; }
 
 
 
-
-
-
-/* CSS .... */
+/******** CSS HOMEVIEW ********/
 
 .material-icons.post { color: #8f5834; }
 
-.new_post p
+.post_corpus
 {
-	padding: 2em;
+	text-align: justify;
 }
+
+/* Add/modif post */
+
+#content_post
+{
+	height: 300px;
+	width: 100%;
+	resize: none;
+}
+
+/* Comment */
 
 .comment  > p
 {
-	padding: 1em;
 	border: 1px solid brown;
 }
 
@@ -160,16 +180,16 @@ footer li { list-style-type: circle; }
 	border: 1px solid teal;
 }
 
+
+/******** CSS PROFIL ********/
+
 .info_profil
 {
 	text-transform: uppercase;
 }
 
-#avatar_header
-{
-	height : 42px ;
-	width: 42px;
-}
+
+/******** CSS PROFIL ********/
 
 #form_updategroup
 {
@@ -177,12 +197,7 @@ footer li { list-style-type: circle; }
 }
 
 
-#content_post
-{
-	height: 300px;
-	width: 100%;
-	resize: none;
-}
+/******** CSS CONTACT ********/
 
 #message
 {
@@ -190,32 +205,7 @@ footer li { list-style-type: circle; }
 	height: 200px;
 }
 
-#logbook_monitoring
-{
-	border-bottom: 1px solid blue;
-}
-
-#succes_progress, #learning_progress
-{
-	font-size: 0.9em;
-}
-
-#succes_progress
-{
-	color: green;
-}
-
-#learning_progress
-{
-	color: orange;
-}
 
 
-/*[class*="col-"], footer {
-  background-color: lightgreen;
-  border: 2px solid black;
-  border-radius: 6px;
-  line-height: 40px;
-}
 
-*/
+
