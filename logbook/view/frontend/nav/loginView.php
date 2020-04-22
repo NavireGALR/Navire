@@ -2,14 +2,14 @@
 
 <?php ob_start(); ?>
 
-<article class="my-5 offset-lg-4">
-  <form class="mx-5 my-5" action="index.php?action=connect" method="post">
+<article class="my-5 mx-auto offset-lg-6">
+  <form  action="index.php?action=connect" method="post">
       <div class="form-group">
-      <label for="login">Identifiant : </label>
+      <label for="login">Identifiant: </label>
       <input type="text" name="login" id="login" class="form-control" placeholder="Ex: Jean" required>
     </div>
     <div class="form-group">
-      <label for="password">Mot de passe : </label>
+      <label for="password">Mot de passe: </label>
        <input type="password" name="password" id="password" required class="form-control" placeholder="Mot de passe">
     </div>
     <button type="submit" name="connect" id="connect" class="btn btn-primary">Se connecter</button>

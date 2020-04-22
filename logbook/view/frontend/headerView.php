@@ -3,7 +3,7 @@
     <div class="row">
 	    <div class="col-lg-12" id="menu">
 	    	<div class="container-fluid">
-		    	<nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between fixed-top px-4">
+		    	<nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between px-4">
 		    		<a class="navbar-brand" href="index.php?action=none"><img src="zressources/images/bateau.png" class="d-inline-block" alt="logo" id="logo_header">Logbook</a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#toggleCollapse" aria-controls="toggleCollapse" aria-expanded="false" aria-label="Toggle navigation">
 				    	<span class="navbar-toggler-icon"></span>
@@ -22,7 +22,7 @@
 				    		?>
 				    		<a href="index.php?action=profil">
 			    			<?= $_SESSION['login'] ?>
-				    		<img src="zressources/avatars/<?= $_SESSION['id'] ?>.jpg" alt="avatar" class="ml-2 rounded-circle" id="avatar_header"/>
+				    		<img src="zressources/avatars/<?= $_SESSION['id'] ?>.jpg?filemtime(<?php echo time(); ?>)" alt="avatar" class="ml-2 rounded-circle" id="avatar_header"/>
 				    		</a>
 				    		<?php
 				    	}else{

@@ -31,7 +31,7 @@
     </div>
 
         <div class="my-4 mx-4 row align-items-center">
-            <img class="rounded" src="zressources/avatars/<?= $id ?>.jpg" alt="avatar"/>
+            <img class="rounded" src="zressources/avatars/<?= $id ?>.jpg?filemtime(<?php echo time(); ?>)" alt="avatar"/>
             <form method="post" action="index.php?action=update" enctype="multipart/form-data">  
                 <label class="mx-lg-4"> Choisir un nouvel avatar: </label>
                     <div class="custom-file mx-lg-4"> 

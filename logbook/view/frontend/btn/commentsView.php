@@ -5,18 +5,18 @@
 <article class="offset-lg-1 col-lg-10">
     
     <div class="row">
-        <img src="zressources/images/ancre.png" alt="ancre" id="logo_h1">
-        <h2>Article de <?= $post['author'] ?> </h2>
+        <img src="zressources/images/ancre.png" alt="ancre" class="icon_tittle">
+        <h1>Article de <?= $post['author'] ?> </h1>
     </div>
 
-    <div class="new_post">
-        <div class="title_post row align-items-center justify-content-between">
-          <h3><?= $post['title'] ;?></h3> 
-          <small class="text-muted">par <?= $post['author'] ;?>  le <?= $post['date_post_fr'] ;?> </small>
+        <div class="new_post mx-auto my-5">
+          <div class="tittle_post row align-items-center justify-content-between">
+              <h3><i class="mx-3 material-icons post">explore</i><?= $post['title'] ;?></h3> 
+              <small class="text-muted">par <?= $post['author'] ;?>  le <?= $post['date_post_fr'] ;?> </small>
+          </div>
+              <p><?= $post['content'] ;?></p>
+              <a class="offset-lg-10" href="index.php?action=none"> Retour </a>
         </div>
-        <p> <?= $post['content'];?> </p>
-        <a href="index.php?action=none">Retour</a>
-    </div>
 
 <h2> Derniers commentaires :</h2><br/>
 <div class="row">

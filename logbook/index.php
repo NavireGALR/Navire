@@ -4,6 +4,7 @@ session_start();
 
 require_once('controller/frontend/membersController.php');
 require_once('controller/frontend/postController.php');
+require_once('controller/frontend/loginController.php');
 require_once('controller/backend/adminController.php');
 
 
@@ -41,11 +42,15 @@ try {
 	        case 'add_new_post':
 		        addPost();
 		        break;
+	        /*case 'modif_post':
+		        modifPostView();
+		        break;
+	        case 'post_modified':
+		        modifPost();
+		        break;*/
 		    case 'update':
-		        if (isset($_FILES['avatar']) AND $_FILES['avatar']['error'] == 0){ avatar();
-		        } else {
-		        	updateInfo();
-		        }
+		        if (isset($_FILES['avatar']) AND $_FILES['avatar']['error'] == 0){ avatar(); }
+		        else { updateInfo();}
 		        break;
 	        case 'login':
 		        loginView();

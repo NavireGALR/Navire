@@ -1,12 +1,20 @@
 <?php
 
 
+/* MODEL MANAGER */
+require_once('model/frontend/postManager.php');
 require_once('model/frontend/loginManager.php');
 require_once('model/frontend/membersManager.php');
-require_once('model/manager.php');
 require_once('model/backend/fileManager.php');
+require_once('model/backend/adminManager.php');
 require_once('model/backend/reCaptcha.php');
-require_once('model/frontend/postManager.php');
+require_once('model/manager.php');
+
+/* OTHER CONTROLLER */
+require_once('controller/frontend/membersController.php');
+require_once('controller/frontend/loginController.php');
+require_once('controller/backend/adminController.php');
+
 
 
 function homeView()
@@ -15,9 +23,9 @@ function homeView()
 	$postManager = new PostManager();
 	$loginManager = new LoginManager();
 	$memberManager = new MemberManager();
-	$manager = new Manager();
+	$adminmanager = new AdminManager();
 	$add_post_view = "";
-	$manager->countVisit();
+	$adminmanager->countVisit();
 	$nbPages = $postManager->getNbPages();
 
 
@@ -52,6 +60,22 @@ function homeView()
 
 }
 
+function addPostView()
+{
+
+	require('view/frontend/btn/addPostView.php');
+}
+
+function modifPostView()
+{
+	$id_post = $_GET['post'];
+	$postManager = new PostManager();
+	$post = $postManager->displayPost($id_post);
+	require('view/frontend/btn/modifPostView.php');
+}
+
+
+
 
 function listComments($id)
 {
@@ -76,13 +100,6 @@ function addComment($id)
 }
 
 
-function addPostView()
-{
-
-	require('view/frontend/btn/addPostView.php');
-}
-
-
 function addPost()
 {
 	$postManager = new PostManager();
@@ -97,31 +114,19 @@ function addPost()
 	
 }
 
-function contactView()
+/*function modifPost()
 {
-
-	require('view/frontend/nav/contactView.php');
-}
-
-function mailToAdmin()
-{
+	$id_post = $_GET['post'];
+	$postManager = new PostManager();
+	$post_modified = $postManager->updatePostToDb($id_post);
+	if($post_modified){
+		$_SESSION['alert_ok'] = "Article modifié !";
+		header('location: index.php?action=none');
+	}else{
+		throw new Exception("Impossible de modifier cet article");
+		
+	}
 	
-	$objet = $_POST['objet'];
-	$arraymsg = array (
-    'prenom' => strip_tags($_POST['firstname']),
-    'nom' => strip_tags($_POST['name']),
-    'organisation' => strip_tags($_POST['company']),
-    'email' => strip_tags($_POST['email']),
-    'message' => nl2br(strip_tags($_POST['message']))
-	);
-	$message = '<pre>'.implode(",/<br>",$arraymsg).'</pre>';
-	$alert_ok = "Votre message a bien été envoyé !";
+}*/
 
-    /*$mail_ok = mail('steo.ederhy@gmail.com', $objet , $message, 'From : no-reply@logbook.fr');
 
-    //if ($mail_ok) {
-        
-    }
-    */
-	require('view/frontend/nav/contactView.php');
-}

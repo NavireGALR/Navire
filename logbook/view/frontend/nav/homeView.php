@@ -25,21 +25,31 @@
     </div>
       <?php if(strlen($add_post_view) >= 1){?>
       <a href="<?= $add_post_view ?>">
-        <button id="add_post_btn" class="btn btn-primary">Ajouter un article</button>
+        <button id="add_post_btn" class="my-lg-0 my-5 btn btn-primary">Ajouter un article</button>
       </a>
-    <?php }?>
+      <?php }?>
   </div>
   
   <?php
     while($post = $posts->fetch()){
   ?>
-        <div class="new_post mx-auto my-5">
+        <div class="new_post mx-auto my-lg-5">
           <div class="tittle_post row align-items-center justify-content-between">
-              <h3><?= $post['title'] ;?></h3> 
+              <h3><i class="mx-3 material-icons post">explore</i><?= $post['title'] ;?></h3> 
               <small class="text-muted">par <?= $post['author'] ;?>  le <?= $post['date_post_fr'] ;?> </small>
           </div>
               <p><?= $post['content'] ;?></p>
-              <a class="offset-lg-10" href="index.php?post=<?= $post['id'] ;?>"> Lire la suite </a>
+              <a class="offset-lg-8" href="index.php?post=<?= $post['id'] ;?>"> Voir les commentaires </a>
+
+              <?php /*if(isset($_SESSION['login']))
+                    {
+                      if($post['author'] == $_SESSION['login'])
+                      {?>
+                        <a href="index.php?action=modif_post&post=<?= $post['id'] ?>">
+                          <button id="modif_post_btn" class="my-lg-0 my-5 btn btn-primary">Modifier l'article</button>
+                        </a>
+                <?php }
+                    } */?>
         </div>
     
   <?php
@@ -84,13 +94,15 @@
     <div class="card-body">
       <h2 class="card-title">Informations personnelles</h2>
       <p class="card-text"><em>Bastien, 23ans</em>. Après une expérience professionnelle dans le domaine bancaire, je recherche désormais <em>une alternance dans le développement informatique</em>.</p>
-      <h2 class="card-title">Objectifs</h2>
+      <h2 class="card-title">Logbook</h2>
       <p class="card-text">
+        <em>Un Logbook</em> (ou journal de bord en français) est un registre dans lequel le capitaine ou les officiers d'un navire, consignent chronologiquement les différents événements, manœuvres, caps et observations.<br/> Ce site est donc mon journal de bord. <br/>Vous y retrouverez :
         <ul>
-          <li>M'investir dans une équipe</li>
-          <li>Développer des compétences professionnelles</li>
-          <li>Mettre à disposition ces compétences</li>
-          <li>Evoluer dans une structure</li>
+          <li><a href="index.php?action=project">Mes différents projets</a></li>
+          <li><a href="index.php?action=resume">Mon CV</a></li>
+          <li><a href="index.php?action=contact">Mes coordonnées</a></li>
+          <li>Des articles pertinents... ou non !</li>
+          <li>Mon carnet de voyage</li>  
         </ul>
       </p>
       <h2 class="card-title">Hobbies</h2>

@@ -1,11 +1,19 @@
 <?php
 
+/* MODEL MANAGER */
+require_once('model/frontend/postManager.php');
 require_once('model/frontend/loginManager.php');
 require_once('model/frontend/membersManager.php');
-require_once('model/manager.php');
 require_once('model/backend/fileManager.php');
 require_once('model/backend/adminManager.php');
 require_once('model/backend/reCaptcha.php');
+require_once('model/manager.php');
+
+/* OTHER CONTROLLER */
+require_once('controller/frontend/postController.php');
+require_once('controller/frontend/loginController.php');
+require_once('controller/frontend/membersController.php');
+
 
 function adminView()
 {
@@ -33,6 +41,33 @@ function adminView()
 	
 	
 }
+
+function mailToAdmin()
+{
+	
+	if(isset($_POST['send'])){
+
+		$objet = 'Objet : '.$_POST['objet'];
+		$arraymsg = array (
+		'objet' => $objet,
+		'email' => 'Email : '.strip_tags($_POST['email']),
+	    'organisation' => 'Organisation : '.strip_tags($_POST['company']),
+	    'message' => 'Message :  '.strip_tags($_POST['message'])
+		);
+		$message = implode("\n\n",$arraymsg);
+		
+
+	    $mail_ok = mail('admin@logbook-ederhy.fr', $objet , $message, 'From : form_contact@logbook.fr');
+
+	    if ($mail_ok) {
+	        $alert_ok = "Votre message a bien été envoyé !";
+	    }
+	}
+	
+ 
+	require('view/frontend/nav/contactView.php');
+}
+
 
 function updateGroupMember()
 {

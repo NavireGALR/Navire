@@ -5,10 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- reCaptcha Google -->
         <script src="https://www.google.com/recaptcha/api.js?"></script>
-
         <!-- script JS -->
         <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
         <script src="zressources/js/bootstrap.min.js"></script>
+        <!-- Icon -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!-- fichiers CSS -->
         <link href="zressources/css/bootstrap.min.css" rel="stylesheet">
         <link href="zressources/css/themeSolar.css" rel="stylesheet" />

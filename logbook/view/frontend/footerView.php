@@ -20,11 +20,11 @@
 			<h2>Mes recommandations</h2>
 			<blockquote class="my-3 blockquote">
 	  				<p class="quote mb-0">"...une excellente maturité professionelle."</p>
-					<footer class="blockquote-footer">Elisabeth Poindron <cite title="poste">Resp. pédagogique</cite><br/><a href=""> Télécharger la lettre</a></footer>
+					<footer class="blockquote-footer">Elisabeth Poindron <cite title="poste">Resp. pédagogique</cite><br/><a href="zressources/docs/lr1.pdf" target="_blank"> Télécharger la lettre</a></footer>
 			</blockquote>
 			<blockquote class="my-3 blockquote">
 					<p class="quote mb-0">"...toujours à la recherche de moyens pertinents pour assurer la réussite dans son travail"</p>
-				<footer class="blockquote-footer">Matthieu Martin <cite title="poste">Resp. agence</cite><br/><a href=""> Télécharger la lettre</a></footer>
+					<footer class="blockquote-footer">Matthieu Martin <cite title="poste">Resp. agence</cite><br/><a href="zressources/docs/lr2.pdf" target="_blank"> Télécharger la lettre</a></footer>
 			</blockquote>
 		</div>
 	</div>
@@ -38,7 +38,7 @@
 	        	</a>
     		</div>
 	        <div class="col-lg-1 col-3">
-	        	<a href="https://twitter.com/EderCaptain" target="_blank">
+	        	<a href="https://twitter.com/BasThaura" target="_blank">
                     <img class="icon" src="zressources/images/twitter.png" alt="twitter"/>        
                 </a>
 	        </div>
@@ -55,8 +55,8 @@
         </div>
 
         <ul class="row justify-content-around mb-5">
-			<li class="row"><img class="icon mr-3" src="zressources/images/skype.png" alt="skype"/><h4 class="align-self-center">steok13</h4></li>
-			<li class="row"><img class="icon mr-3" src="zressources/images/discord.png" alt="discord"/><h4 class="align-self-center"> Ekawa#3878 </h4></li>
+			<li class="row"><img class="icon mr-2" src="zressources/images/skype.png" alt="skype"/><h4 class="align-self-center">steok13</h4></li>
+			<li class="row"><img class="icon mr-2" src="zressources/images/discord.png" alt="discord"/><h4 class="align-self-center">Ekawa#3878</h4></li>
 		</ul>
 
 		<h2>Rejoindre le navire</h2>

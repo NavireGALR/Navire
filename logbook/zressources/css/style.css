@@ -9,10 +9,7 @@ body
  	background-image: url(../images/fond.png);
 }
 
-.navbar
-{
-	background-image: url(../images/background_header.jpg);
-}
+.navbar { background-image: url(../images/background_header.jpg); }
 
 .navbar-brand
 {
@@ -41,15 +38,9 @@ body
 	margin-right: 1em;
 }
 
-section
-{
-	margin-top: 5em;
-}
+section { margin-top: 5em; }
 
-article, aside
-{
-	margin-top: 3em;
-}
+article, aside { margin-top: 3em; }
 
 footer
 {
@@ -63,15 +54,12 @@ h1, h2, h3
 	font-size: 2em;
 }
 
-.tittle_post, h2
-{
-	border-bottom: 2px solid #01665e;
-}
+.tittle_post, h2 { border-bottom: 2px solid #01665e; }
 
 h4
 {
 	font-family: 'Cormorant', serif;
-	font-size: 1em;
+	font-size: 1.3em;
 }
 
 em
@@ -80,10 +68,7 @@ em
 	color: #01665e;
 }
 
-footer li
-{
-	list-style-type: circle;
-}
+footer li { list-style-type: circle; }
 
 .icon
 {
@@ -98,8 +83,51 @@ footer li
 }
 
 
-/* CSS ... */
 
+
+/* CSS PROJECT */
+
+.i_project
+{
+	width: 300px;
+	height: 250px;
+	float: left;
+	border-radius: 15px;
+}
+
+.text_project { text-align: justify; }
+
+
+
+
+
+/* CSS RESUME */
+
+.resume_text { text-align: justify; }
+
+.material-icons.success { color: #12BD5B; }
+.material-icons.success2 { color: #B65500; }
+
+.management .progress { background-color: #B65500 !important; }
+
+.link_dl { text-transform: uppercase; }
+
+.table { text-align: center; }
+
+.progress
+{
+	background-color: #01665e !important;
+	width: 66%;
+}
+
+
+
+
+
+
+/* CSS .... */
+
+.material-icons.post { color: #8f5834; }
 
 .new_post p
 {
