@@ -4,25 +4,21 @@
 
 <article class="offset-lg-1 col-lg-10">
 
-<?php if(isset($alert_ok)){?>
-    <div class="alert alert-success my-3" role="alert">
-        <?= $alert_ok ?>
-    </div>
-<?php }?>
+<?= $alert ?>
 
     <div class="row justify-content-between">
         <div class="row align-items-center">
-            <h2 class="ml-4 mr-2"><?= $pseudo ?></h2><small class="text-muted">Profil </small>
+            <h2 class="ml-4 mr-2"><?= $infosMember['pseudo'] ?></h2><small class="text-muted">Profil </small>
         </div>
         
         <div class="offset-lg-8 col-lg-2">    
             <a href="index.php?action=out">
-            <button id="deco" class="btn btn-warning">Déconnexion</button>
+                <button id="deco" class="btn btn-warning">Déconnexion</button>
             </a>
             <?php if(strlen($page_admin) >= 1){
             ?>
                 <a href="<?= $page_admin ?>">
-                <button id="admin_btn" class="my-lg-2 btn btn-dark">Page Admin</button>
+                    <button id="admin_btn" class="my-lg-2 btn btn-dark">Page Admin</button>
                 </a>
             <?php
             }
@@ -31,7 +27,7 @@
     </div>
 
         <div class="my-4 mx-4 row align-items-center">
-            <img class="rounded" src="zressources/avatars/<?= $id ?>.jpg?filemtime(<?php echo time(); ?>)" alt="avatar"/>
+            <img class="rounded" src="zressources/avatars/<?= $infosMember['id'] ?>.jpg?filemtime(<?php echo time(); ?>)" alt="avatar"/>
             <form method="post" action="index.php?action=update" enctype="multipart/form-data">  
                 <label class="mx-lg-4"> Choisir un nouvel avatar: </label>
                     <div class="custom-file mx-lg-4"> 
@@ -44,32 +40,32 @@
         <div class="card border-primary mx-lg-5 my-5">
             <div class="card-header bg-dark text-white">
                 <h3>Mes informations</h3> 
-                <a href="index.php?action=contact"><button class="btn btn-outline-primary"> Envoyer une demande pour devenir rédacteur</button></a>
+                <a href="index.php?action=view&view=contact"><button class="btn btn-outline-primary"> Envoyer une demande pour devenir rédacteur</button></a>
             </div>
             <div class="card-body row">
                 <div class="col-lg-4 mt-2">
                     <h5 class="card-title text-primary">Adresse mail</h5>
-                    <p class="info_profil card-text"><?= $mail ?></p>
+                    <p class="info_profil card-text"><?= $infosMember['mail'] ?></p>
                 </div>
                 <div class="col-lg-4 mt-2">
                     <h5 class="card-title text-primary">Groupe</h5>
-                    <p class="info_profil card-text"><?= $id_group ?></p>
+                    <p class="info_profil card-text"><?= $infosMember['group'] ?></p>
                 </div>
                 <div class="col-lg-4 mt-2">
                     <h5 class="card-title text-primary">Profil créé le </h5>
-                    <p class="info_profil card-text"><?= $date_crea ?></p>
+                    <p class="info_profil card-text"><?= $infosMember['date_crea'] ?></p>
                 </div>
                 <div class="col-lg-4 mt-2">
                     <h5 class="card-title text-primary">Ville</h5>
-                    <p class="info_profil card-text"><?= $city ?></p>
+                    <p class="info_profil card-text"><?= $infosMember['city'] ?></p>
                 </div>
                 <div class="col-lg-4 mt-2">
                     <h5 class="card-title text-primary">Entreprise</h5>
-                    <p class="info_profil card-text"><?= $company ?></p>
+                    <p class="info_profil card-text"><?= $infosMember['company'] ?></p>
                 </div>
                 <div class="col-lg-4 mt-2">
                     <h5 class="card-title text-primary">Poste actuel</h5>
-                    <p class="info_profil card-text"><?= $currentPosition ?></p>
+                    <p class="info_profil card-text"><?= $infosMember['current_position'] ?></p>
                 </div>
             </div>
         </div>

@@ -62,12 +62,12 @@ class FileManager extends MemberManager
 	{
 		$pseudo = $_SESSION['login'];
 		$memberManager = new MemberManager();
-		$id_member = $memberManager->getInfoMembers('id', $pseudo); 
+		$infosMember = $memberManager->getMember($pseudo); 
 
 	    $infosfichier = pathinfo($_FILES['avatar']['name']);
 	    $extension_upload = $infosfichier['extension'];
 	    $extensions_ok = array('jpg', 'jpeg', 'gif', 'png');
-	    $avatar_id = 'zressources/avatars/'.$id_member.'.jpg';
+	    $avatar_id = 'zressources/avatars/'.$infosMember['id'].'.jpg';
 	    if (in_array($extension_upload, $extensions_ok))
 	    {
 	    	move_uploaded_file($_FILES['avatar']['tmp_name'], $avatar_id);
@@ -86,8 +86,8 @@ class FileManager extends MemberManager
 	{
 		$pseudo = $_SESSION['login'];
 		$memberManager = new MemberManager();
-		$id_member = $memberManager->getInfoMembers('id', $pseudo); 
-	    $avatar_id = 'zressources/avatars/'.$id_member.'.jpg';
+		$infosMember = $memberManager->getMember($pseudo); 
+	    $avatar_id = 'zressources/avatars/'.$infosMember['id'].'.jpg';
 	   
 		$miniature = $this->miniaturize('zressources/avatars/anonymous.jpg');
 		imagejpeg($miniature, $avatar_id);

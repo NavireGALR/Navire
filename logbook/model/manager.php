@@ -1,19 +1,13 @@
 <?php
 
-/* MODEL MANAGER */
 require_once('model/frontend/postManager.php');
 require_once('model/frontend/loginManager.php');
 require_once('model/frontend/membersManager.php');
+require_once('model/frontend/viewManager.php');
 require_once('model/backend/fileManager.php');
-require_once('model/backend/adminManager.php');
 require_once('model/backend/reCaptcha.php');
 
-/* CONTROLLER */
-require_once('controller/frontend/postController.php');
-require_once('controller/frontend/loginController.php');
-require_once('controller/backend/adminController.php');
-require_once('controller/frontend/membersController.php');
-
+require_once('controller/controller.php');
 
 class Manager
 {
@@ -25,17 +19,38 @@ class Manager
         return $db;
     }
 
-
-    public function HashPass($pass, $confirm_pass)
+    public function countVisit()
     {
-    	if($pass == $confirm_pass) {
-                $pass_hash = password_hash($pass, PASSWORD_DEFAULT);
-        }else {
-            throw new Exception('Les mots de passes ne correspondent pas');
+        $db = $this->dbConnect();
+        $ip_exist = false;
+        $ip_visitor = $_SERVER['REMOTE_ADDR'];
+
+        //CHECK IF IP ON DB AND COUNT ID
+        $req = $db->query('SELECT ip FROM visitors');
+        while($result = $req->fetch()){
+
+            if($ip_visitor == $result['ip']){
+                $ip_exist = true;
+            }
+  
+        }
+        
+        if(!$ip_exist){
+       
+            $insert = $db->prepare('INSERT INTO visitors (ip) VALUES(:ip)');
+            $insert->execute(array('ip'=>$ip_visitor));
+            $insert->closeCursor();
         }
 
-    	return $pass_hash;
-    }
+        $req->closeCursor();
 
+        $count = $db->query('SELECT COUNT(id) AS nb_view FROM visitors');
+        $result = $count->fetch();
+        $nb_view = $result['nb_view'];
+        $count->closeCursor();
+
+        return $nb_view;
+ 
+    }
 
 }

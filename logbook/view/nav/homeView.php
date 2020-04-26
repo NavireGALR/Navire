@@ -7,21 +7,13 @@
 
 <article class="my-5 px-5 col-lg-8 order-lg-2 order-3">
 
-  <?php if(isset($alert)){?>
-    <div class="alert alert-warning mb-5" role="alert">
-        <?= $alert ?>
-    </div>
-  <?php }?>
-  <?php if(isset($alert_ok)){?>
-    <div class="alert alert-success mb-5" role="alert">
-        <?= $alert_ok ?>
-    </div>
-  <?php }?>
+  <?= $alert ?>
+ 
 
   <div class="row justify-content-between">
     <div class="row mx-1">
-      <img src="zressources/images/ancre.png" alt="ancre" class="icon_tittle">
-      <h1>Derniers articles</h1>
+      <img src="zressources/images/ancre.png" alt="ancre" class="icon_title">
+      <h1>Derniers Articles</h1>
     </div>
       <?php if(strlen($add_post_view) >= 1){?>
       <a href="<?= $add_post_view ?>">
@@ -33,23 +25,22 @@
   <?php
     while($post = $posts->fetch()){
   ?>
-        <div class="new_post mx-auto my-lg-5">
-          <div class="tittle_post row align-items-center justify-content-between">
-              <h3><i class="mx-3 material-icons post">explore</i><?= $post['title'] ;?></h3> 
-              <small class="text-muted">par <?= $post['author'] ;?>  le <?= $post['date_post_fr'] ;?> </small>
+        <div class="mx-auto my-lg-5">
+          <div class="title_post my-3 row align-items-center justify-content-between">
+              <h3><i class="mx-3 material-icons post">explore</i><?= $post['title'] ?></h3> 
+              <small class="text-muted">par <?= $post['author'] ?>  le <?= $post['date_post_fr'] ?> </small>
           </div>
-              <p><?= $post['content'] ;?></p>
-              <a class="offset-lg-8" href="index.php?post=<?= $post['id'] ;?>"> Voir les commentaires </a>
-
-              <?php /*if(isset($_SESSION['login']))
-                    {
-                      if($post['author'] == $_SESSION['login'])
-                      {?>
-                        <a href="index.php?action=modif_post&post=<?= $post['id'] ?>">
-                          <button id="modif_post_btn" class="my-lg-0 my-5 btn btn-primary">Modifier l'article</button>
-                        </a>
-                <?php }
-                    } */?>
+    <?php if(isset($_SESSION['login']))
+          {
+            if($post['author'] == $_SESSION['login'])
+            {?>
+              <a href="index.php?action=modif_post&post=<?= $post['id'] ?>">
+                <button id="modif_post_btn" class="btn btn-secondary">Modifier l'article</button>
+              </a>
+      <?php }
+          } ?>
+              <p class="my-3 post_corpus"><?= $post['content'] ?></p>
+              <a class="offset-lg-8" href="index.php?action=post&amp;post=<?= $post['id'] ?>"> Voir les commentaires </a>
         </div>
     
   <?php
@@ -98,9 +89,9 @@
       <p class="card-text">
         <em>Un Logbook</em> (ou journal de bord en français) est un registre dans lequel le capitaine ou les officiers d'un navire, consignent chronologiquement les différents événements, manœuvres, caps et observations.<br/> Ce site est donc mon journal de bord. <br/>Vous y retrouverez :
         <ul>
-          <li><a href="index.php?action=project">Mes différents projets</a></li>
-          <li><a href="index.php?action=resume">Mon CV</a></li>
-          <li><a href="index.php?action=contact">Mes coordonnées</a></li>
+          <li><a href="index.php?action=view&view=project">Mes différents projets</a></li>
+          <li><a href="index.php?action=view&view=resume">Mon CV</a></li>
+          <li><a href="index.php?action=view&view=contact">Mes coordonnées</a></li>
           <li>Des articles pertinents... ou non !</li>
           <li>Mon carnet de voyage</li>  
         </ul>
@@ -108,14 +99,14 @@
       <h2 class="card-title">Hobbies</h2>
       <p class="card-text">
         <ul>
-          <li>Musique: Guitare et MAO -> <a href="index.php?action=project#leNavire">La Menuiserie</a></li>
-          <li>Voyages: Parcourir le monde -> <a href="index.php?action=project#travel">Mes voyages</a></li>
-          <li>Littérature: Lire et écrire -> <a href="index.php?action=project#leNavire">JDR</a></li>
-          <li>L'univers des jeux-vidéos -> <a href="index.php?action=project">AsTeam</a></li>
+          <li>Musique: Guitare et MAO -> <a href="index.php?action=view&view=project#leNavire">La Menuiserie</a></li>
+          <li>Voyages: Parcourir le monde -> <a href="index.php?action=view&view=project#travel">Mes voyages</a></li>
+          <li>Littérature: Lire et écrire -> <a href="index.php?action=view&view=project#leNavire">JDR</a></li>
+          <li>L'univers des jeux-vidéos -> <a href="index.php?action=view&view=project">AsTeam</a></li>
           <li>Natation/Vélo</li>
         </ul>
       </p>
-      <a href="index.php?action=resume" class="btn btn-dark">En savoir plus</a>
+      <a href="index.php?action=view&view=resume" class="btn btn-dark">En savoir plus</a>
     </div>
   </div>
 </aside>

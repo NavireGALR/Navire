@@ -3,7 +3,7 @@
     <div class="row">
 	    <div class="col-lg-12" id="menu">
 	    	<div class="container-fluid">
-		    	<nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between px-4">
+		    	<nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between fixed-top px-4">
 		    		<a class="navbar-brand" href="index.php?action=none"><img src="zressources/images/bateau.png" class="d-inline-block" alt="logo" id="logo_header">Logbook</a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#toggleCollapse" aria-controls="toggleCollapse" aria-expanded="false" aria-label="Toggle navigation">
 				    	<span class="navbar-toggler-icon"></span>
@@ -11,9 +11,9 @@
 				  <div class=" offset-lg-6 collapse navbar-collapse align-items-center mr-auto mt-2 mt-lg-0 justify-content-between" id="toggleCollapse">
 				    <div class="navbar-nav">
 				      <a class="nav-item nav-link" href="index.php?action=none">Accueil</a>
-				      <a class="nav-item nav-link" href="index.php?action=resume">Me recruter</a>
-				      <a class="nav-item nav-link" href="index.php?action=project">Projets</a>
-				      <a class="nav-item nav-link" href="index.php?action=contact">Contact</a>
+				      <a class="nav-item nav-link" href="index.php?action=view&amp;view=resume">Me recruter</a>
+				      <a class="nav-item nav-link" href="index.php?action=view&view=project">Projets</a>
+				      <a class="nav-item nav-link" href="index.php?action=view&view=contact">Contact</a>
 				    </div>
 
 				    <div>

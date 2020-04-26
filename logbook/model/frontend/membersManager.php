@@ -22,45 +22,48 @@ class MemberManager extends Manager
         return $pseudo_exist;    
     }
 
-	public function getInfoMembers($info, $pseudo)
+	public function getMember($pseudo)
     {
         $db = $this->dbConnect();
         $pseudo_exist = $this->checkPseudoExistInDb($pseudo);
 
         if($pseudo_exist){
 
-            if($info == 'id_group'){
-
-                $req = $db->prepare('SELECT m.id_group AS id_group, t.team_name AS group_name
-                                     FROM members AS m
-                                     INNER JOIN team AS t
-                                     ON m.id_group = t.id
-                                     WHERE m.pseudo= :pseudo
-                                    ');
-                $req->execute(array('pseudo'=>$pseudo));
-                $result = $req->fetch();
-
-                return $result['group_name'];
-
-            }else{
-
-                $sqlInfo = 'SELECT '. $info .' FROM members WHERE pseudo="'.$pseudo.'"';
-                $req = $db->prepare($sqlInfo);
-                $req->execute();
-                $result = $req->fetch();
-
-                return $result[$info];
-            }
-        
+            $req = $db->prepare('SELECT * FROM members WHERE pseudo= :pseudo');
+            $req->execute(array('pseudo'=> $pseudo));
+            $infosMember = $req->fetch();
             $req->closeCursor();
+
+            $req = $db->prepare('SELECT m.id_group AS id_group, t.team_name AS group_name
+                                 FROM members AS m
+                                 INNER JOIN team AS t
+                                 ON m.id_group = t.id
+                                 WHERE m.pseudo= :pseudo
+                                ');
+            $req->execute(array('pseudo'=>$pseudo));
+            $result = $req->fetch();
+            $infosMember['group'] = $result['group_name'];
+            $req->closeCursor();
+
+            return $infosMember;
+        
         } else {
             throw new Exception('Ce pseudo n\'existe pas !');
         }
 
         
-    //END GETINFOMEMBER 
+    //END GETMEMBERS
     }
 
+    public function allInfosMembers()
+    {
+        $db = $this->dbConnect();
+
+        $infos = $db->query('SELECT * FROM members');
+
+        return $infos;
+
+    }
 
     public function updateMember($id_member)
     {
@@ -96,7 +99,7 @@ class MemberManager extends Manager
 
         	$pass = $_POST['new_pass1'];
             $confirm_pass = $_POST['new_pass2'];
-            $new_pass = $this->HashPass($pass, $confirm_pass);
+            $new_pass = $loginManager->hashPass($pass, $confirm_pass);
 
             if($pass_ok){
             	$req = $db->prepare('UPDATE members SET pass= :newpass WHERE id= :id');
@@ -147,15 +150,27 @@ class MemberManager extends Manager
     //END updateMember
     }
 
+    public function updateIdGroupMember($id_member, $new_id_group)
+    {
+        $db = $this->dbConnect();
+
+        $req = $db->prepare('UPDATE members SET id_group= :new_id_group WHERE id= :id');
+        $req->execute(array('new_id_group' => $new_id_group,
+                            'id'=>$id_member));
+    }
+
     
     public function insertMembersDb()
     {
             $db = $this->dbConnect();
+
             $signin_ok = false; 
             $secretkey = '6Ld_1-sUAAAAAIfxkaSMPfB3FbFvi9466ukPritX';
-            $manager = new Manager();
+            
             $fileManager = new FileManager();
             $memberManager = new MemberManager();
+            $viewManager = new ViewManager();
+            $loginManager = new LoginManager();
 
             // CHECK IF FORM COMPLETED
             if(isset($_POST['signin'])) 
@@ -183,14 +198,14 @@ class MemberManager extends Manager
                 $pseudo_taken = $this->checkPseudoExistInDb($pseudo_signIn);
                 if($pseudo_taken)
                 {
-                    $_SESSION['alert'] = "Ce pseudo existe déjà !";
+                    $_SESSION['alert'] = $viewManager->alert('Ce pseudo existe déjà', 'warning');
                 }
                 
 
                 //CHECK IF THE FORM IS SWEETLY COMPLETED AND HASH PASSWORD
                 $pass = $_POST['password'];
                 $confirm_pass = $_POST['confirm_password'];
-                $pass_hash= $manager->HashPass($pass, $confirm_pass);
+                $pass_hash= $loginManager->hashPass($pass, $confirm_pass);
 
 
                 //STRIP HTML TAGS AND CHECK IF MAIL OK AND MAIL TAKEN
@@ -207,14 +222,15 @@ class MemberManager extends Manager
                         {
                             if($mail === $result['mail']){
                                 $mail_taken=true;
-                                $_SESSION['alert'] = "Ce mail existe déjà !";
+                                $_SESSION['alert'] = $viewManager->alert('Ce mail existe déjà !', 'warning');
                             } 
                         }
                         $req->closeCursor();
 
                 } else {
                     $mail_ok = false;
-                    $_SESSION['alert'] = "L'adresse mail n'est pas valide !";
+                    $_SESSION['alert'] = $viewManager->alert('L\'adresse mail n\'est pas valide !', 'warning');
+
                 }
 
                 //CHECK IF CITY/COMPANY/CURRENTPOSITION EXIST AND STRIP TAGS
@@ -257,7 +273,8 @@ class MemberManager extends Manager
                     $insert->closeCursor();  
                     $_SESSION['connected'] = true;
                     $_SESSION['login'] = $pseudo_signIn;
-                    $_SESSION['id'] = $memberManager->getInfoMembers('id', $_SESSION['login']);
+                    $infosMember = $memberManager->getMember($_SESSION['login']);
+                    $_SESSION['id'] = $infosMember['id'];
                     $fileManager->addAvatar();
                     $signin_ok = true;    
                 }

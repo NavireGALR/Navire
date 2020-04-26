@@ -4,8 +4,8 @@
 
 <article class="mt-5 px-5 col-lg-8">
 
-	<div class="mb-3 tittle_post row">
-	  <img class="icon_tittle" src="zressources/images/ancre_project.png" alt="ancre">
+	<div class="mb-3 title_post row">
+	  <img class="icon_title" src="zressources/images/ancre_project.png" alt="ancre">
 	  <h1>Me Recruter</h1>
 	</div>
 
@@ -129,6 +129,10 @@
 		            <img src="zressources/images/lm.png" alt="lm">
 		        </div>
 		    </a>
+		    <?php 
+		    if(isset($_SESSION['connected']) AND $_SESSION['connected']) 
+			{
+    		?> 
 		    <a href="zressources/docs/lr1.pdf" target="_blank">
 		        <div class="link_dl p-2 m-3 row align-items-center justify-content-between">
 		            Lettre de reco. école
@@ -138,9 +142,19 @@
 		    <a href="zressources/docs/lr2.pdf" target="_blank">
 		        <div class="link_dl p-2 m-3 row align-items-center justify-content-between">
 		            Lettre de reco. pro
-		            <img src="zressources/images/lr2.png" alt="lr2">
+		            <img src="zressources/images/lr2.png" alt="lr">
 		        </div>
 		    </a>
+		    <?php
+			}else { ?>
+			<a href="index.php?action=login">
+		    	<div class="link_dl p-2 m-3 row">
+		            Connexion requise pour télécharger les lettres de reco.
+		        </div>
+	        </a>
+	        <?php
+	    	}
+	    	?>
 
 		    <h2 class="card-title">Mon Parcours</h2>
 		    <div class="table-responsive">
@@ -193,7 +207,7 @@
 	
 	<div class="my-4 col-lg-6 resume_text">
 		<h4>Une appétence pour le web</h4>
-		Je suis d'une génération qui a grandi avec internet. Dès le collège je m'amusais sur l'ordinateur familial à faire tourner <em>des petits logiciels en C</em> grâce à ce que j'apprenais sur le site du zéro (aujourd'hui devenu <a href="https://openclassrooms.com/fr">openclassroom</a>).<br/><br/>Toujours à l’affût des nouveautés sur les forums, j'y ai rapidement développé mon anglais et des capacités de rédaction. J'ai poursuivi un BAC scientifique, poussé par mon appétence pour le développement informatique et les nouvelles technologies. Les aléas de la vie m'ont finalement détourné de cette voie et j'ai poursuivi des études commerciales... <br/><br/><em>Ma passion pour le web et le développement ne m'a pourtant pas lâché</em>. J'ai ainsi beaucoup appris en autodidacte et ai parfois pu mettre ces compétences au service de ma précédente entreprise dans le cadre du bon déploiement du parc informatique. <br/>Suite à cette expérience, j'ai entamé <em>la conception de ma propre application mobile</em> ; vous pouvez d'ailleurs retrouver plus d'informations sur ce projet sur la page dédiée : <a href="index.php?action=project">AsTeam</a>.
+		Je suis d'une génération qui a grandi avec internet. Dès le collège je m'amusais sur l'ordinateur familial à faire tourner <em>des petits logiciels en C</em> grâce à ce que j'apprenais sur le site du zéro (aujourd'hui devenu <a href="https://openclassrooms.com/fr">openclassroom</a>).<br/><br/>Toujours à l’affût des nouveautés sur les forums, j'y ai rapidement développé mon anglais et des capacités de rédaction. J'ai poursuivi un BAC scientifique, poussé par mon appétence pour le développement informatique et les nouvelles technologies. Les aléas de la vie m'ont finalement détourné de cette voie et j'ai poursuivi des études commerciales... <br/><br/><em>Ma passion pour le web et le développement ne m'a pourtant pas lâché</em>. J'ai ainsi beaucoup appris en autodidacte et ai parfois pu mettre ces compétences au service de ma précédente entreprise dans le cadre du bon déploiement du parc informatique. <br/>Suite à cette expérience, j'ai entamé <em>la conception de ma propre application mobile</em> ; vous pouvez d'ailleurs retrouver plus d'informations sur ce projet sur la page dédiée : <a href="index.php?action=view&view=project">AsTeam</a>.
 	</div>
 	<div class="my-4 col-lg-6 resume_text">
 		<h4>Une expérience enrichissante</h4>

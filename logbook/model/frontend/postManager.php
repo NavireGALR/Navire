@@ -105,26 +105,32 @@ class PostManager extends Manager
 
 	}
 
-	/*public function updatePostToDb($id)
+	public function updatePostToDb($id)
 	{
 		$db = $this->dbConnect();
         $id_post = $id;
         $content = nl2br(strip_tags($_POST['content_post_modif']));
         $title = strip_tags($_POST['title_modif']);
+
+        if(isset($_POST['del_post'])) {
+
+        	$suppr = $db->prepare('DELETE FROM posts WHERE id=:id');
+	        $suppr->execute(array('id' => $id_post));
+	        $suppr->closeCursor();
+
+        }else{
            
-        $insert = $db->prepare('UPDATE posts SET title=:title, content=:content WHERE id=:id');
-        $insert->execute(array(
-                        'title'=> $title,
-                        'content'=> $content, 
-                        'id' => $id_post
-                    ));
+	        $insert = $db->prepare('UPDATE posts SET title=:title, content=:content WHERE id=:id');
+	        $insert->execute(array(
+	                        'title'=> $title,
+	                        'content'=> $content, 
+	                        'id' => $id_post
+	                    ));
 
-        $insert->closeCursor();
-    	$post_modified=true;
+	        $insert->closeCursor();
+        }
 
-        return $post_modified;
-
-	}*/
+	}
 
 
 // END CLASS

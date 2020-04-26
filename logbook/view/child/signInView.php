@@ -6,14 +6,11 @@
 
 <article class="offset-lg-1 col-lg-10">
 
-  <?php if(isset($alert)){?>
-    <div class="alert alert-danger my-3" role="alert">
-        <?= $alert ?>
-    </div>
-  <?php }?>
+  <?= $alert ?>
+    
 
   <div class="mx-2 row">
-    <img src="zressources/images/ancre.png" alt="ancre" class="icon_tittle">
+    <img src="zressources/images/ancre.png" alt="ancre" class="icon_title">
     <h1> S'enregistrer </h1>
   </div>
 
@@ -21,13 +18,13 @@
     <h3 class="alert-heading"> Toujours plus de sécurité </h3>
     <p>Bonjour et merci de prendre le temps de vous enregistrer sur ce site !<br/>Ce site est toujours en cours de développement. Pour cette raison les adresses emails ne sont pas vérifiées. De même aucun cookie ne sera enregistré sur votre navigateur. Vos mots de passe sont néanmoins cryptés et ce site met tout en oeuvre pour assurer la sécurité de vos données!</p>
     <hr>
-    <p class="mb-0">Malgré tout, il est possible qu'il subsiste des failles.<br/> Ainsi il peut être judicieux de ne pas enregistrer votre adresse mail principale et/ou professionnelle... !</p>
+    <p class="mb-0">Malgré tout, il est recommandé de ne pas enregistrer votre adresse mail professionnelle</p>
   </div>
   <div class="alert alert-warning my-3" role="alert">
    Les champs marqués d'un * sont obligatoires.
   </div>
 
-  <form action="index.php?action=signin" method="post" class="my-5">
+  <form action="index.php?action=signin&signin=ok" method="post" class="my-5">
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="pseudo">Pseudo* : </label>

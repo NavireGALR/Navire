@@ -5,7 +5,6 @@ require_once("model/manager.php");
 class LoginManager extends Manager
 {
 
-
     public function checkPassOk($pass, $login)
     {
 
@@ -27,6 +26,16 @@ class LoginManager extends Manager
             return $user_ok;    
     }
 
+    public function hashPass($pass, $confirm_pass)
+    {
+        if($pass == $confirm_pass) {
+                $pass_hash = password_hash($pass, PASSWORD_DEFAULT);
+        }else {
+            throw new Exception('Les mots de passes ne correspondent pas');
+        }
+
+        return $pass_hash;
+    }
 
     public function eraseData()
     {

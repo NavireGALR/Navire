@@ -3,6 +3,11 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="zressources/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="zressources/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="zressources/favicon/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
         <!-- reCaptcha Google -->
         <script src="https://www.google.com/recaptcha/api.js?"></script>
         <!-- script JS -->
@@ -21,7 +26,7 @@
         
     <body class="container-fluid">
         <header class="row">
-            <?php require('frontend/headerView.php'); ?>
+            <?php require('headerView.php'); ?>
         </header>
         
 
@@ -30,7 +35,7 @@
         </section>
         
         <footer class="row mt-5 justify-content-around">
-             <?php require('frontend/footerView.php'); ?>
+             <?php require('footerView.php'); ?>
         </footer>
     </body>
 </html>

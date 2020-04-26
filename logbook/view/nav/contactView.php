@@ -4,11 +4,8 @@
 
 <article class="offset-lg-1 col-lg-6 order-lg-first order-last">
 
-<?php if(isset($alert_ok)){?>
-    <div class="alert alert-success my-3" role="alert">
-        <?= $alert_ok ?>
-    </div>
-  <?php }?>
+<?= $alert ?>
+
 
   <form method="post" action="index.php?action=mailto">
           <h2>Formulaire de contact</h2>
@@ -27,17 +24,17 @@
               <label for="objet">Objet de votre demande de contact * :</label>
               <select class="form-control" name="objet" id="objet">
                   <optgroup label="Me recruter">
-                      <option value="recontact">Être recontacté</option>
-                      <option value="entretien" selected>Proposer un entretien</option>
+                      <option value="être recontacté">Être recontacté</option>
+                      <option value="proposition d'entretien" selected>Proposer un entretien</option>
                   </optgroup>
                   <optgroup label="Logbook">
-                      <option value="group">Demander à devenir rédacteur ou admin de logbook</option>
-                      <option value="discord">Demander le discord du navire</option>
-                      <option value="github">Demander l'accés au dossier 'model' du github </option>
+                      <option value="Devenir rédacteur">Demander à devenir rédacteur du logbook</option>
+                      <option value="Rejoindre le discord">Demander le discord du navire</option>
+                      <option value="Accès Github"> En savoir plus sur le GitHub </option>
                   </optgroup>
                   <optgroup label="Autre">
-                      <option value="amelioration">Proposer une amélioration pour ce site</option>
-                      <option value="autre">Autre...</option>
+                      <option value="Amélioration">Proposer une amélioration pour ce site</option>
+                      <option value="Autre">Autre...</option>
                   </optgroup>
               </select>
           </div>
@@ -63,7 +60,7 @@
         </a>
       </div>
       <div class="col-lg-1 col-3">
-        <a href="https://twitter.com/BasThaura" target="_blank">
+        <a href="https://twitter.com/EderCaptain" target="_blank">
           <img class="icon" src="zressources/images/twitter.png" alt="twitter"/>       
         </a>
       </div>

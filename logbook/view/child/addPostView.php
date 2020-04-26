@@ -4,7 +4,7 @@
 
 <article class="offset-lg-2 col-lg-8">
 
-  <form action="index.php?action=add_new_post" method="post" id="form_post">
+  <form action="index.php?action=add_post&add=ok" method="post" id="form_post">
     <div class="form-group">
       <label for="title">Titre de l'article : </label>
       <input type="text" name="title" id="title" class="form-control" required>
