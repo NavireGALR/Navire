@@ -114,9 +114,9 @@
                   <li>Tout le monde veut s'emparer du pouvoir du démon</li>
                   <li>Rak souhaite conquérir le monde et possède des pouvoirs de téléportation immense.</li>
                   <li>Il est impossible pour les aventuriers de pouvoir concurrencer Rak sur le plan économique. Son pouvoir le rend extrêmement efficient. <em>Il n'est pas roi d'Orion pour rien !</em></li>
-                  <li>Les aventuriers, s'ils ils la rejoignent, ne pourront quitter la Mangroove à cause des pouvoirs du roi Rak</li>
+                  <li>Les aventuriers, s'ils la rejoignent, ne pourront quitter la Mangroove à cause des pouvoirs du roi Rak</li>
                   <li>Les aventuriers ne peuvent quitter tous ensemble le royaume de l'Est</li>
-                  <li>Un des mystères est <em>"Comment affaiblir et d'ou viennent les pouvoir du roi Rak ?"</em></li>
+                  <li>Un des mystères est <em>"Comment affaiblir et d'où viennent les pouvoirs du roi Rak ?"</em></li>
                 </ul>
 
                 <h4>Gameplay</h4>
@@ -127,7 +127,7 @@
                   <li><em>Un jet inférieur à 6</em> impose maintenant une contrariété mais n'inverse pas le Ton du roi Rak</li>
                   <li><em>Un jet supérieur à 8</em> épuise désormais la magie de l'aventurier. Il doit effectuer de nouveau un jet supérieur à 8 pour se reposer.</li>
                   <li>Les égalités sont toujours des contrariétés mais celles-ci <em>inversent le Ton du roi Rak</em></li>
-                  <li>Les morales et mystères restent inchangé.</li>
+                  <li>Les morales et mystères restent inchangés.</li>
                   <li>Nouvelle phase : <em>La phase de répit.</em>
                   <br/>Durant cette phase, il n'y a pas de tonnerre, les joueurs doivent incarner leurs personnages et évoquer leurs histoires. Ils se reposent automatiquement et peuvent en apprendre plus les uns des autres. C'est une phase de réflexion ou chacun peut lancer les dés comme bon lui semble. Les égalités font basculer le ton du roi Rak. Il n'a pas de contrariété. C'est au joueur au MJ de changer la phase en :
                     <ol>
@@ -140,14 +140,14 @@
               
               <h3>Résumé de la première saison </h3>
               <p class="text_project">
-     &emsp; &emsp;<em>Edwige, Kopala, Negga, Hanushul et son dragon, le Koon et Galixchibre</em> ont fui l'empire d'Orion pour se réfugier au royaume de l'est. Ils ont dû passer par les <em>Mangrooves</em> et ont ainsi affronté les sbires de la Reine Vraska qui les attendaient de pied ferme au temple de l'arbre aux milles pieds. 
- <br/> &emsp; &emsp; En effet, celle-ci défendaient son territoire et les lieux magiques qui s'y trouvaient. C'était, bien sûr, sans compter sur les pouvoirs du Koon et de Hanushul qui les terrassa aussitôt. C'est à ce moment là que décida Alduin (<em>un roi dragon!</em>) du royaume de bordeciel pour téléporter nos amis dans son enfer. <em>Une épidémie y sévissait</em> et nos amis, grâce à Edwige et ses pouvoirs de guérison, ont ainsi usé d'inventivité pour survivre et sauver les habitants du royaume du Nord. Leurs exploits leurs ont permis de dompter Alduin et c'est sur son dos qu'ils repartirent en direction du temple. Un an passa et nos aventuriers purent ainsi faire plus ample connaissance.
+     &emsp; &emsp;<em>Edwige, Kopala, Negga, Hanushul et son dragon, le Koon et Galixchibre</em> ont fuit l'empire d'Orion pour se réfugier au royaume de l'est. Ils ont dû passer par les <em>Mangrooves</em> et ont ainsi affronté les sbires de la Reine Vraska qui les attendaient de pied ferme au temple de l'arbre aux mille pieds. 
+ <br/> &emsp; &emsp; En effet, celle-ci défendait son territoire et les lieux magiques qui s'y trouvaient. C'était, bien sûr, sans compter sur les pouvoirs du Koon et de Hanushul qui les terrassa aussitôt. C'est à ce moment là que décida Alduin (<em>un roi dragon!</em>) du royaume de bordeciel pour téléporter nos amis dans son enfer. <em>Une épidémie y sévissait</em> et nos amis, grâce à Edwige et ses pouvoirs de guérison, ont ainsi usé d'inventivité pour survivre et sauver les habitants du royaume du Nord. Leurs exploits leur ont permis de dompter Alduin et c'est sur son dos qu'ils repartirent en direction du temple. Un an passa et nos aventuriers purent ainsi faire plus ample connaissance.
 <br/>
-   &emsp; &emsp;  De nouveau au temple de l'arbre aux milles pieds, les aventuriers investirent le temple, et <em>libérèrent le démon qui s'y trouvait.</em> La ruse de Kopala leur permis de le faire asservir par une fée rencontrée sur le chemin qui les eu rejoints dans leurs périple. La dame sans nom fut terrasser par Alduin pendant que Negga libérait les prisonniers de la reine vraska. Afin de se venger, <em>Kopala fit oublier toute son existence à la reine et prit le contrôle du royaume de l'Est.</em>
+   &emsp; &emsp;  De nouveau au temple de l'arbre aux mille pieds, les aventuriers investirent le temple, et <em>libérèrent le démon qui s'y trouvait.</em> La ruse de Kopala leur permis de le faire asservir par une fée rencontrée sur le chemin qui les a rejoints dans leurs périple. La dame sans nom fut terrassée par Alduin pendant que Negga libérait les prisonniers de la reine Vraska. Afin de se venger, <em>Kopala fit oublier toute son existence à la reine et prit le contrôle du royaume de l'Est.</em>
 <br/>
-    &emsp; &emsp; <em>Fort d'un démon, d'une fée, d'un nouveau dragon et d'une armée entière,</em> nos aventuriers décidèrent d'attaquer le royaume d'Orion. Mais le roi Rak était préparé et décima les navires de nos alliés à l'aide de ses pouvoirs magiques. Fou de rage, Galixchibre usa  de sa dextérité et de ses manœuvres de combat pour terrasser à lui seul l'armée d'Orion. Kopala en profita pour créer un <em>SUPRACANON</em> leur permettant de creuser un chemin jusqu'au palais du Roi. 
+    &emsp; &emsp; <em>Fort d'un démon, d'une fée, d'un nouveau dragon et d'une armée entière,</em> nos aventuriers décidèrent d'attaquer le royaume d'Orion. Mais le roi Rak était préparé et décima les navires de nos alliés à l'aide de ses pouvoirs magiques. Fou de rage, Galixchibre usa  de sa dextérité et de manœuvres de combat pour terrasser à lui seul l'armée d'Orion. Kopala en profita pour créer un <em>SUPRACANON</em> leur permettant de creuser un chemin jusqu'au palais du Roi. 
 <br/>
-    &emsp; &emsp; Negga voulant prouver sa valeur, chevaucha mer et terre dans l'unique optique de se moquer du roi, montrant ainsi toute l'étendue de sa puissance. Celui-ci apeuré, dressa des barrières magiques dans son sanctuaire, que seul Galixchibre parvint à contourner. Sa cécité lui fit défaut et il tomba dans le piège du roi, qui profitant du répit, <em>téléporta l'intégralité de notre compagnie d'aventurier à l'autre bout du monde</em>:  au fin fond du royaume de l'Est. Galxchibre est maintenant prisonnier et le roi Rak, rageur, est maintenant décidé à conquérir ce monde une bonne fois pour toute.
+    &emsp; &emsp; Negga voulant prouver sa valeur, chevaucha mer et terre dans l'unique optique de se moquer du roi, montrant ainsi toute l'étendue de sa puissance. Celui-ci, apeuré, dressa des barrières magiques dans son sanctuaire, que seul Galixchibre parvint à contourner. Sa cécité lui fit défaut et il tomba dans le piège du roi, qui profitant du répit, <em>téléporta l'intégralité de notre compagnie d'aventuriers à l'autre bout du monde</em>:  au fin fond du royaume de l'Est. Galxchibre est maintenant prisonnier et le roi Rak, rageur, est maintenant décidé à conquérir ce monde une bonne fois pour toute.
               </p>  
             </div>
             <div class="tab-pane fade" id="music" role="tabpanel" aria-labelledby="list-music">

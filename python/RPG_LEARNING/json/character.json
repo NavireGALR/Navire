@@ -1,0 +1,53 @@
+[
+  {
+    "legend": "Warrior",
+    "slogan": "I'm as stupid as it seems",
+    "img_url": "img/warrior.png",
+    "STR": 120,
+    "STR_mod": 2,
+    "DEX": 80,
+    "DEX_mod": 2,
+    "CON": 150,
+    "CON_mod": 5,
+    "INT": 80,
+    "INT_mod": 1,
+    "Skill_1": "AXE",
+    "Skill_2": "SHIELD" 
+   
+  },
+
+  {
+    "legend": "Sorceler",
+    "slogan": "I'm NOT as stupid as it seems",
+    "img_url": "img/mage.png",
+    "STR": 80,
+    "STR_mod": 1,
+    "DEX": 80,
+    "DEX_mod": 2,
+    "CON": 120,
+    "CON_mod": 2,
+    "INT": 150,
+    "INT_mod": 5,
+    "Skill_1": "FIREBALL",
+    "Skill_2": "HEAL" 
+   
+  },
+
+  {
+    "legend": "Thief",
+    "slogan": "Always a lot of bullshit",
+    "img_url": "img/thief.png",
+    "STR": 80,
+    "STR_mod": 1,
+    "DEX": 150,
+    "DEX_mod": 5,
+    "CON": 120,
+    "CON_mod": 2,
+    "INT": 80,
+    "INT_mod": 2,
+    "Skill_1": "AMBIDEXTRY",
+    "Skill_2": "STEALTH" 
+   
+  }
+
+]

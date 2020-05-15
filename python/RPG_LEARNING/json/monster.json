@@ -1,0 +1,39 @@
+[
+   
+  {
+    "legend": "Warrior",
+    "name": "Boloss",
+    "slogan": "I'm as stupid as it seems",
+    "img_url": "img/boloss.png",
+    "STR": 60,
+    "STR_mod": 5,
+    "DEX": 50,
+    "DEX_mod": 2,
+    "CON": 50,
+    "CON_mod": 2,
+    "INT": 40,
+    "INT_mod": 2,
+    "Skill_1": "AXE",
+    "Skill_2": "FALL" 
+   
+  },
+
+  {
+    "legend": "Sorceler",
+    "name": "Letrange",
+    "slogan": "I'm NOT as stupid as it seems",
+    "img_url": "img/letrange.png",
+    "STR": 40,
+    "STR_mod": 2,
+    "DEX": 40,
+    "DEX_mod": 2,
+    "CON": 50,
+    "CON_mod": 2,
+    "INT": 60,
+    "INT_mod": 5,
+    "Skill_1": "CURSE",
+    "Skill_2": "HEAL" 
+   
+  }
+
+]
