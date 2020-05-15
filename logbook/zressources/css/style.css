@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:wght@300&display=swap');
+
+
+/******** CSS GENERAL ********/
+
+body 
+{
+	color: black;
+ 	background-image: url(../images/fond.png);
+}
+
+.navbar { background-image: url(../images/background_header.jpg); }
+
+.navbar-brand
+{
+	font-family: 'Cormorant', serif;
+	text-transform: uppercase;
+}
+
+#img_header
+{
+ 	width: 100%;
+ 	box-shadow: 2px 2px 3px grey;
+
+}
+
+#logo_header
+{
+	height: 60px;
+	width: 60px;
+	margin-right: 1em;
+}
+
+#avatar_header
+{
+	height : 42px ;
+	width: 42px;
+}
+
+.icon_title
+{
+	height: 42px;
+	width: 42px;
+	margin-right: 1em;
+}
+
+section { margin-top: 5em; }
+
+article, aside { margin-top: 3em; }
+
+footer
+{
+	background-image: url(../images/background_header.jpg);
+	color: white;
+}
+
+h1, h2, h3
+{
+	font-family: 'Cormorant', serif;
+	font-size: 2em;
+}
+
+.title_post, h2 { border-bottom: 2px solid #01665e; }
+
+h4
+{
+	font-family: 'Cormorant', serif;
+	font-size: 1.3em;
+}
+
+em
+{
+	font-style: normal;
+	color: #01665e;
+}
+
+footer li { list-style-type: circle; }
+
+.icon
+{
+	width: 33px;
+	height: 33px;
+}
+
+.quote
+{
+	font-family: 'Cormorant', serif;
+	font-style: italic;
+}
+
+
+
+
+/******** CSS PROJECT ********/
+
+.i_project
+{
+	width: 300px;
+	height: 250px;
+	float: left;
+	border-radius: 15px;
+}
+
+.text_project { text-align: justify; }
+
+#list_progress li
+{
+	list-style: none;
+	text-transform: uppercase;
+	font-style: 0.9em;
+}
+
+
+
+
+
+/******** CSS RESUME ********/
+
+.resume_text { text-align: justify; }
+
+.material-icons.success { color: #12BD5B; }
+.material-icons.success2 { color: #B65500; }
+
+.management .progress { background-color: #B65500 !important; }
+
+.link_dl { text-transform: uppercase; }
+
+.table { text-align: center; }
+
+.resume_text .progress
+{
+	background-color: #01665e !important;
+	width: 66%;
+}
+
+
+
+/******** CSS HOMEVIEW ********/
+
+.material-icons.post { color: #8f5834; }
+
+.post_corpus
+{
+	text-align: justify;
+}
+
+/* Add/modif post */
+
+#content_post
+{
+	height: 300px;
+	width: 100%;
+	resize: none;
+}
+
+/* Comment */
+
+.comment  > p
+{
+	border: 1px solid brown;
+}
+
+#send_comment
+{
+	margin-left: auto;
+	margin-right: auto;
+	color: brown;
+}
+
+#send_comment textarea
+{
+	height: 100px;
+	width: 100%;
+	resize: none;
+}
+
+.comment p:first-child
+{
+	color: teal;
+	border: 1px solid teal;
+}
+
+
+/******** CSS PROFIL ********/
+
+.info_profil
+{
+	text-transform: uppercase;
+}
+
+
+/******** CSS PROFIL ********/
+
+#form_updategroup
+{
+	border: 1px solid brown;
+}
+
+
+/******** CSS CONTACT ********/
+
+#message
+{
+	resize: none;
+	height: 200px;
+}
+
+
+
+
+

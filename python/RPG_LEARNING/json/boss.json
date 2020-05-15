@@ -1,0 +1,19 @@
+[
+  {
+    "legend": "Warrior",
+    "name": "Boss 1",
+    "slogan": "I'm as stupid as it seems",
+    "img_url": "img/boss.png",
+    "STR": 100,
+    "STR_mod": 5,
+    "DEX": 100,
+    "DEX_mod": 5,
+    "CON": 100,
+    "CON_mod": 5,
+    "INT": 100,
+    "INT_mod": 5,
+    "Skill_1": "AXE",
+    "Skill_2": "FALL" 
+   
+  }
+]
