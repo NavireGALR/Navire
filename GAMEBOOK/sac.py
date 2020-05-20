@@ -14,6 +14,7 @@ class Sac(object):
 		caract = Caract()
 		self.nb_places = 0
 		self.ressources = caract.ressources
+		self.attr_ressources = caract.attr[1]
 
 	def ouvrir(self):
 		self.OUVERT = True
