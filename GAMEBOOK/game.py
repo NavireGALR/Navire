@@ -6,5 +6,3 @@ ingame = int(input())
 
 while ingame:
 	fenetre = pygame.display.set_mode((640, 480))
-
-test
