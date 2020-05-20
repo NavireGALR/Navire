@@ -7,7 +7,7 @@ cote_fenetre = nombre_sprite_cote * taille_sprite
 
 #Personnalisation de la fenêtre
 titre_fenetre = "Jeu Navire"
-image_icone = "images/perso_droite.png"
+image_icone = "images/moi_droite.png"
 
 #Listes des images du jeu
 image_accueil = "images/accueil.png"

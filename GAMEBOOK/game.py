@@ -6,7 +6,6 @@ from foret import *
 from personnage import *
 
 pygame.init()
-ingame = int(input())
 
 #Ouverture de la fenêtre Pygame (carré : largeur = hauteur)
 fenetre = pygame.display.set_mode((cote_fenetre, cote_fenetre))
@@ -48,10 +47,8 @@ while continuer:
 				choix = 0
 				
 			elif event.type == KEYDOWN:				
-				#Lancement du jeu
-				if event.key == K_BACKSPACE:
-					continuer_accueil = 0	#On quitte l'accueil
-					choix = 'jeu'		#On définit le niveau à charger
+				continuer_accueil = 0	#On quitte l'accueil
+				choix = 'jeu'		#On définit le niveau à charger
 			
 		
 

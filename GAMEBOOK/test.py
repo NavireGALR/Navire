@@ -19,10 +19,7 @@ else:
 objet = ekawa.sac.pop_objet(carotte)
 seb.sac.ajouter_objet(objet)
 
-
-if carotte in seb.sac.liste_objet and carotte not in ekawa.sac.liste_objet:
-	print('gg')
-else:
-	print('un truc cloche')
+a = ekawa.sac.liste_objet
+print()
 
 
