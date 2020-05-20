@@ -1,0 +1,19 @@
+[
+  {
+    "vie": 0,
+    "force": 0,
+    "ATQ": 0,
+    "res": 0,
+    "vitesse_recolte": 0,
+    "vitesse_craft": 0,
+    "vitesse_move": 0,
+    "faim": 0,
+    "regen_faim": 0,
+    "hydratation":0,
+    "regen_hydratation": 0,
+    "xp": 0,
+    "level": 0,
+   
+  },
+
+]
