@@ -13,7 +13,7 @@ JEU SURVIE
 	- get_xp()
 	- up()
 
-class Monstres(character)
+#class Monstres(character)
 	pass
 
 #class Sac
@@ -66,7 +66,7 @@ class Biomes (Terrain)
 	- Ciel
 
 class Action
-	- se déplacer
+	
 	- récolter
 	- manger
 	- boire
@@ -79,6 +79,7 @@ class Heure
 
 
 class Affichage
+	- se déplacer
 	pass
 
 
