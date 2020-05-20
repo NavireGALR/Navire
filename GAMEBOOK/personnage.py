@@ -1,15 +1,17 @@
 from parser import Parser
+from caract import Caract
 
 class Personnage(object):
 	"""Décrit les caractéristiques et actions d'un personnage
 	joueur ou non-joueur
 
-	init : 
+	init : attributs level et sac
 
 	"""
 
 	DIE = 1
 
+<<<<<<< HEAD
 	def __init__(self ,droite, gauche, haut, bas, niveau):
 		"""self.caract = Parser.caract_from_json('caract.json')
 		self.level = 0
@@ -46,6 +48,33 @@ class Personnage(object):
 					self.x = self.case_x * taille_sprite
 			#Image dans la bonne direction
 			self.direction = self.droite
+=======
+	def __init__(self):
+		caract = Caract()
+		self.attr = caract.attr
+		self.sac = Sac()
+
+
+
+class Joueur(Personnage):
+	"""Décrit les caractéristiques et actions d'un personnage
+	joueur 
+
+	init : 
+
+	"""
+
+	def __init__(self):
+		super().__init__()
+
+	def get_xp(self, xp_gagne)
+		self.attr['xp'] += xp_gagne
+	
+	def up(self)
+		self.attr['level'] += 1
+		self.attr['xp'] = 0
+
+>>>>>>> 7c1ecd34e9d89892267cd87582ccd5d99533adf9
 		
 		#Déplacement vers la gauche
 		if direction == 'gauche':

@@ -1,12 +1,19 @@
-from parser import Parser
+from caract import Caract
 
 
 class Sac(object):
+	"""SAC, réprésente l'objec SAC
+	init : ressources, nb_places
+	ouvrir : ouvert to TRUE
+	fermer : ouvert to FALSE
+	choisir objet : retourne l'objet selectionné 
+	"""
 	OUVERT = False
-	"""docstring for ClassName"""
+
 	def __init__(self):
-		self.place = 0
-		self.ressouces = Parser.caract_from_json('ressources.json')
+		caract = Caract()
+		self.nb_places = 0
+		self.ressources = caract.ressources
 
 	def ouvrir(self):
 		self.OUVERT = True
@@ -14,9 +21,11 @@ class Sac(object):
 	def fermer(self):
 		self.OUVERT = False
 
-	def choisir_objet(self, id_objet, nb_objet):
+	def choisir_objet(self, objet, nb_objet):
 		if nb_objet <= self.ressources[id_object]:
-			objet_choisi = {id_object,nb_objet}
+			objet_choisi = {objet,nb_objet}
+		else:
+			objet_choisi = {objet,self.ressources[id_object]}
 		return objet_choisi
 
 	

@@ -1,12 +1,12 @@
 JEU SURVIE
 
-class Character
+#class Character
 	- /Sac
 	- /Caractéristiques
 	- level
 	- die()
 
-class Joueur(character)
+#class Joueur(character)
 	- niveau de bouffe
 	- niveau d'hydratation
 	- xp
@@ -16,7 +16,7 @@ class Joueur(character)
 class Monstres(character)
 	pass
 
-class Sac
+#class Sac
 	- /Ressources
 	- /Caractéristiques.bonus
 	- ouvrir()

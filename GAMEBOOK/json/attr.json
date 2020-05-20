@@ -9,6 +9,10 @@
     "vitesse_move": 0,
     "faim": 0,
     "regen_faim": 0,
+    "hydratation":0,
+    "regen_hydratation": 0,
+    "xp": 0,
+    "level": 0,
    
   },
 
