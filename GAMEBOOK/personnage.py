@@ -1,5 +1,7 @@
-from parser import Parser
-from caract import Caract
+import pygame
+from pygame.locals import * 
+from constantes import *
+"""from caract import Caract"""
 
 class Personnage(object):
 	"""Décrit les caractéristiques et actions d'un personnage
@@ -31,10 +33,8 @@ class Personnage(object):
 		#Niveau dans lequel le personnage se trouve 
 		self.niveau = niveau
 
-
-		def deplacer(self, direction):
+	def deplacer(self, direction):
 		"""Methode permettant de déplacer le personnage"""
-		
 		#Déplacement vers la droite
 		if direction == 'droite':
 			#Pour ne pas dépasser l'écran

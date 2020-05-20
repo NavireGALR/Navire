@@ -36,7 +36,7 @@ class Foret:
 		"""Méthode permettant d'afficher le niveau en fonction 
 		de la liste de structure renvoyée par generer()"""
 		#Chargement des images (seule celle d'arrivée contient de la transparence)
-		bois = pygame.image.load(image_bois).convert()
+		bois = pygame.image.load(image_bois).convert_alpha()
 		debut = pygame.image.load(image_debut).convert()
 		mort = pygame.image.load(image_mort).convert_alpha()
 		
