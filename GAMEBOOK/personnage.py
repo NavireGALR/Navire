@@ -14,6 +14,7 @@ class Personnage(object):
 		self.caract = Parser.caract_from_json('caract.json')
 		self.level = 0
 		self.sac = Sac()
+		
 
 
 
