@@ -1,0 +1,84 @@
+JEU SURVIE
+
+class Character
+	- /Sac
+	- /Caractéristiques
+	- level
+	- die()
+
+class Joueur(character)
+	- niveau de bouffe
+	- niveau d'hydratation
+	- xp
+	- get_xp()
+	- up()
+
+class Monstres(character)
+	pass
+
+class Sac
+	- /Ressources
+	- /Caractéristiques.bonus
+	- ouvrir()
+	- fermer()
+	- choisirObjet()
+
+class abstract Equipement
+	class Armures(Equipement)
+		- /Caractéristiques.protection
+		- /Caractéristiques.bonus
+	class Armes(Equipement)
+		- /Caractéristiques.dégats
+		- /Caractéristiques.bonus
+	class Outils(Equipement)
+		- /Caractéristiques.vitesse
+		- /Caractéristiques.bonus
+
+class Caractéristiques
+	- vie 
+	- force
+	- dégats
+	- protection
+	- vitesse 
+		-récolte
+		-fabrication
+	- regen par bouffe
+	- bonus
+	
+class Terrain
+	- /Ressources
+	- /Monstres
+
+class Ressources
+	- Bois
+	- Eau
+	- Bouffe
+	- Minerai
+	- ...
+
+class Biomes (Terrain)
+	- Sable
+	- Lac
+	- Forêt
+	- Montagne
+	- Mine
+	- Donjon
+	- Ciel
+
+class Action
+	- se déplacer
+	- récolter
+	- manger
+	- boire
+	- utiliser
+	- fabriquer
+
+class Heure
+	- Nuit
+	- Jour
+
+
+class Affichage
+	pass
+
+
