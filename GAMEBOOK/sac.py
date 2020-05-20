@@ -15,6 +15,8 @@ class Sac(object):
 		self.OUVERT = False
 
 	def choisir_objet(self, id_objet, nb_objet):
-		objet_choisi = self.ressources[id_objet]
+		if nb_objet <= self.ressources[id_object]:
+			objet_choisi = {id_object,nb_objet}
+		return objet_choisi
 
-		
+	
