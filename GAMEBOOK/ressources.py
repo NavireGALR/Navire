@@ -1,13 +1,15 @@
 from caract import Caract
 
-class Ressources(object):
+class Ressource(object):
 	"""docstring for Ressources"""
 
-	caract = Caract()
-	ALL = caract.ressources
-	
 	def __init__(self, name):
 		caract = Caract()
 		self.attr = caract.attr_ressources
 		self.name = name
 		self.value = self.attr[name]
+		self.nb = 0
+
+	def stack(self,nb):
+		for i in range(1,nb):
+			self.nb += 1

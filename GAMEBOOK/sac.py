@@ -12,21 +12,34 @@ class Sac(object):
 
 	def __init__(self):
 		caract = Caract()
-		self.nb_places = 0
-		self.ressources = caract.ressources
-		self.attr_ressources = caract.attr[1]
-
+		self.liste_objet = []
+		self.attr = caract.attr_sac
+		
 	def ouvrir(self):
 		self.OUVERT = True
 
 	def fermer(self):
 		self.OUVERT = False
 
-	def choisir_objet(self, objet, nb_objet):
-		if nb_objet <= self.ressources[id_object]:
-			objet_choisi = {objet,nb_objet}
+	def pop_objet(self, objet, nombre=1):
+		if objet in self.liste_objet:
+			objet.nb -= nombre
+			objet_choisi = objet
+			objet_choisi.nb = nombre
 		else:
-			objet_choisi = {objet,self.ressources[id_object]}
+			pass #notify observer -> "Cet objet n'existe pas !"
 		return objet_choisi
+
+	def ajouter_objet(self, objet):
+		if len(self.liste_objet) < self.attr['nb_places']:
+			self.liste_objet.append(objet)
+		else:
+			pass #notify observer -> "Pas assez de place dans ce sac !"
+
+	def supprimer_objet(self, objet):
+		if objet in self.liste_objet:
+			self.liste_objet.remove(objet)
+		else:
+			pass #notify observer -> "Cet objet n'existe pas !"
 
 	

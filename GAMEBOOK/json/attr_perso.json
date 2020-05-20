@@ -12,20 +12,7 @@
     "hydratation":0,
     "regen_hydratation": 0,
     "xp": 0,
-    "level": 0,
-   
-  },
-
-  {
-    "bois": 1,
-    "eau": 25,
-    "viande": 25,
-    "carotte": 10,
-    "statue_de_bastien": 100,
-    "gland": 1,
-    "fer": 1,
-    "diamant": 80,
-   
-  },
+    "level": 0
+  }
 
 ]
