@@ -8,7 +8,7 @@ from personnage import *
 pygame.init()
 
 #Ouverture de la fenêtre Pygame (carré : largeur = hauteur)
-fenetre = pygame.display.set_mode((cote_fenetre, cote_fenetre), RESIZABLE)
+fenetre = pygame.display.set_mode((450, 450), RESIZABLE)
 #Icone
 icone = pygame.image.load(image_icone)
 pygame.display.set_icon(icone)
