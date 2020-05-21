@@ -6,8 +6,8 @@ class Action(object):
 	def attaquer(self, p1, p2):
 		pass
 
-	def recolter(self, joueur, target):
-		joueur.droite
+	def recolter(self, target):
+		self.joueur.x
 
 	def manger(self, p1, ressources):
 		p1.attr['faim'] += (ressources.value + p1.attr['regen_faim'])

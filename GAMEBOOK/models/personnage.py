@@ -1,6 +1,7 @@
 import pygame
 from pygame.locals import * 
 from constantes import *
+from models.action import Action
 """from caract import Caract"""
 
 class Personnage(object):
@@ -13,7 +14,7 @@ class Personnage(object):
 
 	DIE = 1
 
-	def __init__(self, sprite, niveau):
+	def __init__(self, droite, gauche, haut, bas, niveau):
 
 		#Sprites du personnage
 		self.droite = pygame.image.load(droite).convert_alpha()
@@ -29,6 +30,7 @@ class Personnage(object):
 		self.direction = self.droite
 		#Niveau dans lequel le personnage se trouve 
 		self.niveau = niveau
+		self.action = Action(self)
 
 	def deplacer(self, direction):
 		"""Methode permettant de déplacer le personnage"""
