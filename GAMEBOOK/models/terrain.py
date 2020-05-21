@@ -32,9 +32,7 @@ class Terrain(object):
 			for sprite in ligne:
 				x = num_case * self.TAILLE_SPRITE
 				y = num_ligne * self.TAILLE_SPRITE
-				if sprite == 'b':		   #b = Bois
-					fenetre.blit(self.obstacle.img, (x,y))
-				elif sprite == 'd':		   #d = Départ
+				if sprite == 'd':		   #d = Départ
 					fenetre.blit(self.debut, (x,y))
 				elif sprite == 'm':		   #m = Mort
 					fenetre.blit(self.mort, (x,y))
@@ -47,11 +45,28 @@ class Foret(Terrain):
 	
 	def __init__(self, map):
 		super().__init__(map)
-		self.obstacle = Bois('Arbre')
+		self.bois = Bois('Arbre')
+		self.oignon = Oignon('Oinoin')
 		
 		
 	def afficher(self, fenetre):
 		super().afficher(fenetre)
+		num_ligne = 0
+		for ligne in self.structure:
+			num_case = 0
+			for sprite in ligne:
+				x = num_case * self.TAILLE_SPRITE
+				y = num_ligne * self.TAILLE_SPRITE
+				if sprite == 'b':		   #d = Départ
+					fenetre.blit(self.debut, (x,y))
+				elif sprite == 'o':		   #m = Mort
+					fenetre.blit(self.mort, (x,y))
+				elif sprite == 'c':		   #d = Départ
+					fenetre.blit(self.debut, (x,y))
+				elif sprite == 'p':		   #m = Mort
+					fenetre.blit(self.mort, (x,y))
+				num_case += 1
+			num_ligne += 1
 		
 
 
