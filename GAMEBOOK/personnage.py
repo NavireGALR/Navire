@@ -44,7 +44,7 @@ class Personnage(object):
 					#Déplacement d'une case
 					self.case_x += 1
 					#Calcul de la position "réelle" en pixel
-					self.x = self.case_x * taille_sprite
+					self.x = self.case_x * taille_sprite 
 			#Image dans la bonne direction
 			self.direction = self.droite
 			
