@@ -30,13 +30,14 @@ class Affichage(object):
 		self.img_acc = pygame.image.load(self.IMG_ACCEUIL).convert()
 		self.map = "img/map"
 		self.bg = pygame.image.load(self.IMG_BG).convert()
-		self.fenetre.blit(self.img_acc, (0,0))
+		
 				
 
 	def start(self):
 		pygame.display.set_icon(self.icone)
 		pygame.display.set_caption(self.TITRE)
 		pygame.time.Clock().tick(30)
+		self.fenetre.blit(self.img_acc, (0,0))
 		pygame.display.flip()
 
 	def accueil(self):
