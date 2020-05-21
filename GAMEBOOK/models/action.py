@@ -8,22 +8,22 @@ class Action(object):
 
 	def recolter(self, target):
 		if self.joueur.direction == self.joueur.droite:
-			if self.joueur.niveau.structure[self.joueur.case_y][self.joueur.case_x +1] == 'b':
+			if self.joueur.niveau.structure[self.joueur.case_y][self.joueur.case_x +1] in target.SPRITE:
 				if target.recoltable:
 					self.joueur.sac.ajouter_objet(target)
 					print(self.joueur.sac.liste_objet)
 		if self.joueur.direction == self.joueur.gauche:
-			if self.joueur.niveau.structure[self.joueur.case_y][self.joueur.case_x -1] == 'b':
+			if self.joueur.niveau.structure[self.joueur.case_y][self.joueur.case_x -1] in target.SPRITE:
 				if target.recoltable:
 					self.joueur.sac.ajouter_objet(target)
 					print(self.joueur.sac.liste_objet)
 		if self.joueur.direction == self.joueur.haut:
-			if self.joueur.niveau.structure[self.joueur.case_y -1][self.joueur.case_x] == 'b':
+			if self.joueur.niveau.structure[self.joueur.case_y -1][self.joueur.case_x] in target.SPRITE:
 				if target.recoltable:
 					self.joueur.sac.ajouter_objet(target)
 					print(self.joueur.sac.liste_objet)	
 		if self.joueur.direction == self.joueur.bas:
-			if self.joueur.niveau.structure[self.joueur.case_y +1][self.joueur.case_x] == 'b':
+			if self.joueur.niveau.structure[self.joueur.case_y +1][self.joueur.case_x] in target.SPRITE:
 				if target.recoltable:
 					self.joueur.sac.ajouter_objet(target)
 					print(self.joueur.sac.liste_objet)	

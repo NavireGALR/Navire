@@ -69,7 +69,8 @@ class Affichage(object):
 					self.joueur.deplacer('bas')	
 				elif event.key == K_e:
 					print('g appuyé !')
-					self.joueur.action.recolter(self.niveau.obstacle)		
+					self.joueur.action.recolter(self.niveau.ressource)	
+
 			
 		#Affichages aux nouvelles positions
 		self.fenetre.blit(self.bg, (0,0))

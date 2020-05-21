@@ -14,6 +14,7 @@ class Terrain(object):
 		self.map = map
 		self.structure = []
 
+
 	def generer(self):
 		with open(self.map, "r") as f:
 			structure_niveau = []
@@ -45,15 +46,11 @@ class Foret(Terrain):
 	
 	def __init__(self, map):
 		super().__init__(map)
-		self.bois = Bois('Arbre')
-		self.oignon = Oignon('Oignon')
-		self.curry = Curry('Curry')
-		self.poivron = Poivron('Poivron')
-		self.poulet = Poulet('Poulet')
-
-		#init obstacle
-		self.obstacle = self.bois
-
+		self.bois = []
+		self.oignon = []
+		self.curry = []
+		self.poivron = [] 
+		self.poulet = []
 		
 		
 	def afficher(self, fenetre):
@@ -66,23 +63,44 @@ class Foret(Terrain):
 				y = num_ligne * self.TAILLE_SPRITE
 				if sprite == 'b':		   #'b = Bois
 					fenetre.blit(self.bois.img, (x,y))
-					self.obstacle = self.bois
+					bois = Bois('Arbre')
+					bois.x = x
+					bois.y = y
+					self.bois.append(bois)
 				elif sprite == 'o':		   #o = Oignon
 					fenetre.blit(self.oignon.img, (x,y))
-					self.obstacle = self.oignon
+					oignon = Oignon('oinoin')
+					oignon.x = x
+					oignon.y = y
+					self.oignon.append(oignon)
 				elif sprite == 'c':		   #c = Curry
 					fenetre.blit(self.curry.img, (x,y))
-					self.obstacle = self.curry
+					curry = Curry('curry')
+					curry.x = x
+					curry.y = y
+					self.curry.append(curry)
 				elif sprite == 'p':		   #p = Poulet
 					fenetre.blit(self.poulet.img, (x,y))
-					self.obstacle = self.poulet
+					poulet = Poulet('poulet')
+					poulet.x = x
+					poulet.y = y
+					self.poulet.append(poulet)
 				elif sprite == 'i':		   #i = Poivron
 					fenetre.blit(self.poivron.img, (x,y))
-					self.obstacle = self.poivron
+					poivron = Poivron('vronvron')
+					poivron.x = x
+					poivron.y = y
+					self.poivron.append(poivron)
 				
 				num_case += 1
 			num_ligne += 1
-		
+
+
+
+
+	
+
+
 
 
 		
