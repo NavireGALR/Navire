@@ -10,7 +10,7 @@ pygame.init()
 #Ouverture de la fenêtre Pygame (carré : largeur = hauteur)
 fenetre = pygame.display.set_mode((450, 450), RESIZABLE)
 #Icone
-icone = pygame.image.load(image_icone)
+icone = pygame.image.load(IMG_ICONE)
 pygame.display.set_icon(icone)
 #Titre
 pygame.display.set_caption(titre_fenetre)
