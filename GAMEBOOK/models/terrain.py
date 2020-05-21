@@ -24,14 +24,9 @@ class Foret:
 	
 	
 	def afficher(self, fenetre):
-		"""Méthode permettant d'afficher le niveau en fonction 
-		de la liste de structure renvoyée par generer()"""
-		#Chargement des images (seule celle d'arrivée contient de la transparence)
 		bois = pygame.image.load("img/bois.png").convert_alpha()
 		debut = pygame.image.load("img/debut.png").convert()
 		mort = pygame.image.load("img/mort.png").convert_alpha()
-		
-		#On parcourt la liste du niveau
 		num_ligne = 0
 		for ligne in self.structure:
 			#On parcourt les listes de lignes
