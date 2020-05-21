@@ -46,12 +46,12 @@ class Foret(Terrain):
 	
 	def __init__(self, map):
 		super().__init__(map)
-		self.bois = []
-		self.oignon = []
-		self.curry = []
-		self.poivron = [] 
-		self.poulet = []
-		
+		self.bois = Bois('Arbre')
+		self.oignon = Oignon('oinoin')
+		self.curry = Curry('curry')
+		self.poivron = Poivron('vronvron')
+		self.poulet = Poulet('poulet')
+		self.ressource = Ressource('recoltable')
 		
 	def afficher(self, fenetre):
 		super().afficher(fenetre)
@@ -63,37 +63,23 @@ class Foret(Terrain):
 				y = num_ligne * self.TAILLE_SPRITE
 				if sprite == 'b':		   #'b = Bois
 					fenetre.blit(self.bois.img, (x,y))
-					bois = Bois('Arbre')
-					bois.x = x
-					bois.y = y
-					self.bois.append(bois)
 				elif sprite == 'o':		   #o = Oignon
 					fenetre.blit(self.oignon.img, (x,y))
-					oignon = Oignon('oinoin')
-					oignon.x = x
-					oignon.y = y
-					self.oignon.append(oignon)
 				elif sprite == 'c':		   #c = Curry
 					fenetre.blit(self.curry.img, (x,y))
-					curry = Curry('curry')
-					curry.x = x
-					curry.y = y
-					self.curry.append(curry)
 				elif sprite == 'p':		   #p = Poulet
 					fenetre.blit(self.poulet.img, (x,y))
-					poulet = Poulet('poulet')
-					poulet.x = x
-					poulet.y = y
-					self.poulet.append(poulet)
 				elif sprite == 'i':		   #i = Poivron
 					fenetre.blit(self.poivron.img, (x,y))
-					poivron = Poivron('vronvron')
-					poivron.x = x
-					poivron.y = y
-					self.poivron.append(poivron)
 				
 				num_case += 1
 			num_ligne += 1
+
+
+
+
+		
+		
 
 
 

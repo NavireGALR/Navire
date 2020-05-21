@@ -15,6 +15,7 @@ class Ressource(object):
 		self.y = 0
 		#self.value = self.attr[name]
 		self.nb = 0
+		self.recoltable = True
 
 	def __str__(self):
 		return self.name
@@ -23,12 +24,28 @@ class Ressource(object):
 		for i in range(1,nb):
 			self.nb += 1
 
+	def get_ressource(self, sprite):
+		if sprite == 'b':
+			bois = Bois('Arbre')
+			return bois
+		elif sprite == 'o':		   #o = Oignon
+			oignon = Oignon('Oinoin')
+			return oignon
+		elif sprite == 'c':		   #c = Curry
+			curry = Curry('Curry')
+			return curry
+		elif sprite == 'p':		   #p = Poulet
+			poulet = Poulet('Poulet')
+			return poulet
+		elif sprite == 'i':		   #i = Poivron
+			poivron = Poivron('Poivron')
+			return poivron
+
 class Bois(Ressource):
 
 	def __init__(self, name):
 		super().__init__(name)
 		self.img = pygame.image.load(self.caract.img['bois']).convert_alpha()
-		self.recoltable = True
 		self.sprite = 'b'
 
 class Poulet(Ressource):
@@ -36,7 +53,6 @@ class Poulet(Ressource):
 	def __init__(self, name):
 		super().__init__(name)
 		self.img = pygame.image.load(self.caract.img['poulet']).convert_alpha()
-		self.recoltable = True
 		self.sprite = 'p'
 
 class Poivron(Ressource):
@@ -44,7 +60,6 @@ class Poivron(Ressource):
 	def __init__(self, name):
 		super().__init__(name)
 		self.img = pygame.image.load(self.caract.img['poivron']).convert_alpha()
-		self.recoltable = True
 		self.sprite = 'i'
 
 class Oignon(Ressource):
@@ -52,7 +67,6 @@ class Oignon(Ressource):
 	def __init__(self, name):
 		super().__init__(name)
 		self.img = pygame.image.load(self.caract.img['oignon']).convert_alpha()
-		self.recoltable = True
 		self.sprite = 'o'
 
 class Curry(Ressource):
@@ -60,5 +74,4 @@ class Curry(Ressource):
 	def __init__(self, name):
 		super().__init__(name)
 		self.img = pygame.image.load(self.caract.img['curry']).convert_alpha()
-		self.recoltable = True
 		self.sprite = 'c'
