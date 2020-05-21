@@ -51,6 +51,9 @@ class Foret(Terrain):
 		self.poivron = Poivron('Poivron')
 		self.poulet = Poulet('Poulet')
 
+		#init obstacle
+		self.obstacle = self.bois
+
 		
 		
 	def afficher(self, fenetre):
@@ -61,16 +64,21 @@ class Foret(Terrain):
 			for sprite in ligne:
 				x = num_case * self.TAILLE_SPRITE
 				y = num_ligne * self.TAILLE_SPRITE
-				if sprite == 'b':		   #b = Bois
-					fenetre.blit(self.bois, (x,y))
+				if sprite == 'b':		   #'b = Bois
+					fenetre.blit(self.bois.img, (x,y))
+					self.obstacle = self.bois
 				elif sprite == 'o':		   #o = Oignon
-					fenetre.blit(self.oignon, (x,y))
+					fenetre.blit(self.oignon.img, (x,y))
+					self.obstacle = self.oignon
 				elif sprite == 'c':		   #c = Curry
-					fenetre.blit(self.curry, (x,y))
+					fenetre.blit(self.curry.img, (x,y))
+					self.obstacle = self.curry
 				elif sprite == 'p':		   #p = Poulet
-					fenetre.blit(self.poulet, (x,y))
+					fenetre.blit(self.poulet.img, (x,y))
+					self.obstacle = self.poulet
 				elif sprite == 'i':		   #i = Poivron
-					fenetre.blit(self.poivron, (x,y))
+					fenetre.blit(self.poivron.img, (x,y))
+					self.obstacle = self.poivron
 				
 				num_case += 1
 			num_ligne += 1
