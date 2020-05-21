@@ -12,23 +12,14 @@ class Foret:
 	
 	
 	def generer(self):
-		"""Méthode permettant de générer le niveau en fonction du fichier.
-		On crée une liste générale, contenant une liste par ligne à afficher"""	
-		#On ouvre le fichier
 		with open(self.fichier, "r") as fichier:
 			structure_niveau = []
-			#On parcourt les lignes du fichier
 			for ligne in fichier:
 				ligne_niveau = []
-				#On parcourt les sprites (lettres) contenus dans le fichier
 				for sprite in ligne:
-					#On ignore les "\n" de fin de ligne
 					if sprite != '\n':
-						#On ajoute le sprite à la liste de la ligne
 						ligne_niveau.append(sprite)
-				#On ajoute la ligne à la liste du niveau
 				structure_niveau.append(ligne_niveau)
-			#On sauvegarde cette structure
 			self.structure = structure_niveau
 	
 	

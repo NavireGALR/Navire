@@ -23,9 +23,10 @@ class Affichage(object):
 	def __init__(self):
 		self.fenetre = pygame.display.set_mode((self.COTE, self.COTE))
 		self.icone = pygame.image.load(self.IMG_ICONE)
-		self.img_accueil = pygame.image.load(self.IMG_ACCEUIL).convert()
+		self.img_acc = pygame.image.load(self.IMG_ACCEUIL).convert()
 		self.map = "img/map"
 		self.bg = pygame.image.load(self.IMG_BG).convert()
+		self.fenetre.blit(self.img_acc, (0,0))
 
 		self.continuer_accueil = 1
 		self.continuer_jeu = 1
@@ -38,7 +39,7 @@ class Affichage(object):
 		pygame.display.set_caption(self.TITRE)
 		pygame.time.Clock().tick(30)
 		pygame.display.flip()
-		
+
 		return self.continuer
 
 	def acceuil(self):
