@@ -7,15 +7,27 @@ class Action(object):
 		pass
 
 	def recolter(self, target):
-		print('je suis al')
 		if self.joueur.direction == self.joueur.droite:
-			print('droite')
 			if self.joueur.niveau.structure[self.joueur.case_y][self.joueur.case_x +1] == 'b':
-				print('bois a cote')
 				if target.recoltable:
-					print('je suis ici')
 					self.joueur.sac.ajouter_objet(target)
 					print(self.joueur.sac.liste_objet)
+		if self.joueur.direction == self.joueur.gauche:
+			if self.joueur.niveau.structure[self.joueur.case_y][self.joueur.case_x -1] == 'b':
+				if target.recoltable:
+					self.joueur.sac.ajouter_objet(target)
+					print(self.joueur.sac.liste_objet)
+		if self.joueur.direction == self.joueur.haut:
+			if self.joueur.niveau.structure[self.joueur.case_y -1][self.joueur.case_x] == 'b':
+				if target.recoltable:
+					self.joueur.sac.ajouter_objet(target)
+					print(self.joueur.sac.liste_objet)	
+		if self.joueur.direction == self.joueur.bas:
+			if self.joueur.niveau.structure[self.joueur.case_y +1][self.joueur.case_x] == 'b':
+				if target.recoltable:
+					self.joueur.sac.ajouter_objet(target)
+					print(self.joueur.sac.liste_objet)	
+		
 
 
 	def manger(self, p1, ressources):
