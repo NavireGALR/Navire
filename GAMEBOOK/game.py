@@ -48,7 +48,7 @@ while continuer:
 				
 			elif event.type == KEYDOWN:				
 				continuer_accueil = 0	#On quitte l'accueil
-				choix = 'jeu'		#On définit le niveau à charger
+				choix = 'images/jeu'		#On définit le niveau à charger
 			
 		
 
