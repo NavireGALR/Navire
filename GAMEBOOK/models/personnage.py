@@ -13,10 +13,7 @@ class Personnage(object):
 
 	DIE = 1
 
-	def __init__(self ,droite, gauche, haut, bas, niveau):
-		"""self.caract = Parser.caract_from_json('caract.json')
-		self.level = 0
-		self.sac = Sac()"""
+	def __init__(self, sprite, niveau):
 
 		#Sprites du personnage
 		self.droite = pygame.image.load(droite).convert_alpha()

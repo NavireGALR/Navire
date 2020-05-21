@@ -48,7 +48,6 @@ class Foret(Terrain):
 		super().__init__(map)
 		self.obstacle = pygame.image.load("img/bois.png").convert_alpha()
 		
-	
 	def afficher(self, fenetre):
 		super().afficher(fenetre)
 		

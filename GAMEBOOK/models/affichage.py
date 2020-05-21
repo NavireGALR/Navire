@@ -66,7 +66,9 @@ class Affichage(object):
 				elif event.key == K_UP:
 					self.joueur.deplacer('haut')
 				elif event.key == K_DOWN:
-					self.joueur.deplacer('bas')			
+					self.joueur.deplacer('bas')	
+				# event = recolter
+					self.joueur.action.recolter		
 			
 		#Affichages aux nouvelles positions
 		self.fenetre.blit(self.bg, (0,0))

@@ -1,13 +1,13 @@
 class Action(object):
 	"""docstring for Action"""
-	def __init__(self):
-		pass
+	def __init__(self, joueur):
+		self.joueur = joueur
 
 	def attaquer(self, p1, p2):
 		pass
 
-	def recolter(self, p1, target):
-		pass
+	def recolter(self, joueur, target):
+		joueur.droite
 
 	def manger(self, p1, ressources):
 		p1.attr['faim'] += (ressources.value + p1.attr['regen_faim'])
