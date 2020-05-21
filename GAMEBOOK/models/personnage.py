@@ -33,21 +33,7 @@ class Personnage(object):
 		self.niveau = niveau
 		self.action = Action(self)
 		self.sac = Sac()
-
-
-	def ressource_proche(self):
-		if self.direction == self.droite:
-			if self.niveau.structure[self.case_y][self.case_x +1] == 'b':
-				self.ressource_droite = True
-		if self.direction == self.gauche:
-			if self.niveau.structure[self.case_y][self.case_x -1] == 'b':
-				self.ressource_gauche = True
-		if self.direction == self.haut:
-			if self.niveau.structure[self.case_y -1][self.case_x] == 'b':
-				self.ressource_haut = True	
-		if self.direction == self.bas:
-			if self.niveau.structure[self.case_y +1][self.case_x] == 'b':
-				self.ressource_bas = True		
+	
 
 	def deplacer(self, direction):
 		"""Methode permettant de déplacer le personnage"""
@@ -88,7 +74,7 @@ class Personnage(object):
 					self.y = self.case_y * taille_sprite
 			self.direction = self.bas
 
-		self.ressource_proche()
+
 
 
 

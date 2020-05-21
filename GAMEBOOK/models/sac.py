@@ -42,4 +42,6 @@ class Sac(object):
 		else:
 			pass #notify observer -> "Cet objet n'existe pas !"
 
-	
+	def print(self):
+		for i in range(0,len(self.liste_objet)):
+			print(self.liste_objet[i])
