@@ -86,9 +86,9 @@ class Affichage(object):
 		self.joueur = Personnage("img/moi_droite.png", "img/moi_gauche.png", "img/moi_haut.png", "img/moi_bas.png", self.niveau)
 
 	def quitter(self):
-		GAME = False
-		ACCUEIL = False
-		CONTINUER = False
+		self.GAME = False
+		self.ACCUEIL = False
+		self.CONTINUER = False
 
 
 
