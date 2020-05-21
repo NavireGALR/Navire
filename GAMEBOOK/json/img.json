@@ -8,6 +8,10 @@
     "sprite_droite": "img/moi_droite.png",
     "sprite_haut": "img/moi_haut.png",
     "sprite_gauche": "img/moi_gauche.png",
-    "mort": "img/mort.png"
+    "mort": "img/mort.png",
+    "poulet": "img/poulet.png",
+    "oignon": "img/oignon.png",
+    "poivron": "img/poivron.png",
+    "curry": "img/curry.png",
   }
 ]

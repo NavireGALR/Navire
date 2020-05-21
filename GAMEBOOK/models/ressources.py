@@ -21,3 +21,31 @@ class Bois(Ressource):
 		super().__init__(name)
 		self.img = pygame.image.load(self.caract.img['bois']).convert_alpha()
 		self.recoltable = True
+
+class Poulet(Ressource):
+
+	def __init__(self, name):
+		super().__init__(name)
+		self.img = pygame.image.load(self.caract.img['poulet']).convert_alpha()
+		self.recoltable = True
+
+class Poivron(Ressource):
+
+	def __init__(self, name):
+		super().__init__(name)
+		self.img = pygame.image.load(self.caract.img['poivron']).convert_alpha()
+		self.recoltable = True
+
+class Oignon(Ressource):
+
+	def __init__(self, name):
+		super().__init__(name)
+		self.img = pygame.image.load(self.caract.img['oignon']).convert_alpha()
+		self.recoltable = True
+
+class Curry(Ressource):
+
+	def __init__(self, name):
+		super().__init__(name)
+		self.img = pygame.image.load(self.caract.img['curry']).convert_alpha()
+		self.recoltable = True
