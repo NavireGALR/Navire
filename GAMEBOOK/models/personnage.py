@@ -2,6 +2,7 @@ import pygame
 from pygame.locals import * 
 from constantes import *
 from models.action import Action
+from models.sac import Sac
 """from caract import Caract"""
 
 class Personnage(object):
@@ -31,6 +32,7 @@ class Personnage(object):
 		#Niveau dans lequel le personnage se trouve 
 		self.niveau = niveau
 		self.action = Action(self)
+		self.sac = Sac()
 
 	def deplacer(self, direction):
 		"""Methode permettant de déplacer le personnage"""

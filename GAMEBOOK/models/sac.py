@@ -1,4 +1,4 @@
-from caract import Caract
+from models.const import Const
 
 
 class Sac(object):
@@ -11,7 +11,7 @@ class Sac(object):
 	OUVERT = False
 
 	def __init__(self):
-		caract = Caract()
+		caract = Const()
 		self.liste_objet = []
 		self.attr = caract.attr_sac
 		

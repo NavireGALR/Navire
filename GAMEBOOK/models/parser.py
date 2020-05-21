@@ -1,6 +1,6 @@
 import json
 
-class Parser():
+class Parser(object):
 
 	@classmethod
 	def caract_from_json(cls, file):

@@ -1,5 +1,6 @@
 import pygame
 from pygame.locals import * 
+from models.ressources import *
 
 class Terrain(object):
 	"""docstring for Terrain"""
@@ -46,11 +47,14 @@ class Foret(Terrain):
 	
 	def __init__(self, map):
 		super().__init__(map)
-		self.obstacle = Ressources('bois')
+		self.obstacle = Bois('Arbre')
 		
 		
 	def afficher(self, fenetre):
 		super().afficher(fenetre)
+		
+
+
 		
 		
 			
