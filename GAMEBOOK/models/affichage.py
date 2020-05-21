@@ -73,11 +73,11 @@ class Affichage(object):
 		#Affichages aux nouvelles positions
 		self.fenetre.blit(self.bg, (0,0))
 		self.niveau.afficher(self.fenetre)
-		self.fenetre.blit(self.joueur.direction, (self.joueur.x, self.joueur.y)) #dk.direction = l'image dans la bonne direction
+		self.fenetre.blit(self.joueur.direction, (self.joueur.x, self.joueur.y)) #moi.direction = l'image dans la bonne direction
 		pygame.display.flip()
 
 		#Victoire -> Retour à l'accueil
-		if self.niveau.structure[self.joueur.case_y][self.joueur.case_x] == 'a':
+		if self.niveau.structure[self.joueur.case_y][self.joueur.case_x] == 'm':
 			self.ACCUEIL = True
 			self.GAME = False	
 
