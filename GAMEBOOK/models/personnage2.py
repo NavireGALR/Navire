@@ -1,5 +1,5 @@
-from caract import Caract
-from sac import Sac
+from models.const import Const
+from models.sac import Sac
 
 class Personnage(object):
 	"""Décrit les caractéristiques et actions d'un personnage
@@ -11,11 +11,12 @@ class Personnage(object):
 
 	DIE = 1
 
-	def __init__(self, name):
-		caract = Caract()
+	def __init__(self, name, niveau):
+		caract = Const()
 		self.name = name
 		self.attr = caract.attr_perso
 		self.sac = Sac()
+		
 		
 	def deplacer(self):
 		pass
@@ -30,8 +31,10 @@ class Joueur(Personnage):
 
 	"""
 
-	def __init__(self, name):
-		super().__init__(name)
+	def __init__(self, name, niveau):
+		super().__init__(name, niveau)
+		self.sprite = caract.img
+		self.action = Action(self)
 
 	def get_xp(self, xp_gagne):
 		self.attr['xp'] += xp_gagne

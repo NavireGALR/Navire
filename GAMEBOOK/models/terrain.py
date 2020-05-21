@@ -32,7 +32,7 @@ class Terrain(object):
 				x = num_case * self.TAILLE_SPRITE
 				y = num_ligne * self.TAILLE_SPRITE
 				if sprite == 'b':		   #b = Bois
-					fenetre.blit(self.obstacle, (x,y))
+					fenetre.blit(self.obstacle.img, (x,y))
 				elif sprite == 'd':		   #d = Départ
 					fenetre.blit(self.debut, (x,y))
 				elif sprite == 'm':		   #m = Mort
@@ -46,7 +46,8 @@ class Foret(Terrain):
 	
 	def __init__(self, map):
 		super().__init__(map)
-		self.obstacle = pygame.image.load("img/bois.png").convert_alpha()
+		self.obstacle = Ressources('bois')
+		
 		
 	def afficher(self, fenetre):
 		super().afficher(fenetre)

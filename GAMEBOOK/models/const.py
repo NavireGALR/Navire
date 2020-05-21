@@ -1,6 +1,6 @@
 from parser import Parser
 
-class Caract(object):
+class Const(object):
 	"""docstring for Caract"""
 	def __init__(self):
 

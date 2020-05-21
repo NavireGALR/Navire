@@ -68,7 +68,7 @@ class Affichage(object):
 				elif event.key == K_DOWN:
 					self.joueur.deplacer('bas')	
 				# event = recolter
-					self.joueur.action.recolter		
+					self.joueur.action.recolter(self.niveau.obstacle)		
 			
 		#Affichages aux nouvelles positions
 		self.fenetre.blit(self.bg, (0,0))
@@ -86,7 +86,7 @@ class Affichage(object):
 		self.niveau = Foret(map) #Condition en fonction de @p terrain
 		self.niveau.generer()
 		self.niveau.afficher(self.fenetre)
-		self.joueur = Personnage("img/moi_droite.png", "img/moi_gauche.png", "img/moi_haut.png", "img/moi_bas.png", self.niveau)
+		self.joueur = Personnage(self.niveau)
 
 	def quitter(self):
 		self.GAME = False

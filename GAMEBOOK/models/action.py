@@ -7,7 +7,8 @@ class Action(object):
 		pass
 
 	def recolter(self, target):
-		self.joueur.x
+		if target.recoltable:
+
 
 	def manger(self, p1, ressources):
 		p1.attr['faim'] += (ressources.value + p1.attr['regen_faim'])

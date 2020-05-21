@@ -1,0 +1,13 @@
+[
+  {
+    "acceuil": "img/acceuil.png",
+    "bois": "img/bois.png",
+    "debut": "img/debut.png",
+    "fond": "img/fond.png",
+    "sprite_bas": "img/moi_bas.png",
+    "sprite_droite": "img/moi_droite.png",
+    "sprite_haut": "img/moi_haut.png",
+    "sprite_gauche": "img/moi_gauche.png",
+    "mort": "img/mort.png"
+  }
+]

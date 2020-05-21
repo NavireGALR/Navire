@@ -9,6 +9,8 @@ class Ressource(object):
 		self.name = name
 		self.value = self.attr[name]
 		self.nb = 0
+		self.img = pygame.image.load("img/bois.png").convert_alpha()
+		self.recoltable = True
 
 	def stack(self,nb):
 		for i in range(1,nb):
