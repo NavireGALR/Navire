@@ -1,0 +1,16 @@
+[
+  {
+    "nombre_sprite_cote": 15,
+    "taille_sprite": 30,
+    "titre_fenetre": "Jeu Navire",
+    "image_icone": "img/moi_droite.png",
+    "image_accueil": "img/accueil.png",
+	  "image_fond": "img/fond.jpg",
+	  "image_bois": "img/bois.png",
+	  "image_debut": "img/debut.png",
+	  "image_mort": "img/mort.png"
+  }
+]
+
+
+

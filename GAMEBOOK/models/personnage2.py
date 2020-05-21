@@ -16,6 +16,9 @@ class Personnage(object):
 		self.name = name
 		self.attr = caract.attr_perso
 		self.sac = Sac()
+		
+	def deplacer(self):
+		pass
 
 
 
