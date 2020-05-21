@@ -8,7 +8,7 @@ from personnage import *
 pygame.init()
 
 #Ouverture de la fenêtre Pygame (carré : largeur = hauteur)
-fenetre = pygame.display.set_mode((cote_fenetre, cote_fenetre))
+fenetre = pygame.display.set_mode((cote_fenetre, cote_fenetre), RESIZABLE)
 #Icone
 icone = pygame.image.load(image_icone)
 pygame.display.set_icon(icone)
@@ -100,10 +100,10 @@ while continuer:
 		#Affichages aux nouvelles positions
 		fenetre.blit(fond, (0,0))
 		niveau.afficher(fenetre)
-		fenetre.blit(moi.direction, (moi.x, moi.y)) #dk.direction = l'image dans la bonne direction
+		fenetre.blit(moi.direction, (moi.x, moi.y)) #moi direction = l'image dans la bonne direction
 		pygame.display.flip()
 
 		#Victoire -> Retour à l'accueil
-		if niveau.structure[moi.case_y][moi.case_x] == 'a':
+		if niveau.structure[moi.case_y][moi.case_x] == 'm':
 			continuer_jeu = 0
 
