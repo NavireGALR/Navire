@@ -1,0 +1,31 @@
+J'ai réussi à faire une fonction récolter qui marche nikeeeeeel
+cherche pas trop à tout comprendre, même moi y'a des trucs un peu brouillon mais ça fonctionne :)
+
+
+Maintenant on peut s'atteler à d'autres focntions plus simple :
+	- Afficher le sac
+	- Utiliser un objet du sac 
+	- crafter un objet 
+	- ...
+
+
+Mais aussi améliorer notre jeu ! : 
+	- Créer une caméra
+	- Créer des cinématiques/textes d'interactions avec utilisateur 
+	- afficher des PNJs/ Monstres
+	- faire un menu avec choix du personnage
+	- Trouver des sprites sympa et qu'on kiffe bien (pas urgent tant qu'on a pas fait de scénar)
+	- ...
+
+J'aimerai bien faire un jeu ou le joueur c'est "dieu" et il fait progresser une espece (aka SPORE) mais en mode rpg ^^ Pour l'instant on peut se concenter sur l'aspect rpg/minecraft et faire ds cinématiques autour.
+Pour varier notre jeu, il nous fait pleiiiin de sprites
+Il faudra créer un JSON avec les caract du personnage et proposer un menu choix du perso/nom 
+Bref y'a du taff mais ça va être niiiice
+
+
+
+FONCTIONS : 
+
+On peut récolter avec "e"
+	Pour récolter l'objet doit etre en face et "récoltable"
+On peut ouvrir l'inventaire avec "i"

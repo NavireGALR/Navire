@@ -31,8 +31,8 @@ class Action(object):
 	def recolter(self, joueur, niveau):
 		niveau.get_obstacle(joueur)
 		joueur.sac.ajouter_objet(niveau.objet_choisi)
-		joueur.sac.print()
 		niveau.modif_terrain()
+		joueur.sac.print()
 		#notif observer logs
 		
 		
