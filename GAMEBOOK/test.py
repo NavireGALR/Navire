@@ -1,7 +1,12 @@
-from personnage import Joueur
-from ressources import Ressource
+from models.personnage import Joueur
+from models.terrain import *
+from models.affichage import Affichage
 
-ekawa = Joueur("Ekawa")
+fenetre = Affichage()
+mapjoueur = Foret('name', fenetre)
+mapjoueur.modif_terrain()
+
+"""
 seb = Joueur('Seb')
 carotte = Ressource('carotte')
 viande = Ressource('viande')
@@ -22,4 +27,4 @@ seb.sac.ajouter_objet(objet)
 a = ekawa.sac.liste_objet
 print()
 
-
+"""

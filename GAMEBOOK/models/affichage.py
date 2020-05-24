@@ -1,7 +1,8 @@
 import pygame
 from pygame.locals import *
-from models.personnage import Personnage
+from models.personnage import Joueur
 from models.terrain import Foret
+from models.const import Const
 
 class Affichage(object):
 	"""docstring for Affichage
@@ -9,49 +10,51 @@ class Affichage(object):
 	init : pygame windows
 
 	"""
-	NB_SPRITE = 15
-	TAILLE_SPRITE = 30
-	COTE = NB_SPRITE * TAILLE_SPRITE
-	TITRE = "Gamebook"
-	IMG_ICONE = "img/moi_droite.png"
-	IMG_ACCEUIL = "img/accueil.png"
-	IMG_BG = "img/fond.jpg"
-	IMG_BOIS = "img/bois.png"
-	IMG_START = "img/debut.png"
-	IMG_DEATH = "img/mort.png"
-
 	GAME = False
 	ACCUEIL = True
 	CONTINUER = True
 
 	def __init__(self):
-		self.fenetre = pygame.display.set_mode((self.COTE, self.COTE))
-		self.icone = pygame.image.load(self.IMG_ICONE)
-		self.img_acc = pygame.image.load(self.IMG_ACCEUIL).convert()
-		self.map = "img/map"
-		self.bg = pygame.image.load(self.IMG_BG).convert()
-		
-				
+		self.const = Const()
+		self.img = self.const.img
 
-	def start(self):
+		self.fenetre = pygame.display.set_mode((self.const.COTE, self.const.COTE))
+		self.icone = pygame.image.load(self.img['sprite_droite'])
+		self.img_acc = pygame.image.load(self.img['accueil']).convert()
+		self.bg = pygame.image.load(self.img['fond']).convert()
+		self.map = "img/map"
+		self.map_init = "img/map_init"
+
 		pygame.display.set_icon(self.icone)
-		pygame.display.set_caption(self.TITRE)
+		pygame.display.set_caption(self.const.TITRE)
+		
+		
+	def start(self):
 		pygame.time.Clock().tick(30)
 		self.fenetre.blit(self.img_acc, (0,0))
 		pygame.display.flip()
+
+	def quitter(self):
+		self.GAME = False
+		self.ACCUEIL = False
+		self.CONTINUER = False
 
 	def accueil(self):
 		for event in pygame.event.get():
 			if event.type == QUIT or event.type == KEYDOWN and event.key == K_ESCAPE:
 				self.quitter()	
 			elif event.type == KEYDOWN:
-				self.generer_niveau(self.map)
+				self.generer_niveau(self.map_init)
 				self.ACCUEIL = False
-				self.GAME = True			
+				self.GAME = True
+
+	def generer_niveau(self, map):
+		self.niveau = Foret(map, self.fenetre) #Condition en fonction de @p terrain
+		self.joueur = Joueur('Ekawa', self.niveau)	#Condition en fonction de @p Joueur
+		self.niveau.nouveau_terrain()		
 
 	def jeu(self):
 		pygame.time.Clock().tick(30)
-
 		for event in pygame.event.get():
 			if event.type == QUIT:
 				self.quitter()
@@ -68,13 +71,12 @@ class Affichage(object):
 				elif event.key == K_DOWN:
 					self.joueur.deplacer('bas')	
 				elif event.key == K_e:
-					print('g appuyé !')
-					self.joueur.action.recolter(self.niveau.ressource)	
+					self.joueur.recolter(self.niveau)	
 
 			
 		#Affichages aux nouvelles positions
 		self.fenetre.blit(self.bg, (0,0))
-		self.niveau.afficher(self.fenetre)
+		self.niveau.afficher(self.map)
 		self.fenetre.blit(self.joueur.direction, (self.joueur.x, self.joueur.y)) #moi.direction = l'image dans la bonne direction
 		pygame.display.flip()
 
@@ -83,18 +85,8 @@ class Affichage(object):
 			self.ACCUEIL = True
 			self.GAME = False	
 
-		
-	def generer_niveau(self, map):
-		self.niveau = Foret(map) #Condition en fonction de @p terrain
-		self.niveau.generer()
-		self.niveau.afficher(self.fenetre)
-		self.joueur = Personnage("img/moi_droite.png","img/moi_gauche.png","img/moi_haut.png","img/moi_bas.png",self.niveau)
 
-	def quitter(self):
-		self.GAME = False
-		self.ACCUEIL = False
-		self.CONTINUER = False
-
+	
 
 
 

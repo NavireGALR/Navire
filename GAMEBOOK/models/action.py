@@ -1,40 +1,43 @@
+from models.const import Const
+
 class Action(object):
 	"""docstring for Action"""
-	def __init__(self, joueur):
-		self.joueur = joueur
+	def __init__(self):
+		self.const = Const()
 		
+	def deplacer(self, joueur, direction):
+		if joueur.dans_jeu(direction):
+			if direction == 'droite':
+				joueur.direction = joueur.sprite.droite
+				if not joueur.obstacle_en_face(direction):
+					joueur.case_x += 1
+					joueur.x = joueur.case_x * self.const.TAILLE_SPRITE
+			elif direction == 'gauche':
+				joueur.direction = joueur.sprite.gauche
+				if not joueur.obstacle_en_face(direction):
+					joueur.case_x -= 1
+					joueur.x = joueur.case_x * self.const.TAILLE_SPRITE
+			elif direction == 'haut':
+				joueur.direction = joueur.sprite.haut
+				if not joueur.obstacle_en_face(direction):
+					joueur.case_y -= 1
+					joueur.y = joueur.case_y * self.const.TAILLE_SPRITE
+			elif direction == 'bas':
+				joueur.direction = joueur.sprite.bas
+				if not joueur.obstacle_en_face(direction):
+					joueur.case_y += 1
+					joueur.y = joueur.case_y * self.const.TAILLE_SPRITE
 
+	def recolter(self, joueur, niveau):
+		niveau.get_obstacle(joueur)
+		joueur.sac.ajouter_objet(niveau.objet_choisi)
+		joueur.sac.print()
+		niveau.modif_terrain()
+		#notif observer logs
+		
+		
 	def attaquer(self, p1, p2):
 		pass
-
-	def recolter(self, target):
-		self.sprite_d = self.joueur.niveau.structure[self.joueur.case_y][self.joueur.case_x +1]
-		self.sprite_g = self.joueur.niveau.structure[self.joueur.case_y][self.joueur.case_x -1]
-		self.sprite_h = self.joueur.niveau.structure[self.joueur.case_y -1][self.joueur.case_x]
-		self.sprite_b = self.joueur.niveau.structure[self.joueur.case_y +1][self.joueur.case_x]
-
-		if self.joueur.direction == self.joueur.droite:
-			if self.sprite_d in target.SPRITE:
-				if target.recoltable:
-					self.joueur.sac.ajouter_objet(target.get_ressource(self.sprite_d))
-					self.joueur.sac.print()
-		if self.joueur.direction == self.joueur.gauche:
-			if self.sprite_g in target.SPRITE:
-				if target.recoltable:
-					self.joueur.sac.ajouter_objet(target.get_ressource(self.sprite_g))
-					self.joueur.sac.print()
-		if self.joueur.direction == self.joueur.haut:
-			if self.sprite_h in target.SPRITE:
-				if target.recoltable:
-					self.joueur.sac.ajouter_objet(target.get_ressource(self.sprite_h))
-					self.joueur.sac.print()	
-		if self.joueur.direction == self.joueur.bas:
-			if self.sprite_b in target.SPRITE:
-				if target.recoltable:
-					self.joueur.sac.ajouter_objet(target.get_ressource(self.sprite_b))
-					self.joueur.sac.print()	
-		
-
 
 	def manger(self, p1, ressources):
 		p1.attr['faim'] += (ressources.value + p1.attr['regen_faim'])

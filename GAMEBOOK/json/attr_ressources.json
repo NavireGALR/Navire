@@ -2,6 +2,10 @@
   {
     "bois": 1,
     "eau": 25,
+    "curry": 5,
+    "poulet": 20,
+    "poivron": 12,
+    "oignon": 10,
     "viande": 25,
     "carotte": 10,
     "statue_de_bastien": 100,

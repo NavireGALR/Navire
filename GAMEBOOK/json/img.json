@@ -1,9 +1,9 @@
 [
   {
-    "acceuil": "img/acceuil.png",
+    "accueil": "img/accueil.png",
     "bois": "img/bois.png",
     "debut": "img/debut.png",
-    "fond": "img/fond.png",
+    "fond": "img/fond.jpg",
     "sprite_bas": "img/moi_bas.png",
     "sprite_droite": "img/moi_droite.png",
     "sprite_haut": "img/moi_haut.png",

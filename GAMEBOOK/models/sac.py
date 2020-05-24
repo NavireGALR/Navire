@@ -31,8 +31,15 @@ class Sac(object):
 		return objet_choisi
 
 	def ajouter_objet(self, objet):
-		if len(self.liste_objet) < self.attr['nb_places']:
-			self.liste_objet.append(objet)
+		obj_added = False
+		if len(self.liste_objet) < self.attr['nb_places'] and objet != None:
+			for obj in self.liste_objet:
+				if type(objet) == type(obj):
+					obj.stack(1)
+					print('aaaaa')
+					obj_added = True
+			if not obj_added: 
+				self.liste_objet.append(objet)
 		else:
 			pass #notify observer -> "Pas assez de place dans ce sac !"
 
@@ -43,5 +50,6 @@ class Sac(object):
 			pass #notify observer -> "Cet objet n'existe pas !"
 
 	def print(self):
+		print('Sac :')
 		for i in range(0,len(self.liste_objet)):
 			print(self.liste_objet[i])

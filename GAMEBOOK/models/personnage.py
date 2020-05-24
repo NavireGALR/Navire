@@ -1,9 +1,6 @@
-import pygame
-from pygame.locals import * 
-from constantes import *
-from models.action import Action
+from models.const import Const, Sprite, Position
 from models.sac import Sac
-"""from caract import Caract"""
+from models.action import Action
 
 class Personnage(object):
 	"""Décrit les caractéristiques et actions d'un personnage
@@ -15,68 +12,102 @@ class Personnage(object):
 
 	DIE = 1
 
-	def __init__(self, droite, gauche, haut, bas, niveau):
+	def __init__(self, name, niveau):
+		self.caract = Const()
+		self.const = Const()
+		self.name = name
+		self.attr = self.caract.attr_perso
+		self.img = self.caract.img
+		self.niveau = niveau
+		self.sac = Sac()
+		self.action = Action()
 
-		#Sprites du personnage
-		self.droite = pygame.image.load(droite).convert_alpha()
-		self.gauche = pygame.image.load(gauche).convert_alpha()
-		self.haut = pygame.image.load(haut).convert_alpha()
-		self.bas = pygame.image.load(bas).convert_alpha()
-		#Position du personnage en cases et en pixels
 		self.case_x = 0
 		self.case_y = 0
 		self.x = 0
 		self.y = 0
-		#Direction par défaut
-		self.direction = self.droite
-		#Niveau dans lequel le personnage se trouve 
-		self.niveau = niveau
-		self.action = Action(self)
-		self.sac = Sac()
-	
 
-	def deplacer(self, direction):
-		"""Methode permettant de déplacer le personnage"""
-		#Déplacement vers la droite
+	def obstacle_en_face(self, direction):
+		self.maj_objet_autour(direction)
+		if direction == 'droite' and self.sprite_d in self.const.OBSTACLE:
+			return True
+		elif direction == 'gauche' and self.sprite_g  in self.const.OBSTACLE:
+			return True
+		elif direction == 'haut' and self.sprite_h in self.const.OBSTACLE:
+			return True
+		elif direction == 'bas' and self.sprite_b in self.const.OBSTACLE:
+			return True
+		else:
+			return False
+
+	def dans_jeu(self, direction):
+		if direction == 'droite' and self.case_x < (self.const.NB_SPRITE - 1):
+			return True
+		elif direction == 'gauche' and self.case_x > 0:
+			return True
+		elif direction == 'haut' and self.case_y > 0:
+			return True
+		elif direction == 'bas' and self.case_y < (self.const.NB_SPRITE - 1):
+			return True
+		else:
+			return False
+
+	def maj_objet_autour(self, direction):
 		if direction == 'droite':
-			#Pour ne pas dépasser l'écran
-			if self.case_x < (nombre_sprite_cote - 1):
-				#On vérifie que la case de destination n'est pas du bois
-				if self.niveau.structure[self.case_y][self.case_x+1] != 'b':
-					#Déplacement d'une case
-					self.case_x += 1
-					#Calcul de la position "réelle" en pixel
-					self.x = self.case_x * taille_sprite
-			#Image dans la bonne direction
-			self.direction = self.droite
-			
-		#Déplacement vers la gauche
-		if direction == 'gauche':
-			if self.case_x > 0:
-				if self.niveau.structure[self.case_y][self.case_x-1] != 'b':
-					self.case_x -= 1
-					self.x = self.case_x * taille_sprite
-			self.direction = self.gauche
+			self.sprite_d = self.niveau.structure[self.case_y][self.case_x +1]
+		elif direction == 'gauche':
+			self.sprite_g = self.niveau.structure[self.case_y][self.case_x -1]
+		elif direction == 'haut':
+			self.sprite_h = self.niveau.structure[self.case_y -1][self.case_x]
+		elif direction == 'bas':
+			self.sprite_b = self.niveau.structure[self.case_y +1][self.case_x]
+
 		
-		#Déplacement vers le haut
-		if direction == 'haut':
-			if self.case_y > 0:
-				if self.niveau.structure[self.case_y-1][self.case_x] != 'b':
-					self.case_y -= 1
-					self.y = self.case_y * taille_sprite
-			self.direction = self.haut
+	def deplacer(self, direction):
+		self.action.deplacer(self, direction)
+
+	def recolter(self, niveau):
+		self.action.recolter(self, niveau)
+
+
+
+
+
+
+class Joueur(Personnage):
+	"""Décrit les caractéristiques et actions d'un personnage
+	joueur 
+
+	init : 
+
+	"""
+
+	def __init__(self, name, niveau):
+		super().__init__(name, niveau)
+		self.sprite = Sprite(self.img)
+		self.direction = self.sprite.droite
+
+	def get_xp(self, xp_gagne):
+		self.attr['xp'] += xp_gagne
+	
+	def up(self):
+		self.attr['level'] += 1
+		self.attr['xp'] = 0
+
+
+class Monstres(Personnage):
+	"""Décrit les caractéristiques et actions d'un personnage
+	non-joueur
+
+	init : 
+
+	"""
+
+	def __init__(self, name):
+		super().__init__(name)
+
+
 		
-		#Déplacement vers le bas
-		if direction == 'bas':
-			if self.case_y < (nombre_sprite_cote - 1):
-				if self.niveau.structure[self.case_y+1][self.case_x] != 'b':
-					self.case_y += 1
-					self.y = self.case_y * taille_sprite
-			self.direction = self.bas
-
-
-
-
 
 
 
