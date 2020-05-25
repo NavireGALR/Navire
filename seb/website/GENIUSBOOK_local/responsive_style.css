@@ -1,0 +1,113 @@
+@media screen AND (max-width: 1280px)
+{
+
+    body
+    {
+    	margin: auto;
+    	width: auto;
+
+    }
+
+    header
+    {
+    	display: flex;
+    	flex-direction: column;
+    	justify-content: flex-start;
+    }
+
+    nav
+    {
+        width: auto;
+        text-align: left;
+        display: flex;
+        flex-wrap: wrap;
+
+    }
+        
+    nav a
+    {
+        font-size: 1.1em;
+        padding-left: 4px;
+        border-right: none;
+        border-bottom: solid 1px teal;
+    }
+
+    nav a:hover
+    {
+        border-bottom: 0;
+    }
+
+    #last_trip
+    {
+        display: none;
+    }
+
+    section, .article_side
+    {
+    	display: flex;
+        flex-direction: column;
+        margin: 1em;
+    }
+
+    article
+    {
+        width: auto;
+        margin-bottom: 15px;
+    }
+
+    aside
+    {
+        width: auto;
+        margin: auto;
+    }
+
+    #side_nous
+    {
+        width: auto;
+        margin: auto;
+    }
+
+
+    #bulle
+    {
+        display: none;
+    }
+
+    .bordure_section
+    {
+    	display: none;
+    }
+
+    aside p:last-child
+    {
+        text-align: center;
+    }
+
+    .dl
+    {
+    	display: flex;
+    	flex-direction: column;
+    }
+
+    footer 
+    {
+    	display: flex;
+    	flex-direction: column;
+    }
+
+    .contact
+    {
+    	text-align: left;
+    }
+
+}
+
+@media screen AND (min-width: 1500px)
+{
+
+    #last_trip
+    {
+        width: 70%;
+    }
+
+}

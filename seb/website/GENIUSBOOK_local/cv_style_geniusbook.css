@@ -1,0 +1,283 @@
+@font-face
+{
+    font-family: 'Dayrom';
+    src: url('sdz/polices/dayrom.eot');
+    src: url('sdz/polices/dayrom.eot?#iefix') format('embedded-opentype'),
+         url('sdz/polices/dayrom.woff') format('woff'),
+         url('sdz/polices/dayrom.ttf') format('truetype'),
+         url('sdz/polices/dayrom.svg#Dayrom') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body
+{
+	margin:0;
+  	padding:0;
+  	background: url(fond.jpg) no-repeat center fixed; 
+  	/*-webkit-background-size: cover; /* pour anciens Chrome et Safari */
+  	background-size: cover; /* version standardisée */
+}
+
+strong
+{
+	text-transform: uppercase;
+	color: #6F173E;
+	font-style: normal;
+	font-size: 1em;
+}
+
+em
+{
+	color: #008080;
+	text-transform: uppercase;
+	font-style: normal;
+}
+
+header
+{
+	background-color: #AF8D86;
+	margin: 0px;
+	padding: 0px;
+	margin-bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+h1
+{
+	font-family: Dayom, serif;
+	font-size: 1.5em;
+	text-transform: uppercase;
+}
+
+.entete > h2
+{
+	font-size: 1em;
+	font-style: normal;
+	padding: 0.8em;
+	margin-bottom: 0;
+	color: teal;
+}
+
+article h2
+{
+	text-transform: uppercase;
+	color: #6F173E;
+	font-size: 1.3em;
+}
+
+nav
+{
+	display: flex;
+}
+
+nav a
+{
+	font-family: Dayrom, serif;
+    font-weight: bold;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    margin: 4px;
+	color: #6F173E;
+	text-decoration: none;
+	border-right: double 3px #008080;
+	padding-right: 0.5em;
+}
+
+nav a:nth-child(5)
+{
+	border-right: none;
+}
+
+a
+{
+	color: rgba(81,144,145);
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+a:hover
+{
+	color: teal;
+}
+
+article
+{
+	padding: 1em;
+	text-align: justify;
+	display : flex;
+	flex-direction: column;
+	width: 65%;
+	line-height: 1.2em;
+}
+
+.article_long
+{
+	padding: 1em;
+	text-align: justify;
+	display : flex;
+	flex-direction: column;
+	width: 80%;
+	line-height: 1.2em;
+}
+
+footer
+{
+	margin: 0;
+	padding-top: 1em;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	background-color: #432E36;
+}
+
+.entete
+{
+	display: flex;
+	flex-direction: column;
+	color: #6F173E;
+	margin: 40px;
+	justify-content : flex-start;
+}
+
+.titre_logo
+{
+	display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.logo_pirate
+{
+	margin: 15px;
+	margin-bottom: 1px;
+	margin-top: 1px;
+	border-radius: 50px;
+	width: 100px;
+	height: 100px;
+}
+
+.main_wrap
+{
+	margin:0;
+	padding: 0;
+	background: url(fond.jpg) no-repeat center fixed; 
+  	/*-webkit-background-size: cover; /* pour anciens Chrome et Safari */
+  	background-size: cover; /* version standardisée */
+	flex-direction: column;
+	border-top: 3px solid #6F173E;
+	border-bottom : 3px inset white;
+}
+
+.bordure_section
+{
+	background: url(vague_sep.png) repeat-x;
+	background-size: 108px 42px;
+	height: 42px;
+	width: 100%;
+}
+
+.button
+{
+	position: absolute;
+	height: 25px;
+    right: 10px;
+    bottom: 10px;
+    background: #6F173E;
+    border: 1px solid #008080;
+    border-radius: 5px;
+    font-size: 1.2em;
+    text-align: center;
+    padding: 5px 10px 0px 15px;
+}
+
+.article_side
+{
+	display: flex;
+	flex-direction: row;
+	margin-left: 4em;
+
+}
+
+.titre_article
+{
+	display: flex;
+	flex-direction: row;
+	align-items: baseline;
+}
+
+.titre_article > h1
+{
+	color : #6F173E;
+}
+
+
+.logo_article
+{
+	height:42px;
+	width:42px;
+	margin: 0.5em;
+	margin-right: 0.8em;
+	align-self: flex-start;
+}
+
+
+.photos_vacs, .last_project, .contact
+{
+	padding: 1em;
+	padding-top: 0.2em;
+	color: white;
+}
+
+.photo
+{
+	height: 100px;
+	width: 120px;
+	margin: 0.3em;
+	border-radius: 5px;
+	box-shadow: 3px 3px 6px rgba(24,24,24);
+}
+
+.contact
+{
+	text-align: right;
+}
+
+.intro
+{
+	padding: 1em;
+	border : 3px double #008080;
+}
+
+#side_moi
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	width:30%;
+	height : 580px;
+	color: white;
+	margin-top: 1.5em;
+	margin-left: 1em;
+	margin-bottom: 1em;
+	background-color: #260C1A;
+	border-radius: 15px;
+	position: relative;
+	text-align: justify;
+}
+
+#side_moi > h1
+{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#texte_apropos
+{
+	padding: 1em;
+	text-align: justify;
+	margin-bottom: 0;
+	padding-bottom: 0.1em;
+}
