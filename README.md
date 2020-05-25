@@ -1,22 +1,12 @@
 # Navire
 
-#Old_content
+This repo is filled with scripts, exercices and projects produced by the Navire Team. 
+It may help you to learn more about us or to learn a new programming langage with easy, useful exercice.
 
-logbook_statique 
--> First version of my website, it has .php pages but only for include 
+You can find named folders with all personal productions inside such as Ekawa and Seb's folders.
+You can also find our currents projects :
 
-ExoPHP 
--> Some of my work using my knowledge in PHP/mySQL, it helped me a lot to understand basic concept.
+- GAMEBOOK : A rogue/survival/rpg inspired by minecraft, the binding of isaac and spore. [DEVELOPMENT PHASE]
+- LOGBOOK : Ekawa's website [PRODUCTION PHASE]
+- GENIUSBOOK : Seb's website [DEVELOPMENT PHASE]
 
-GeniusBook
--> Seb's website. He's my friend and also want to improve his knowledge in HTML/CSS/PHP/mySQL
-
-#logbook
-
-logbook
--> My professional website, using all my knowledge learned during the lockdown. It may have some security and structure issues but i think 
-it's not far from a professional standard.  I used Bootstrap for the graphic parts.
-/!\ WARNING /!\ There is no model repository in this github for obvious security reasons. Pls contact the webmaster @logbook-ederhy.fr/contact.php to access this repository
-
-#scritp_utile
--> Useful script to add later or not ^^
