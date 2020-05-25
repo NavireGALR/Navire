@@ -27,6 +27,7 @@ class Affichage(object):
 
 		pygame.display.set_icon(self.icone)
 		pygame.display.set_caption(self.const.TITRE)
+		pygame.key.set_repeat(150, 38)
 		
 		
 	def start(self):
